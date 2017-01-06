@@ -411,7 +411,7 @@ var requirejs, require, define;
         } else {
             //Using a non-zero value because of concern for what old browsers
             //do, and latest browsers "upgrade" to 4 if lower value is used:
-            //http://www.whatwg.org/specs/web-apps/current-work/multipage/timers.html#dom-windowtimers-settimeout:
+            //http://www.whatwg.org/specs/web-apps/current-work/multipage/timers.php#dom-windowtimers-settimeout:
             //If want a value immediately, use require('id') instead -- something
             //that works in almond on the global level, but not guaranteed and
             //unlikely to work in other AMD implementations.
@@ -1483,7 +1483,7 @@ S2.define('select2/selection/single',[
 
     $selection.addClass('select2-selection--single');
 
-    $selection.html(
+    $selection.php(
       '<span class="select2-selection__rendered"></span>' +
       '<span class="select2-selection__arrow" role="presentation">' +
         '<b role="presentation"></b>' +
@@ -1582,7 +1582,7 @@ S2.define('select2/selection/multiple',[
 
     $selection.addClass('select2-selection--multiple');
 
-    $selection.html(
+    $selection.php(
       '<ul class="select2-selection__rendered"></ul>'
     );
 
@@ -1699,7 +1699,7 @@ S2.define('select2/selection/placeholder',[
   Placeholder.prototype.createPlaceholder = function (decorated, placeholder) {
     var $placeholder = this.selectionContainer();
 
-    $placeholder.html(this.display(placeholder));
+    $placeholder.php(this.display(placeholder));
     $placeholder.addClass('select2-selection__placeholder')
                 .removeClass('select2-selection__choice');
 
@@ -4103,7 +4103,7 @@ S2.define('select2/dropdown/infiniteScroll',[
 
     var message = this.options.get('translations').get('loadingMore');
 
-    $option.html(message(this.lastParams));
+    $option.php(message(this.lastParams));
 
     return $option;
   };

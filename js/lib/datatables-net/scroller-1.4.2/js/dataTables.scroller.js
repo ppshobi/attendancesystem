@@ -1057,7 +1057,7 @@ $.extend( Scroller.prototype, {
 		{
 			for ( var i=0, iLen=n.length ; i<iLen ; i++ )
 			{
-				$(n[i]).html( sOut );
+				$(n[i]).php( sOut );
 			}
 		}
 

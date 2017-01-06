@@ -51,7 +51,7 @@
                         parseInt(data.loaded / data.total * 100, 10)
                     ).end()
                     .find('.progress-extended').each(function () {
-                        $(this).html(
+                        $(this).php(
                             ($this.data('blueimp-fileupload') ||
                                     $this.data('fileupload'))
                                 ._renderExtendedProgress(data)

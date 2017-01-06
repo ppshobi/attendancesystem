@@ -96,7 +96,7 @@
             g.append(t.opt.gripInnerHtml).append('<div class="'+SIGNATURE+'"></div>');
             if(i == t.ln-1){
                 g.addClass("JCLRLastGrip"); 
-                if(t.f) g.html("");
+                if(t.f) g.php("");
             }
             g.bind('touchstart mousedown', onGripMouseDown); //bind the mousedown event to start dragging 
 

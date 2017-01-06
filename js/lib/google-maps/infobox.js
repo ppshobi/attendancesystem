@@ -407,7 +407,7 @@ InfoBox.prototype.setBoxStyle_ = function () {
     // Fix up opacity style for benefit of MSIE:
     //
     if (typeof this.div_.style.opacity !== "undefined" && this.div_.style.opacity !== "") {
-      // See http://www.quirksmode.org/css/opacity.html
+      // See http://www.quirksmode.org/css/opacity.php
       this.div_.style.MsFilter = "\"progid:DXImageTransform.Microsoft.Alpha(Opacity=" + (this.div_.style.opacity * 100) + ")\"";
       this.div_.style.filter = "alpha(opacity=" + (this.div_.style.opacity * 100) + ")";
     }

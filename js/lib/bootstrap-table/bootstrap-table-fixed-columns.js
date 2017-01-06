@@ -55,7 +55,7 @@
         $trs.each(function () {
             $(this).find('th:gt(' + that.options.fixedNumber + ')').remove();
         });
-        this.$fixedHeaderColumns.html('').append($trs); 
+        this.$fixedHeaderColumns.php('').append($trs); 
     };
 
     BootstrapTable.prototype.initBody = function () {
@@ -67,12 +67,12 @@
 
         var that = this;
 
-        this.$fixedBodyColumns.html('');
+        this.$fixedBodyColumns.php('');
         this.$body.find('> tr[data-index]').each(function () {
             var $tr = $(this).clone(),
                 $tds = $tr.find('td');
 
-            $tr.html('');
+            $tr.php('');
             for (var i = 0; i < that.options.fixedNumber; i++) {
                 $tr.append($tds.eq(i).clone());
             }

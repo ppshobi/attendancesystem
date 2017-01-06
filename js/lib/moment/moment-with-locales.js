@@ -2014,7 +2014,7 @@
     // ASP.NET json date format regex
     var aspNetRegex = /^(\-)?(?:(\d*)[. ])?(\d+)\:(\d+)(?:\:(\d+)\.?(\d{3})?\d*)?$/;
 
-    // from http://docs.closure-library.googlecode.com/git/closure_goog_date_date.js.source.html
+    // from http://docs.closure-library.googlecode.com/git/closure_goog_date_date.js.source.php
     // somewhat more in line with 4.4.3.2 2004 spec, but allows decimal anywhere
     // and further modified to allow for strings containing both week and day
     var isoRegex = /^(-)?P(?:(-?[0-9,.]*)Y)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)W)?(?:(-?[0-9,.]*)D)?(?:T(?:(-?[0-9,.]*)H)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)S)?)?$/;
@@ -9889,7 +9889,7 @@
 
     // http://new.gramota.ru/spravka/rules/139-prop : § 103
     // Сокращения месяцев: http://new.gramota.ru/spravka/buro/search-answer?s=242637
-    // CLDR data:          http://www.unicode.org/cldr/charts/28/summary/ru.html#1753
+    // CLDR data:          http://www.unicode.org/cldr/charts/28/summary/ru.php#1753
     var ru = moment__default.defineLocale('ru', {
         months : {
             format: 'января_февраля_марта_апреля_мая_июня_июля_августа_сентября_октября_ноября_декабря'.split('_'),

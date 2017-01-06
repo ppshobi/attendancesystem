@@ -200,13 +200,13 @@
                 return iframe && $.parseJSON($(iframe[0].body).text());
             },
             'iframe html': function (iframe) {
-                return iframe && $(iframe[0].body).html();
+                return iframe && $(iframe[0].body).php();
             },
             'iframe xml': function (iframe) {
                 var xmlDoc = iframe && iframe[0];
                 return xmlDoc && $.isXMLDoc(xmlDoc) ? xmlDoc :
                         $.parseXML((xmlDoc.XMLDocument && xmlDoc.XMLDocument.xml) ||
-                            $(xmlDoc.body).html());
+                            $(xmlDoc.body).php());
             },
             'iframe script': function (iframe) {
                 return iframe && $.globalEval($(iframe[0].body).text());

@@ -672,7 +672,7 @@ var i,
 
 	// Loosely modeled on CSS identifier characters
 	// An unquoted value should be a CSS identifier http://www.w3.org/TR/css3-selectors/#attribute-selectors
-	// Proper syntax: http://www.w3.org/TR/CSS21/syndata.html#value-def-identifier
+	// Proper syntax: http://www.w3.org/TR/CSS21/syndata.php#value-def-identifier
 	identifier = characterEncoding.replace( "w", "w#" ),
 
 	// Attribute selectors: http://www.w3.org/TR/selectors/#attribute-selectors
@@ -732,7 +732,7 @@ var i,
 	rsibling = /[+~]/,
 	rescape = /'|\\/g,
 
-	// CSS escapes http://www.w3.org/TR/CSS21/syndata.html#escaped-characters
+	// CSS escapes http://www.w3.org/TR/CSS21/syndata.php#escaped-characters
 	runescape = new RegExp( "\\\\([\\da-f]{1,6}" + whitespace + "?|(" + whitespace + ")|.)", "ig" ),
 	funescape = function( _, escaped, escapedWhitespace ) {
 		var high = "0x" + escaped - 0x10000;
@@ -4203,11 +4203,11 @@ var rcheckableType = (/^(?:checkbox|radio)$/i);
 
 	// Make sure that link elements get serialized correctly by innerHTML
 	// This requires a wrapper element in IE
-	support.htmlSerialize = !!div.getElementsByTagName( "link" ).length;
+	support.phpSerialize = !!div.getElementsByTagName( "link" ).length;
 
 	// Makes sure cloning an html5 element does not cause problems
 	// Where outerHTML is undefined, this still works
-	support.html5Clone =
+	support.php5Clone =
 		document.createElement( "nav" ).cloneNode( true ).outerHTML !== "<:nav></:nav>";
 
 	// Check if a disconnected checkbox will retain its checked
@@ -4972,7 +4972,7 @@ jQuery.Event = function( src, props ) {
 };
 
 // jQuery.Event is based on DOM3 Events as specified by the ECMAScript Language Binding
-// http://www.w3.org/TR/2003/WD-DOM-Level-3-Events-20030331/ecma-script-binding.html
+// http://www.w3.org/TR/2003/WD-DOM-Level-3-Events-20030331/ecma-script-binding.php
 jQuery.Event.prototype = {
 	isDefaultPrevented: returnFalse,
 	isPropagationStopped: returnFalse,
@@ -5341,7 +5341,7 @@ var nodeNames = "abbr|article|aside|audio|bdi|canvas|data|datalist|details|figca
 
 		// IE6-8 can't serialize link, script, style, or any html5 (NoScope) tags,
 		// unless wrapped in a div with non-breaking characters in front of it.
-		_default: support.htmlSerialize ? [ 0, "", "" ] : [ 1, "X<div>", "</div>"  ]
+		_default: support.phpSerialize ? [ 0, "", "" ] : [ 1, "X<div>", "</div>"  ]
 	},
 	safeFragment = createSafeFragment( document ),
 	fragmentDiv = safeFragment.appendChild( document.createElement("div") );
@@ -5480,7 +5480,7 @@ function fixCloneNodeIssues( src, dest ) {
 		// element in IE9, the outerHTML strategy above is not sufficient.
 		// If the src has innerHTML and the destination does not,
 		// copy the src.innerHTML into the dest.innerHTML. #10324
-		if ( support.html5Clone && ( src.innerHTML && !jQuery.trim(dest.innerHTML) ) ) {
+		if ( support.php5Clone && ( src.innerHTML && !jQuery.trim(dest.innerHTML) ) ) {
 			dest.innerHTML = src.innerHTML;
 		}
 
@@ -5514,7 +5514,7 @@ jQuery.extend({
 		var destElements, node, clone, i, srcElements,
 			inPage = jQuery.contains( elem.ownerDocument, elem );
 
-		if ( support.html5Clone || jQuery.isXMLDoc(elem) || !rnoshimcache.test( "<" + elem.nodeName + ">" ) ) {
+		if ( support.php5Clone || jQuery.isXMLDoc(elem) || !rnoshimcache.test( "<" + elem.nodeName + ">" ) ) {
 			clone = elem.cloneNode( true );
 
 		// IE<=8 does not properly clone detached, unknown element nodes
@@ -5858,7 +5858,7 @@ jQuery.fn.extend({
 
 			// See if we can take a shortcut and just use innerHTML
 			if ( typeof value === "string" && !rnoInnerhtml.test( value ) &&
-				( support.htmlSerialize || !rnoshimcache.test( value )  ) &&
+				( support.phpSerialize || !rnoshimcache.test( value )  ) &&
 				( support.leadingWhitespace || !rleadingWhitespace.test( value ) ) &&
 				!wrapMap[ (rtagName.exec( value ) || [ "", "" ])[ 1 ].toLowerCase() ] ) {
 
@@ -5929,7 +5929,7 @@ jQuery.fn.extend({
 			return this.each(function( index ) {
 				var self = set.eq( index );
 				if ( isFunction ) {
-					args[0] = value.call( this, index, self.html() );
+					args[0] = value.call( this, index, self.php() );
 				}
 				self.domManip( args, callback );
 			});
@@ -9577,7 +9577,7 @@ jQuery.ajaxSettings.xhr = window.ActiveXObject !== undefined ?
 			// Support: IE7-8
 			// oldIE XHR does not support non-RFC2616 methods (#13240)
 			// See http://msdn.microsoft.com/en-us/library/ie/ms536648(v=vs.85).aspx
-			// and http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9
+			// and http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.php#sec9
 			// Although this check for six methods instead of eight
 			// since IE also does not support "trace" and "connect"
 			/^(get|post|head|put|delete|options)$/i.test( this.type ) &&
@@ -10009,7 +10009,7 @@ jQuery.fn.load = function( url, params, callback ) {
 			// Save response for use in complete callback
 			response = arguments;
 
-			self.html( selector ?
+			self.php( selector ?
 
 				// If a selector was specified, locate the right elements in a dummy div
 				// Exclude scripts to avoid IE 'Permission Denied' errors

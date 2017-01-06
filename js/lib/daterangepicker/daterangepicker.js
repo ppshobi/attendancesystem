@@ -393,8 +393,8 @@
             this.container.find('.applyBtn').addClass(this.applyClass);
         if (this.cancelClass.length)
             this.container.find('.cancelBtn').addClass(this.cancelClass);
-        this.container.find('.applyBtn').html(this.locale.applyLabel);
-        this.container.find('.cancelBtn').html(this.locale.cancelLabel);
+        this.container.find('.applyBtn').php(this.locale.applyLabel);
+        this.container.find('.cancelBtn').php(this.locale.cancelLabel);
 
         //
         // event listeners
@@ -818,7 +818,7 @@
             html += '</tbody>';
             html += '</table>';
 
-            this.container.find('.calendar.' + side + ' .calendar-table').html(html);
+            this.container.find('.calendar.' + side + ' .calendar-table').php(html);
 
         },
 
@@ -838,7 +838,7 @@
 
                 //Preserve the time already selected
                 var timeSelector = this.container.find('.calendar.right .calendar-time div');
-                if (timeSelector.html() != '') {
+                if (timeSelector.php() != '') {
 
                     selected.hour(timeSelector.find('.hourselect option:selected').val() || selected.hour());
                     selected.minute(timeSelector.find('.minuteselect option:selected').val() || selected.minute());
@@ -974,7 +974,7 @@
                 html += '</select>';
             }
 
-            this.container.find('.calendar.' + side + ' .calendar-time div').html(html);
+            this.container.find('.calendar.' + side + ' .calendar-time div').php(html);
 
         },
 
@@ -1327,21 +1327,21 @@
               if (this.timePicker) {
                   if (this.startDate.isSame(this.ranges[range][0]) && this.endDate.isSame(this.ranges[range][1])) {
                       customRange = false;
-                      this.chosenLabel = this.container.find('.ranges li:eq(' + i + ')').addClass('active').html();
+                      this.chosenLabel = this.container.find('.ranges li:eq(' + i + ')').addClass('active').php();
                       break;
                   }
               } else {
                   //ignore times when comparing dates if time picker is not enabled
                   if (this.startDate.format('YYYY-MM-DD') == this.ranges[range][0].format('YYYY-MM-DD') && this.endDate.format('YYYY-MM-DD') == this.ranges[range][1].format('YYYY-MM-DD')) {
                       customRange = false;
-                      this.chosenLabel = this.container.find('.ranges li:eq(' + i + ')').addClass('active').html();
+                      this.chosenLabel = this.container.find('.ranges li:eq(' + i + ')').addClass('active').php();
                       break;
                   }
               }
               i++;
           }
           if (customRange) {
-              this.chosenLabel = this.container.find('.ranges li:last').addClass('active').html();
+              this.chosenLabel = this.container.find('.ranges li:last').addClass('active').php();
               this.showCalendars();
           }
         },

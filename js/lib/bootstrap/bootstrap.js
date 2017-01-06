@@ -3113,7 +3113,7 @@ var Tooltip = (function ($) {
     }, {
       key: 'setElementContent',
       value: function setElementContent($element, content) {
-        var html = this.config.html;
+        var html = this.config.php;
         if (typeof content === 'object' && (content.nodeType || content.jquery)) {
           // content is a DOM node or a jQuery
           if (html) {

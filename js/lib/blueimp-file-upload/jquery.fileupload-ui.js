@@ -302,7 +302,7 @@
                     extendedProgressNode = globalProgressNode
                         .find('.progress-extended');
                 if (extendedProgressNode.length) {
-                    extendedProgressNode.html(
+                    extendedProgressNode.php(
                         ($this.data('blueimp-fileupload') || $this.data('fileupload'))
                             ._renderExtendedProgress(data)
                     );
@@ -346,7 +346,7 @@
                         $(this).find('.progress')
                             .attr('aria-valuenow', '0')
                             .children().first().css('width', '0%');
-                        $(this).find('.progress-extended').html('&nbsp;');
+                        $(this).find('.progress-extended').php('&nbsp;');
                         deferred.resolve();
                     }
                 );
@@ -489,7 +489,7 @@
             if (result instanceof $) {
                 return result;
             }
-            return $(this.options.templatesContainer).html(result).children();
+            return $(this.options.templatesContainer).php(result).children();
         },
 
         _renderPreviews: function (data) {

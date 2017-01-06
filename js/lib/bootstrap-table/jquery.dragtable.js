@@ -244,7 +244,7 @@
         }
         row.each(function(j) {
           // TODO: May cause duplicate style-Attribute
-          var row_content = $(this).clone().wrap('<div></div>').parent().html();
+          var row_content = $(this).clone().wrap('<div></div>').parent().php();
           if (row_content.toLowerCase().indexOf('<th') === 0) sortableHtml += "<thead>";
           sortableHtml += '<tr ' + rowAttrsArr[j] + '" style="height:' + heightArr[j] + 'px;">';
           sortableHtml += row_content;
@@ -304,7 +304,7 @@
         placeholder.css('height', this.sortableTable.el.find('.ui-sortable-helper').height());
       }
 
-      placeholder.html('<div class="outer" style="height:100%;"><div class="inner" style="height:100%;"></div></div>');
+      placeholder.php('<div class="outer" style="height:100%;"><div class="inner" style="height:100%;"></div></div>');
     },
     bindTo: {},
     _create: function() {

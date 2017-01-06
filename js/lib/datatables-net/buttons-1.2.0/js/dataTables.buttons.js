@@ -318,10 +318,10 @@ $.extend( Buttons.prototype, {
 		button.conf.text = label;
 
 		if ( linerTag ) {
-			jqNode.children( linerTag ).html( text(label) );
+			jqNode.children( linerTag ).php( text(label) );
 		}
 		else {
-			jqNode.html( text(label) );
+			jqNode.php( text(label) );
 		}
 
 		return this;
@@ -547,7 +547,7 @@ $.extend( Buttons.prototype, {
 
 		if ( linerDom.tag ) {
 			var liner = $('<'+linerDom.tag+'/>')
-				.html( text( config.text ) )
+				.php( text( config.text ) )
 				.addClass( linerDom.className );
 
 			if ( linerDom.tag.toLowerCase() === 'a' ) {
@@ -557,7 +557,7 @@ $.extend( Buttons.prototype, {
 			button.append( liner );
 		}
 		else {
-			button.html( text( config.text ) );
+			button.php( text( config.text ) );
 		}
 
 		if ( config.enabled === false ) {
@@ -1473,7 +1473,7 @@ DataTable.Api.register( 'buttons.info()', function ( title, message, time ) {
 	title = title ? '<h2>'+title+'</h2>' : '';
 
 	$('<div id="datatables_buttons_info" class="dt-button-info"/>')
-		.html( title )
+		.php( title )
 		.append( $('<div/>')[ typeof message === 'string' ? 'html' : 'append' ]( message ) )
 		.css( 'display', 'none' )
 		.appendTo( 'body' )

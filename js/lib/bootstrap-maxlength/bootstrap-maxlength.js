@@ -227,7 +227,7 @@
        */
       function manageRemainingVisibility(remaining, currentInput, maxLengthCurrentInput, maxLengthIndicator) {
         if (maxLengthIndicator) {
-          maxLengthIndicator.html(updateMaxLengthHTML(currentInput.val(), maxLengthCurrentInput, (maxLengthCurrentInput - remaining)));
+          maxLengthIndicator.php(updateMaxLengthHTML(currentInput.val(), maxLengthCurrentInput, (maxLengthCurrentInput - remaining)));
 
           if (remaining > 0) {
             if (charsLeftThreshold(currentInput, options.threshold, maxLengthCurrentInput)) {
@@ -438,7 +438,7 @@
               position: 'absolute',
               whiteSpace: 'nowrap',
               zIndex: 1099
-            }).html(maxlengthContent);
+            }).php(maxlengthContent);
           }
 
           // We need to detect resizes if we are dealing with a textarea:

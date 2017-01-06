@@ -1124,9 +1124,9 @@ var generateZipParts = function(name, file, compressedObject, offset, platform) 
     }
 
     // date
-    // @see http://www.delorie.com/djgpp/doc/rbinter/it/52/13.html
-    // @see http://www.delorie.com/djgpp/doc/rbinter/it/65/16.html
-    // @see http://www.delorie.com/djgpp/doc/rbinter/it/66/16.html
+    // @see http://www.delorie.com/djgpp/doc/rbinter/it/52/13.php
+    // @see http://www.delorie.com/djgpp/doc/rbinter/it/65/16.php
+    // @see http://www.delorie.com/djgpp/doc/rbinter/it/66/16.php
 
     dosTime = date.getHours();
     dosTime = dosTime << 6;
@@ -2412,7 +2412,7 @@ ZipEntries.prototype = {
 
             if (isGarbage) {
                 throw new Error("Can't find end of central directory : is this a zip file ? " +
-                                "If it is, see http://stuk.github.io/jszip/documentation/howto/read_zip.html");
+                                "If it is, see http://stuk.github.io/jszip/documentation/howto/read_zip.php");
             } else {
                 throw new Error("Corrupted zip : can't find end of central directory");
             }
@@ -2577,7 +2577,7 @@ ZipEntry.prototype = {
         reader.skip(22);
         // in some zip created on windows, the filename stored in the central dir contains \ instead of /.
         // Strangely, the filename here is OK.
-        // I would love to treat these zip files as corrupted (see http://www.info-zip.org/FAQ.html#backslashes
+        // I would love to treat these zip files as corrupted (see http://www.info-zip.org/FAQ.php#backslashes
         // or APPNOTE#4.4.17.1, "All slashes MUST be forward slashes '/'") but there are a lot of bad zip generators...
         // Search "unzip mismatching "local" filename continuing with "central" filename version" on
         // the internet.
@@ -2891,7 +2891,7 @@ var Z_DEFLATED  = 8;
  * - `memLevel`
  * - `strategy`
  *
- * [http://zlib.net/manual.html#Advanced](http://zlib.net/manual.html#Advanced)
+ * [http://zlib.net/manual.php#Advanced](http://zlib.net/manual.php#Advanced)
  * for more information on these.
  *
  * Additional options, for internal needs:
@@ -3109,7 +3109,7 @@ Deflate.prototype.onEnd = function(status) {
  * - memLevel
  * - strategy
  *
- * [http://zlib.net/manual.html#Advanced](http://zlib.net/manual.html#Advanced)
+ * [http://zlib.net/manual.php#Advanced](http://zlib.net/manual.php#Advanced)
  * for more information on these.
  *
  * Sugar (options):
@@ -3232,7 +3232,7 @@ var gzheader = _dereq_('./zlib/gzheader');
  *
  * - `windowBits`
  *
- * [http://zlib.net/manual.html#Advanced](http://zlib.net/manual.html#Advanced)
+ * [http://zlib.net/manual.php#Advanced](http://zlib.net/manual.php#Advanced)
  * for more information on these.
  *
  * Additional options, for internal needs:
@@ -3472,7 +3472,7 @@ Inflate.prototype.onEnd = function(status) {
  *
  * - windowBits
  *
- * [http://zlib.net/manual.html#Advanced](http://zlib.net/manual.html#Advanced)
+ * [http://zlib.net/manual.php#Advanced](http://zlib.net/manual.php#Advanced)
  * for more information.
  *
  * Sugar (options):
@@ -12441,7 +12441,7 @@ module.exports = ZStream;
 
 	  /**
 	   * Used to match ES template delimiters.
-	   * See the [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-template-literal-lexical-components)
+	   * See the [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-template-literal-lexical-components)
 	   * for more details.
 	   */
 	  var reEsTemplate = /\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g;
@@ -12466,7 +12466,7 @@ module.exports = ZStream;
 
 	  /**
 	   * Used to match `RegExp` special characters.
-	   * See this [article on `RegExp` characters](http://www.regular-expressions.info/characters.html#special)
+	   * See this [article on `RegExp` characters](http://www.regular-expressions.info/characters.php#special)
 	   * for more details.
 	   */
 	  var reRegExpChars = /[.*+?^${}()|[\]\/\\]/g,
@@ -13053,7 +13053,7 @@ module.exports = ZStream;
 
 	    /**
 	     * Used to resolve the `toStringTag` of values.
-	     * See the [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.prototype.tostring)
+	     * See the [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-object.prototype.tostring)
 	     * for more details.
 	     */
 	    var objToString = objectProto.toString;
@@ -13121,7 +13121,7 @@ module.exports = ZStream;
 
 	    /**
 	     * Used as the maximum length of an array-like value.
-	     * See the [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.max_safe_integer)
+	     * See the [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-number.max_safe_integer)
 	     * for more details.
 	     */
 	    var MAX_SAFE_INTEGER = Math.pow(2, 53) - 1;
@@ -15955,7 +15955,7 @@ module.exports = ZStream;
 	     * Checks if `value` is a valid array-like length.
 	     *
 	     * **Note:** This function is based on ES `ToLength`. See the
-	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength)
+	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-tolength)
 	     * for more details.
 	     *
 	     * @private
@@ -16319,7 +16319,7 @@ module.exports = ZStream;
 	     *
 	     * **Note:** `SameValueZero` comparisons are like strict equality comparisons,
 	     * e.g. `===`, except that `NaN` matches `NaN`. See the
-	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-samevaluezero)
+	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-samevaluezero)
 	     * for more details.
 	     *
 	     * @static
@@ -16697,7 +16697,7 @@ module.exports = ZStream;
 	     *
 	     * **Note:** `SameValueZero` comparisons are like strict equality comparisons,
 	     * e.g. `===`, except that `NaN` matches `NaN`. See the
-	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-samevaluezero)
+	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-samevaluezero)
 	     * for more details.
 	     *
 	     * @static
@@ -16760,7 +16760,7 @@ module.exports = ZStream;
 	     *
 	     * **Note:** `SameValueZero` comparisons are like strict equality comparisons,
 	     * e.g. `===`, except that `NaN` matches `NaN`. See the
-	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-samevaluezero)
+	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-samevaluezero)
 	     * for more details.
 	     *
 	     * @static
@@ -16889,7 +16889,7 @@ module.exports = ZStream;
 	     * **Notes:**
 	     *  - Unlike `_.without`, this method mutates `array`.
 	     *  - `SameValueZero` comparisons are like strict equality comparisons, e.g. `===`,
-	     *    except that `NaN` matches `NaN`. See the [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-samevaluezero)
+	     *    except that `NaN` matches `NaN`. See the [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-samevaluezero)
 	     *    for more details.
 	     *
 	     * @static
@@ -17309,7 +17309,7 @@ module.exports = ZStream;
 	     *
 	     * **Note:** `SameValueZero` comparisons are like strict equality comparisons,
 	     * e.g. `===`, except that `NaN` matches `NaN`. See the
-	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-samevaluezero)
+	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-samevaluezero)
 	     * for more details.
 	     *
 	     * @static
@@ -17343,7 +17343,7 @@ module.exports = ZStream;
 	     *
 	     * **Note:** `SameValueZero` comparisons are like strict equality comparisons,
 	     * e.g. `===`, except that `NaN` matches `NaN`. See the
-	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-samevaluezero)
+	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-samevaluezero)
 	     * for more details.
 	     *
 	     * @static
@@ -17429,7 +17429,7 @@ module.exports = ZStream;
 	     *
 	     * **Note:** `SameValueZero` comparisons are like strict equality comparisons,
 	     * e.g. `===`, except that `NaN` matches `NaN`. See the
-	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-samevaluezero)
+	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-samevaluezero)
 	     * for more details.
 	     *
 	     * @static
@@ -17753,7 +17753,7 @@ module.exports = ZStream;
 	     *
 	     * **Note:** `SameValueZero` comparisons are like strict equality comparisons,
 	     * e.g. `===`, except that `NaN` matches `NaN`. See the
-	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-samevaluezero)
+	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-samevaluezero)
 	     * for more details.
 	     *
 	     * @static
@@ -19448,7 +19448,7 @@ module.exports = ZStream;
 	     * function. Its creation may be customized by replacing the `_.memoize.Cache`
 	     * constructor with one whose instances implement the ES `Map` method interface
 	     * of `get`, `has`, and `set`. See the
-	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-properties-of-the-map-prototype-object)
+	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-properties-of-the-map-prototype-object)
 	     * for more details.
 	     *
 	     * @static
@@ -19762,7 +19762,7 @@ module.exports = ZStream;
 	     * The enumerable properties of `arguments` objects and objects created by
 	     * constructors other than `Object` are cloned to plain `Object` objects. An
 	     * empty object is returned for uncloneable values such as functions, DOM nodes,
-	     * Maps, Sets, and WeakMaps. See the [HTML5 specification](http://www.w3.org/TR/html5/infrastructure.html#internal-structured-cloning-algorithm)
+	     * Maps, Sets, and WeakMaps. See the [HTML5 specification](http://www.w3.org/TR/html5/infrastructure.php#internal-structured-cloning-algorithm)
 	     * for more details.
 	     *
 	     * @static
@@ -19821,7 +19821,7 @@ module.exports = ZStream;
 	     * The enumerable properties of `arguments` objects and objects created by
 	     * constructors other than `Object` are cloned to plain `Object` objects. An
 	     * empty object is returned for uncloneable values such as functions, DOM nodes,
-	     * Maps, Sets, and WeakMaps. See the [HTML5 specification](http://www.w3.org/TR/html5/infrastructure.html#internal-structured-cloning-algorithm)
+	     * Maps, Sets, and WeakMaps. See the [HTML5 specification](http://www.w3.org/TR/html5/infrastructure.php#internal-structured-cloning-algorithm)
 	     * for more details.
 	     *
 	     * @static
@@ -20080,7 +20080,7 @@ module.exports = ZStream;
 	     * Checks if `value` is a finite primitive number.
 	     *
 	     * **Note:** This method is based on ES `Number.isFinite`. See the
-	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.isfinite)
+	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-number.isfinite)
 	     * for more details.
 	     *
 	     * @static
@@ -20902,7 +20902,7 @@ module.exports = ZStream;
 	     * Creates an array of the own enumerable property names of `object`.
 	     *
 	     * **Note:** Non-object values are coerced to objects. See the
-	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.keys)
+	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-object.keys)
 	     * for more details.
 	     *
 	     * @static
@@ -21842,7 +21842,7 @@ module.exports = ZStream;
 	     * object is provided it takes precedence over `_.templateSettings` values.
 	     *
 	     * **Note:** In the development build `_.template` utilizes sourceURLs for easier debugging.
-	     * See the [HTML5 Rocks article on sourcemaps](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/#toc-sourceurl)
+	     * See the [HTML5 Rocks article on sourcemaps](http://www.php5rocks.com/en/tutorials/developertools/sourcemaps/#toc-sourceurl)
 	     * for more details.
 	     *
 	     * For more information on precompiling templates see
@@ -23148,7 +23148,7 @@ module.exports = ZStream;
 	  if (true) {
 	    // Expose lodash to the global object when an AMD loader is present to avoid
 	    // errors in cases where lodash is loaded by a script tag and not intended
-	    // as an AMD module. See http://requirejs.org/docs/errors.html#mismatch for
+	    // as an AMD module. See http://requirejs.org/docs/errors.php#mismatch for
 	    // more details.
 	    root._ = _;
 
@@ -24525,7 +24525,7 @@ module.exports = ZStream;
 		});
 
 		// http://www.freesoft.org/CIE/RFC/1942/18.htm
-		// http://www.w3.org/TR/CSS2/tables.html#width-layout
+		// http://www.w3.org/TR/CSS2/tables.php#width-layout
 		// http://dev.w3.org/csswg/css3-tables-algorithms/Overview.src.htm
 		var minW = autoMin + starMaxMin * starColumns.length;
 		var maxW = autoMax + starMaxMax * starColumns.length;
@@ -78751,7 +78751,7 @@ window.pdfMake = window.pdfMake || {}; window.pdfMake.vfs = {"LICENSE.txt":"DQog
 			}
 	
 			if ( column.sTitle != cell[0].innerHTML ) {
-				cell.html( column.sTitle );
+				cell.php( column.sTitle );
 			}
 	
 			_fnRenderer( oSettings, 'header' )(
@@ -79009,7 +79009,7 @@ window.pdfMake = window.pdfMake || {}; window.pdfMake.vfs = {"LICENSE.txt":"DQog
 					'valign':  'top',
 					'colSpan': _fnVisbleColumns( oSettings ),
 					'class':   oSettings.oClasses.sRowEmpty
-				} ).html( sZero ) )[0];
+				} ).php( sZero ) )[0];
 		}
 	
 		/* Header and footer callbacks */
@@ -80170,7 +80170,7 @@ window.pdfMake = window.pdfMake || {}; window.pdfMake.vfs = {"LICENSE.txt":"DQog
 			);
 		}
 	
-		$(nodes).html( out );
+		$(nodes).php( out );
 	}
 	
 	
@@ -80519,7 +80519,7 @@ window.pdfMake = window.pdfMake || {}; window.pdfMake.vfs = {"LICENSE.txt":"DQog
 				'id': ! settings.aanFeatures.r ? settings.sTableId+'_processing' : null,
 				'class': settings.oClasses.sProcessing
 			} )
-			.html( settings.oLanguage.sProcessing )
+			.php( settings.oLanguage.sProcessing )
 			.insertBefore( settings.nTable )[0];
 	}
 	
@@ -81292,7 +81292,7 @@ window.pdfMake = window.pdfMake || {}; window.pdfMake.vfs = {"LICENSE.txt":"DQog
 	
 		var data = settings.aoData[ idx ];
 		return ! data.nTr ? // Might not have been created when deferred rendering
-			$('<td/>').html( _fnGetCellData( settings, idx, colIdx, 'display' ) )[0] :
+			$('<td/>').php( _fnGetCellData( settings, idx, colIdx, 'display' ) )[0] :
 			data.anCells[ colIdx ];
 	}
 	
@@ -83663,7 +83663,7 @@ window.pdfMake = window.pdfMake || {}; window.pdfMake.vfs = {"LICENSE.txt":"DQog
 				var created = $('<tr><td/></tr>').addClass( k );
 				$('td', created)
 					.addClass( k )
-					.html( r )
+					.php( r )
 					[0].colSpan = _fnVisbleColumns( ctx );
 	
 				rows.push( created[0] );
@@ -86123,7 +86123,7 @@ window.pdfMake = window.pdfMake || {}; window.pdfMake.vfs = {"LICENSE.txt":"DQog
 		 *          // Bold the grade for all 'A' grade browsers
 		 *          if ( data[4] == "A" )
 		 *          {
-		 *            $('td:eq(4)', row).html( '<b>A</b>' );
+		 *            $('td:eq(4)', row).php( '<b>A</b>' );
 		 *          }
 		 *        }
 		 *      } );
@@ -86346,7 +86346,7 @@ window.pdfMake = window.pdfMake || {}; window.pdfMake.vfs = {"LICENSE.txt":"DQog
 		 *        "rowCallback": function( row, data, displayIndex, displayIndexFull ) {
 		 *          // Bold the grade for all 'A' grade browsers
 		 *          if ( data[4] == "A" ) {
-		 *            $('td:eq(4)', row).html( '<b>A</b>' );
+		 *            $('td:eq(4)', row).php( '<b>A</b>' );
 		 *          }
 		 *        }
 		 *      } );
@@ -90115,7 +90115,7 @@ window.pdfMake = window.pdfMake || {}; window.pdfMake.vfs = {"LICENSE.txt":"DQog
 											settings.sTableId +'_'+ button :
 											null
 									} )
-									.html( btnDisplay )
+									.php( btnDisplay )
 									.appendTo( container );
 	
 								_fnBindAction(
@@ -90296,7 +90296,7 @@ window.pdfMake = window.pdfMake || {}; window.pdfMake.vfs = {"LICENSE.txt":"DQog
 	
 				// For HTML types add a search formatter that will strip the HTML
 				if ( key.match(/^html\-/) ) {
-					_ext.type.search[ key+decimalPlace ] = _ext.type.search.html;
+					_ext.type.search[ key+decimalPlace ] = _ext.type.search.php;
 				}
 			}
 		);
@@ -90762,7 +90762,7 @@ window.pdfMake = window.pdfMake || {}; window.pdfMake.vfs = {"LICENSE.txt":"DQog
 	 *  @example
 	 *     // Use a custom property returned from the server in another DOM element
 	 *     $('#table').dataTable().on('xhr.dt', function (e, settings, json) {
-	 *       $('#status').html( json.status );
+	 *       $('#status').php( json.status );
 	 *     } );
 	 *
 	 *  @example
@@ -90959,7 +90959,7 @@ DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, bu
 								'data-dt-idx': counter,
 								'tabindex': settings.iTabIndex
 							} )
-							.html( btnDisplay )
+							.php( btnDisplay )
 						)
 						.appendTo( container );
 
@@ -90987,7 +90987,7 @@ DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, bu
 	catch (e) {}
 
 	attach(
-		$(host).empty().html('<ul class="pagination"/>').children('ul'),
+		$(host).empty().php('<ul class="pagination"/>').children('ul'),
 		buttons
 	);
 
@@ -92402,10 +92402,10 @@ $.extend( Buttons.prototype, {
 		button.conf.text = label;
 
 		if ( linerTag ) {
-			jqNode.children( linerTag ).html( text(label) );
+			jqNode.children( linerTag ).php( text(label) );
 		}
 		else {
-			jqNode.html( text(label) );
+			jqNode.php( text(label) );
 		}
 
 		return this;
@@ -92631,7 +92631,7 @@ $.extend( Buttons.prototype, {
 
 		if ( linerDom.tag ) {
 			var liner = $('<'+linerDom.tag+'/>')
-				.html( text( config.text ) )
+				.php( text( config.text ) )
 				.addClass( linerDom.className );
 
 			if ( linerDom.tag.toLowerCase() === 'a' ) {
@@ -92641,7 +92641,7 @@ $.extend( Buttons.prototype, {
 			button.append( liner );
 		}
 		else {
-			button.html( text( config.text ) );
+			button.php( text( config.text ) );
 		}
 
 		if ( config.enabled === false ) {
@@ -93557,7 +93557,7 @@ DataTable.Api.register( 'buttons.info()', function ( title, message, time ) {
 	title = title ? '<h2>'+title+'</h2>' : '';
 
 	$('<div id="datatables_buttons_info" class="dt-button-info"/>')
-		.html( title )
+		.php( title )
 		.append( $('<div/>')[ typeof message === 'string' ? 'html' : 'append' ]( message ) )
 		.css( 'display', 'none' )
 		.appendTo( 'body' )
@@ -95441,7 +95441,7 @@ DataTable.ext.buttons.print = {
 			head += _relToAbs( this );
 		} );
 
-		//$(win.document.head).html( head );
+		//$(win.document.head).php( head );
 		win.document.head.innerHTML = head; // Work around for Edge
 
 		// Inject the table and other surrounding information
@@ -95449,7 +95449,7 @@ DataTable.ext.buttons.print = {
 			'<h1>'+title+'</h1>'+
 			'<div>'+config.message+'</div>'+
 			html;
-		// $(win.document.body).html(
+		// $(win.document.body).php(
 		// 	'<h1>'+title+'</h1>'+
 		// 	'<div>'+config.message+'</div>'+
 		// 	html
@@ -98055,7 +98055,7 @@ $.extend( FixedColumns.prototype , {
 			$('>tbody>tr', that.dom.body).each( function (z) {
 				nClone = this.cloneNode(true);
 				nClone.className += ' DTFC_NoData';
-				$('td', nClone).html('');
+				$('td', nClone).php('');
 				nBody.appendChild( nClone );
 			} );
 		}
@@ -103012,7 +103012,7 @@ $.extend( Scroller.prototype, {
 		{
 			for ( var i=0, iLen=n.length ; i<iLen ; i++ )
 			{
-				$(n[i]).html( sOut );
+				$(n[i]).php( sOut );
 			}
 		}
 

@@ -91,7 +91,7 @@ $(document).ready(function() {
         callback: {
             onResult: function (node, query, result, resultCount) {
                 if (query === "")  {
-                    $('#result-container').html('');
+                    $('#result-container').php('');
 
                     return;
                 }
@@ -104,7 +104,7 @@ $(document).ready(function() {
                 } else {
                     text = 'No results matching "' + query + '"';
                 }
-                $('#result-container').html(text);
+                $('#result-container').php(text);
             },
             onMouseEnter: function (node, a, item, event) {
                 if (item.group === "country") {

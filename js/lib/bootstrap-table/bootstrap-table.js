@@ -595,7 +595,7 @@
 
             $(this).find('th').each(function () {
                 column.push($.extend({}, {
-                    title: $(this).html(),
+                    title: $(this).php(),
                     'class': $(this).attr('class'),
                     titleTooltip: $(this).attr('title'),
                     rowspan: $(this).attr('rowspan') ? +$(this).attr('rowspan') : undefined,
@@ -639,7 +639,7 @@
             $(this).find('td').each(function (i) {
                 var field = that.columns[i].field;
 
-                row[field] = $(this).html();
+                row[field] = $(this).php();
                 // save td's id, class and data-* attributes
                 row['_' + field + '_id'] = $(this).attr('id');
                 row['_' + field + '_class'] = $(this).attr('class');
@@ -763,7 +763,7 @@
             html.push('</tr>');
         });
 
-        this.$header.html(html.join(''));
+        this.$header.php(html.join(''));
         this.$header.find('th[data-field]').each(function (i) {
             $(this).data(visibleColumns[$(this).data('field')]);
         });
@@ -937,7 +937,7 @@
         if (this.$toolbar.find('.bars').children().length) {
             $('body').append($(this.options.toolbar));
         }
-        this.$toolbar.html('');
+        this.$toolbar.php('');
 
         if (typeof this.options.toolbar === 'string' || typeof this.options.toolbar === 'object') {
             $(sprintf('<div class="bars pull-%s"></div>', this.options.toolbarAlign))
@@ -1353,7 +1353,7 @@
                 '</ul>',
                 '</div>');
         }
-        this.$pagination.html(html.join(''));
+        this.$pagination.php(html.join(''));
 
         if (!this.options.onlyInfoPagination) {
             $pageList = this.$pagination.find('.page-list a');
@@ -1651,7 +1651,7 @@
                 '</tr>');
         }
 
-        this.$body.html(html.join(''));
+        this.$body.php(html.join(''));
 
         if (!fixedScroll) {
             this.scrollTo(0);
@@ -1960,7 +1960,7 @@
         this.$tableHeader.css({
             'margin-right': scrollWidth
         }).find('table').css('width', this.$el.outerWidth())
-            .html('').attr('class', this.$el.attr('class'))
+            .php('').attr('class', this.$el.attr('class'))
             .append(this.$header_);
 
 
@@ -2043,7 +2043,7 @@
             html.push('</td>');
         });
 
-        this.$tableFooter.find('tr').html(html.join(''));
+        this.$tableFooter.find('tr').php(html.join(''));
         clearTimeout(this.timeoutFooter_);
         this.timeoutFooter_ = setTimeout($.proxy(this.fitFooter, this),
             this.$el.is(':hidden') ? 100 : 0);
@@ -2508,7 +2508,7 @@
         $(this.options.toolbar).insertBefore(this.$el);
         this.$container.next().remove();
         this.$container.remove();
-        this.$el.html(this.$el_.html())
+        this.$el.php(this.$el_.php())
             .css('margin-top', '0')
             .attr('class', this.$el_.attr('class') || ''); // reset the class
     };

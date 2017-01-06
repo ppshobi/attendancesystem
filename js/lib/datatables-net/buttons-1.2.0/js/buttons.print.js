@@ -126,7 +126,7 @@ DataTable.ext.buttons.print = {
 			head += _relToAbs( this );
 		} );
 
-		//$(win.document.head).html( head );
+		//$(win.document.head).php( head );
 		win.document.head.innerHTML = head; // Work around for Edge
 
 		// Inject the table and other surrounding information
@@ -134,7 +134,7 @@ DataTable.ext.buttons.print = {
 			'<h1>'+title+'</h1>'+
 			'<div>'+config.message+'</div>'+
 			html;
-		// $(win.document.body).html(
+		// $(win.document.body).php(
 		// 	'<h1>'+title+'</h1>'+
 		// 	'<div>'+config.message+'</div>'+
 		// 	html

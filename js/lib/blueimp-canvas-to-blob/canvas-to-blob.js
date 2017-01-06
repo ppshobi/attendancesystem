@@ -17,8 +17,8 @@
 ;(function (window) {
   'use strict'
 
-  var CanvasPrototype = window.HTMLCanvasElement &&
-                          window.HTMLCanvasElement.prototype
+  var CanvasPrototype = window.phpCanvasElement &&
+                          window.phpCanvasElement.prototype
   var hasBlobConstructor = window.Blob && (function () {
     try {
       return Boolean(new Blob())
@@ -84,7 +84,7 @@
       bb.append(arrayBuffer)
       return bb.getBlob(mediaType)
     }
-  if (window.HTMLCanvasElement && !CanvasPrototype.toBlob) {
+  if (window.phpCanvasElement && !CanvasPrototype.toBlob) {
     if (CanvasPrototype.mozGetAsFile) {
       CanvasPrototype.toBlob = function (callback, type, quality) {
         if (quality && CanvasPrototype.toDataURL && dataURLtoBlob) {

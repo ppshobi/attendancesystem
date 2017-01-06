@@ -3273,7 +3273,7 @@
 
 	  /**
 	   * Used to match ES template delimiters.
-	   * See the [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-template-literal-lexical-components)
+	   * See the [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-template-literal-lexical-components)
 	   * for more details.
 	   */
 	  var reEsTemplate = /\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g;
@@ -3298,7 +3298,7 @@
 
 	  /**
 	   * Used to match `RegExp` special characters.
-	   * See this [article on `RegExp` characters](http://www.regular-expressions.info/characters.html#special)
+	   * See this [article on `RegExp` characters](http://www.regular-expressions.info/characters.php#special)
 	   * for more details.
 	   */
 	  var reRegExpChars = /[.*+?^${}()|[\]\/\\]/g,
@@ -3885,7 +3885,7 @@
 
 	    /**
 	     * Used to resolve the `toStringTag` of values.
-	     * See the [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.prototype.tostring)
+	     * See the [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-object.prototype.tostring)
 	     * for more details.
 	     */
 	    var objToString = objectProto.toString;
@@ -3953,7 +3953,7 @@
 
 	    /**
 	     * Used as the maximum length of an array-like value.
-	     * See the [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.max_safe_integer)
+	     * See the [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-number.max_safe_integer)
 	     * for more details.
 	     */
 	    var MAX_SAFE_INTEGER = Math.pow(2, 53) - 1;
@@ -6787,7 +6787,7 @@
 	     * Checks if `value` is a valid array-like length.
 	     *
 	     * **Note:** This function is based on ES `ToLength`. See the
-	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength)
+	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-tolength)
 	     * for more details.
 	     *
 	     * @private
@@ -7151,7 +7151,7 @@
 	     *
 	     * **Note:** `SameValueZero` comparisons are like strict equality comparisons,
 	     * e.g. `===`, except that `NaN` matches `NaN`. See the
-	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-samevaluezero)
+	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-samevaluezero)
 	     * for more details.
 	     *
 	     * @static
@@ -7529,7 +7529,7 @@
 	     *
 	     * **Note:** `SameValueZero` comparisons are like strict equality comparisons,
 	     * e.g. `===`, except that `NaN` matches `NaN`. See the
-	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-samevaluezero)
+	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-samevaluezero)
 	     * for more details.
 	     *
 	     * @static
@@ -7592,7 +7592,7 @@
 	     *
 	     * **Note:** `SameValueZero` comparisons are like strict equality comparisons,
 	     * e.g. `===`, except that `NaN` matches `NaN`. See the
-	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-samevaluezero)
+	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-samevaluezero)
 	     * for more details.
 	     *
 	     * @static
@@ -7721,7 +7721,7 @@
 	     * **Notes:**
 	     *  - Unlike `_.without`, this method mutates `array`.
 	     *  - `SameValueZero` comparisons are like strict equality comparisons, e.g. `===`,
-	     *    except that `NaN` matches `NaN`. See the [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-samevaluezero)
+	     *    except that `NaN` matches `NaN`. See the [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-samevaluezero)
 	     *    for more details.
 	     *
 	     * @static
@@ -8141,7 +8141,7 @@
 	     *
 	     * **Note:** `SameValueZero` comparisons are like strict equality comparisons,
 	     * e.g. `===`, except that `NaN` matches `NaN`. See the
-	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-samevaluezero)
+	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-samevaluezero)
 	     * for more details.
 	     *
 	     * @static
@@ -8175,7 +8175,7 @@
 	     *
 	     * **Note:** `SameValueZero` comparisons are like strict equality comparisons,
 	     * e.g. `===`, except that `NaN` matches `NaN`. See the
-	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-samevaluezero)
+	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-samevaluezero)
 	     * for more details.
 	     *
 	     * @static
@@ -8261,7 +8261,7 @@
 	     *
 	     * **Note:** `SameValueZero` comparisons are like strict equality comparisons,
 	     * e.g. `===`, except that `NaN` matches `NaN`. See the
-	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-samevaluezero)
+	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-samevaluezero)
 	     * for more details.
 	     *
 	     * @static
@@ -8585,7 +8585,7 @@
 	     *
 	     * **Note:** `SameValueZero` comparisons are like strict equality comparisons,
 	     * e.g. `===`, except that `NaN` matches `NaN`. See the
-	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-samevaluezero)
+	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-samevaluezero)
 	     * for more details.
 	     *
 	     * @static
@@ -10280,7 +10280,7 @@
 	     * function. Its creation may be customized by replacing the `_.memoize.Cache`
 	     * constructor with one whose instances implement the ES `Map` method interface
 	     * of `get`, `has`, and `set`. See the
-	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-properties-of-the-map-prototype-object)
+	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-properties-of-the-map-prototype-object)
 	     * for more details.
 	     *
 	     * @static
@@ -10594,7 +10594,7 @@
 	     * The enumerable properties of `arguments` objects and objects created by
 	     * constructors other than `Object` are cloned to plain `Object` objects. An
 	     * empty object is returned for uncloneable values such as functions, DOM nodes,
-	     * Maps, Sets, and WeakMaps. See the [HTML5 specification](http://www.w3.org/TR/html5/infrastructure.html#internal-structured-cloning-algorithm)
+	     * Maps, Sets, and WeakMaps. See the [HTML5 specification](http://www.w3.org/TR/html5/infrastructure.php#internal-structured-cloning-algorithm)
 	     * for more details.
 	     *
 	     * @static
@@ -10653,7 +10653,7 @@
 	     * The enumerable properties of `arguments` objects and objects created by
 	     * constructors other than `Object` are cloned to plain `Object` objects. An
 	     * empty object is returned for uncloneable values such as functions, DOM nodes,
-	     * Maps, Sets, and WeakMaps. See the [HTML5 specification](http://www.w3.org/TR/html5/infrastructure.html#internal-structured-cloning-algorithm)
+	     * Maps, Sets, and WeakMaps. See the [HTML5 specification](http://www.w3.org/TR/html5/infrastructure.php#internal-structured-cloning-algorithm)
 	     * for more details.
 	     *
 	     * @static
@@ -10912,7 +10912,7 @@
 	     * Checks if `value` is a finite primitive number.
 	     *
 	     * **Note:** This method is based on ES `Number.isFinite`. See the
-	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.isfinite)
+	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-number.isfinite)
 	     * for more details.
 	     *
 	     * @static
@@ -11734,7 +11734,7 @@
 	     * Creates an array of the own enumerable property names of `object`.
 	     *
 	     * **Note:** Non-object values are coerced to objects. See the
-	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.keys)
+	     * [ES spec](https://people.mozilla.org/~jorendorff/es6-draft.php#sec-object.keys)
 	     * for more details.
 	     *
 	     * @static
@@ -12674,7 +12674,7 @@
 	     * object is provided it takes precedence over `_.templateSettings` values.
 	     *
 	     * **Note:** In the development build `_.template` utilizes sourceURLs for easier debugging.
-	     * See the [HTML5 Rocks article on sourcemaps](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/#toc-sourceurl)
+	     * See the [HTML5 Rocks article on sourcemaps](http://www.php5rocks.com/en/tutorials/developertools/sourcemaps/#toc-sourceurl)
 	     * for more details.
 	     *
 	     * For more information on precompiling templates see
@@ -13980,7 +13980,7 @@
 	  if (true) {
 	    // Expose lodash to the global object when an AMD loader is present to avoid
 	    // errors in cases where lodash is loaded by a script tag and not intended
-	    // as an AMD module. See http://requirejs.org/docs/errors.html#mismatch for
+	    // as an AMD module. See http://requirejs.org/docs/errors.php#mismatch for
 	    // more details.
 	    root._ = _;
 
@@ -15357,7 +15357,7 @@
 		});
 
 		// http://www.freesoft.org/CIE/RFC/1942/18.htm
-		// http://www.w3.org/TR/CSS2/tables.html#width-layout
+		// http://www.w3.org/TR/CSS2/tables.php#width-layout
 		// http://dev.w3.org/csswg/css3-tables-algorithms/Overview.src.htm
 		var minW = autoMin + starMaxMin * starColumns.length;
 		var maxW = autoMax + starMaxMax * starColumns.length;

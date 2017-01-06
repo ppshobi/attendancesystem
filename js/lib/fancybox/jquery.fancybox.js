@@ -309,7 +309,7 @@
 					}
 
 					// Split url into two pieces with source url and content selector, e.g,
-					// "/mypage.html #my_id" will load "/mypage.html" and display element having id "my_id"
+					// "/mypage.php #my_id" will load "/mypage.php" and display element having id "my_id"
 					if (type === 'ajax') {
 						hrefParts = href.split(/\s+/, 2);
 						href      = hrefParts.shift();
@@ -1099,7 +1099,7 @@
 				case 'ajax':
 				case 'html':
 					if (current.selector) {
-						content = $('<div>').html(content).find(current.selector);
+						content = $('<div>').php(content).find(current.selector);
 
 					} else if (isQuery(content)) {
 						if (!content.data(placeholder)) {

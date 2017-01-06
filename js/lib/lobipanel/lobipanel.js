@@ -1378,7 +1378,7 @@ $(function(){
             });
             $heading.find('.panel-title')
                     .data('old-title', title)
-                    .html("").append(input);
+                    .php("").append(input);
             input[0].focus();
             input[0].select();
             _changeClassOfControl($heading.find('[data-func="editTitle"]'));
@@ -1399,7 +1399,7 @@ $(function(){
          */
         this.cancelTitleEditing = function(){
             var title = $heading.find('.panel-title');
-            title.html(title.data('old-title'))
+            title.php(title.data('old-title'))
                     .find('input').remove();
             _changeClassOfControl($heading.find('[data-func="editTitle"]'));
             return me;
@@ -1411,7 +1411,7 @@ $(function(){
          */
         this.finishTitleEditing = function(){
             var input = $heading.find('input');
-            $heading.find('.panel-title').html(input.val());
+            $heading.find('.panel-title').php(input.val());
             input.remove();
             _changeClassOfControl($heading.find('[data-func="editTitle"]'));
             return me;

@@ -183,14 +183,14 @@ function analyzeData(wizard, options, state)
         var item = $(this), // item == header
             content = stepContents.eq(index),
             modeData = content.data("mode"),
-            mode = (modeData == null) ? contentMode.html : getValidEnumValue(contentMode,
+            mode = (modeData == null) ? contentMode.php : getValidEnumValue(contentMode,
                 (/^\s*$/.test(modeData) || isNaN(modeData)) ? modeData : parseInt(modeData, 0)),
-            contentUrl = (mode === contentMode.html || content.data("url") === undefined) ?
+            contentUrl = (mode === contentMode.php || content.data("url") === undefined) ?
                 "" : content.data("url"),
-            contentLoaded = (mode !== contentMode.html && content.data("loaded") === "1"),
+            contentLoaded = (mode !== contentMode.php && content.data("loaded") === "1"),
             step = $.extend({}, stepModel, {
-                title: item.html(),
-                content: (mode === contentMode.html) ? content.html() : "",
+                title: item.php(),
+                content: (mode === contentMode.php) ? content.php() : "",
                 contentUrl: contentUrl,
                 contentMode: mode,
                 contentLoaded: contentLoaded
@@ -259,7 +259,7 @@ function destroy(wizard, options)
         wizardSubstitute._id(wizardId);
     }
 
-    wizardSubstitute.html(wizard.find(".content").html());
+    wizardSubstitute.php(wizard.find(".content").php());
     wizard.after(wizardSubstitute);
     wizard.remove();
 
@@ -613,9 +613,9 @@ function insertStep(wizard, options, state, index, step)
         header = $("<{0}>{1}</{0}>".format(options.headerTag, step.title)),
         body = $("<{0}></{0}>".format(options.bodyTag));
 
-    if (step.contentMode == null || step.contentMode === contentMode.html)
+    if (step.contentMode == null || step.contentMode === contentMode.php)
     {
-        body.html(step.content);
+        body.php(step.content);
     }
 
     if (index === 0)
@@ -710,7 +710,7 @@ function loadAsyncContent(wizard, options, state)
             {
                 case contentMode.iframe:
                     wizard.find(".content > .body").eq(state.currentIndex).empty()
-                        .html("<iframe src=\"" + currentStep.contentUrl + "\" frameborder=\"0\" scrolling=\"no\" />")
+                        .php("<iframe src=\"" + currentStep.contentUrl + "\" frameborder=\"0\" scrolling=\"no\" />")
                         .data("loaded", "1");
                     break;
 
@@ -720,7 +720,7 @@ function loadAsyncContent(wizard, options, state)
 
                     $.ajax({ url: currentStep.contentUrl, cache: false }).done(function (data)
                     {
-                        currentStepContent.empty().html(data)._aria("busy", "false").data("loaded", "1");
+                        currentStepContent.empty().php(data)._aria("busy", "false").data("loaded", "1");
                         wizard.triggerHandler("contentLoaded", [currentIndex]);
                     });
                     break;
@@ -898,7 +898,7 @@ function refreshSteps(wizard, options, state, index)
 
         wizard.find(".steps a").eq(i)._id(uniqueStepId)
             ._aria("controls", uniqueBodyId).attr("href", "#" + uniqueHeaderId)
-            .html(renderTemplate(options.titleTemplate, { index: i + 1, title: title.html() }));
+            .php(renderTemplate(options.titleTemplate, { index: i + 1, title: title.php() }));
         wizard.find(".body").eq(i)._id(uniqueBodyId)
             ._aria("labelledby", uniqueHeaderId);
     }
@@ -996,7 +996,7 @@ function render(wizard, options, state)
     var wrapperTemplate = "<{0} class=\"{1}\">{2}</{0}>",
         orientation = getValidEnumValue(stepsOrientation, options.stepsOrientation),
         verticalCssClass = (orientation === stepsOrientation.vertical) ? " vertical" : "",
-        contentWrapper = $(wrapperTemplate.format(options.contentContainerTag, "content " + options.clearFixCssClass, wizard.html())),
+        contentWrapper = $(wrapperTemplate.format(options.contentContainerTag, "content " + options.clearFixCssClass, wizard.php())),
         stepsWrapper = $(wrapperTemplate.format(options.stepsContainerTag, "steps " + options.clearFixCssClass, "<ul role=\"tablist\"></ul>")),
         stepTitles = contentWrapper.children(options.headerTag),
         stepContents = contentWrapper.children(options.bodyTag);
@@ -1134,7 +1134,7 @@ function renderTitle(wizard, options, state, header, index)
         stepCollection = wizard.find(".steps > ul"),
         title = renderTemplate(options.titleTemplate, {
             index: index + 1,
-            title: header.html()
+            title: header.php()
         }),
         stepItem = $("<li role=\"tab\"><a id=\"" + uniqueStepId + "\" href=\"#" + uniqueHeaderId + 
             "\" aria-controls=\"" + uniqueBodyId + "\">" + title + "</a></li>");
@@ -1592,7 +1592,7 @@ var stepModel = $.fn.steps.stepModel = {
     title: "",
     content: "",
     contentUrl: "",
-    contentMode: contentMode.html,
+    contentMode: contentMode.php,
     contentLoaded: false
 };
 

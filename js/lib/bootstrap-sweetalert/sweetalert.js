@@ -618,12 +618,12 @@ var setParameters = function setParameters(params) {
   /*
    * Title
    */
-  $title.innerHTML = params.html ? params.title : (0, _handleDom.escapeHtml)(params.title).split('\n').join('<br>');
+  $title.innerHTML = params.php ? params.title : (0, _handleDom.escapeHtml)(params.title).split('\n').join('<br>');
 
   /*
    * Text
    */
-  $text.innerHTML = params.html ? params.text : (0, _handleDom.escapeHtml)(params.text || '').split('\n').join('<br>');
+  $text.innerHTML = params.php ? params.text : (0, _handleDom.escapeHtml)(params.text || '').split('\n').join('<br>');
   if (params.text) (0, _handleDom.show)($text);
 
   /*
