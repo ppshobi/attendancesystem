@@ -5,21 +5,7 @@
 	                <i class="font-icon font-icon-dashboard"></i>
 	                <span class="lbl">Dashboard HOD</span>
 	            </span>
-	            <ul>
-	                <li><a href="index.php"><span class="lbl">Default</span><span class="label label-custom label-pill label-danger">new</span></a></li>
-	                <li><a href="dashboard-top-menu.php"><span class="lbl">Top menu</span></a></li>
-	                <li><a href="side-menu-compact-full.php"><span class="lbl">Compact menu</span></a></li>
-	                <li><a href="dashboard-addl-menu.php"><span class="lbl">Submenu</span></a></li>
-	                <li><a href="side-menu-avatar.php"><span class="lbl">Menu with avatar</span></a></li>
-	                <li><a href="side-menu-avatar.php"><span class="lbl">Compact menu with avatar</span></a></li>
-	                <li><a href="dark-menu.php"><span class="lbl">Dark menu</span></a></li>
-	                <li><a href="dark-menu-blue.php"><span class="lbl">Blue dark menu</span></a></li>
-	                <li><a href="dark-menu-green.php"><span class="lbl">Green dark menu</span></a></li>
-	                <li><a href="dark-menu-green-compact.php"><span class="lbl">Green compact dark menu</span></a></li>
-	                <li><a href="dark-menu-ultramarine.php"><span class="lbl">Ultramarine dark menu</span></a></li>
-	                <li><a href="asphalt-menu.php"><span class="lbl">Asphalt top menu</span></a></li>
-	                <li><a href="side-menu-big-icon.php"><span class="lbl">Big menu</span></a></li>
-	            </ul>
+	           
 	        </li>
 	        <li class="grey with-sub">
 	            <span>
