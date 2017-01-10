@@ -1,3 +1,18 @@
+<?php
+//login check
+
+require_once('app/Department.php');
+$message;
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add-dept'])) {
+	
+	$result=Department::add($_POST['dept'],$_POST['descr']);
+	if ($result) {
+		$message=true;
+	}else{
+		$message=false;
+	}
+}
+?>
 <!DOCTYPE html>
 <html>
 <head lang="en">
