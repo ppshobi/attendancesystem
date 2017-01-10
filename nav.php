@@ -14,7 +14,7 @@
 	            </span>
 	            <ul>
 	                <li><a href="add-department.php">Add a Department</a></li>
-	                <li><a href="dashboard-top-menu.php">Manage</a></li>
+	                <li><a href="manage-department.php">Manage</a></li>
 	                
 	            </ul>
 	        </li>
