@@ -13,7 +13,7 @@
 	                <span class="lbl">Departments</span>
 	            </span>
 	            <ul>
-	                <li><a href="add-department.php">Add a Department</li>
+	                <li><a href="add-department.php">Add a Department</a></li>
 	                <li><a href="dashboard-top-menu.php">Manage</a></li>
 	                
 	            </ul>
@@ -24,7 +24,7 @@
 	                <span class="lbl">Students</span>
 	            </span>
 	            <ul>
-	                <li><a href="index.php">Add a Student</li>
+	                <li><a href="index.php">Add a Student</a></li>
 	                <li><a href="dashboard-top-menu.php">Manage</a></li>
 	                
 	            </ul>
@@ -36,7 +36,7 @@
 	                <span class="lbl">Teachers</span>
 	            </span>
 	            <ul>
-	                <li><a href="index.php">Add a Teacher</li>
+	                <li><a href="index.php">Add a Teacher</a></li>
 	                <li><a href="dashboard-top-menu.php">Manage</a></li>
 	                
 	            </ul>
@@ -47,7 +47,7 @@
 	                <span class="lbl">HOD</span>
 	            </span>
 	            <ul>
-	                <li><a href="index.php">Add a HOD</li>
+	                <li><a href="index.php">Add a HOD</a></li>
 	                <li><a href="dashboard-top-menu.php">Manage</a></li>
 	                
 	            </ul>
@@ -58,7 +58,7 @@
 	                <span class="lbl">Binding</span>
 	            </span>
 	            <ul>
-	                <li><a href="index.php">Binding HOD to Department</li>
+	                <li><a href="index.php">Binding HOD to Department</a></li>
 	                <li><a href="dashboard-top-menu.php">Binding Teachers to Periods</a></li>
 	                
 	            </ul>
@@ -69,7 +69,7 @@
 	                <span class="lbl">Reset</span>
 	            </span>
 	            <ul>
-	                <li><a href="index.php">Year Change</li>
+	                <li><a href="index.php">Year Change</a></li>
 	                <li><a href="dashboard-top-menu.php">Semester change</a></li>
 	                <li><a href="dashboard-top-menu.php">Backup</a></li>
 	                
