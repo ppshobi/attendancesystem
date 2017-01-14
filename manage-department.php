@@ -3,9 +3,9 @@
 
 require_once('app/Department.php');
 $message;
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['edit-dept'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['deletedept'])) {
 	
-	$result=Department::edit($_POST['dept'],$_POST['descr']);
+	$result=Department::delete($_POST['deptid']);
 	if ($result) {
 		$message=true;
 	}else{
@@ -37,9 +37,11 @@ $depts=Department::getAll();
 <link rel="stylesheet" href="css/separate/vendor/select2.min.css">
 <link rel="stylesheet" href="css/lib/font-awesome/font-awesome.min.css">
 <link rel="stylesheet" href="css/separate/vendor/bootstrap-touchspin.min.css">
-    <link rel="stylesheet" href="css/lib/font-awesome/font-awesome.min.css">
-    <link rel="stylesheet" href="css/lib/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/lib/font-awesome/font-awesome.min.css">
+<link rel="stylesheet" href="css/lib/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/lib/bootstrap-sweetalert/sweetalert.css">
+<link rel="stylesheet" href="css/separate/vendor/sweet-alert-animations.min.css">
 </head>
 <body class="with-side-menu">
 
@@ -99,7 +101,7 @@ $depts=Department::getAll();
 									echo "<td>" . $dept['name'] ."</td>";
 									echo "<td>" . $dept['descr'] ."</td>";
 									echo "<td>" . "<a href=\"edit-department.php?id=".$dept['id']."\" class=\"btn btn-rounded btn-inline btn-warning\" >"."Edit</a></td>";
-									echo "<td>" . "<a href=\"delete-department.php?id=".$dept['id']."\" class=\"btn btn-rounded btn-inline btn-danger\" >"."Delete</a></td>";
+									echo "<td>" . "<button value=".$dept['id']." class=\"btn btn-rounded btn-inline btn-danger swal-btn-cancel\" >"."Delete</button></td>";
 									
 		 						echo "</tr>";
 		 						$count++;
@@ -122,83 +124,51 @@ $depts=Department::getAll();
 
 	<script src="js/lib/select2/select2.full.min.js"></script>
 	<script src="js/lib/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
-	<script>
-		$(document).ready(function() {
-			$("input[name='demo1']").TouchSpin({
-				min: 0,
-				max: 100,
-				step: 0.1,
-				decimals: 2,
-				boostat: 5,
-				maxboostedstep: 10,
-				postfix: '%'
-			});
-		});
-	</script>
-	<script>
-		$(document).ready(function(){
-			$("input[name='demo2']").TouchSpin({
-				min: -1000000000,
-				max: 1000000000,
-				stepinterval: 50,
-				maxboostedstep: 10000000,
-				prefix: '$'
-			});
-		});
-	</script>
-	<script>
-		$(document).ready(function(){
-			$("input[name='demo_vertical']").TouchSpin({
-				verticalbuttons: true
-			});
-		});
-	</script>
-	<script>
-		$(document).ready(function(){
-			$("input[name='demo_vertical2']").TouchSpin({
-				verticalbuttons: true,
-				verticalupclass: 'glyphicon glyphicon-plus',
-				verticaldownclass: 'glyphicon glyphicon-minus'
-			});
-		});
-	</script>
-	<script>
-		$(document).ready(function(){
-			$("input[name='demo3']").TouchSpin();
-		});
-	</script>
-	<script>
-		$(document).ready(function(){
-			$("input[name='demo4']").TouchSpin({
-				postfix: "a button",
-				postfix_extraclass: "btn btn-default"
-			});
-		});
-	</script>
-	<script>
-		$(document).ready(function(){
-			$("input[name='demo4_2']").TouchSpin({
-				postfix: "a button",
-				postfix_extraclass: "btn btn-default"
-			});
-		});
-	</script>
-	<script>
-		$(document).ready(function(){
-			$("input[name='demo6']").TouchSpin({
-				buttondown_class: "btn btn-default-outline",
-				buttonup_class: "btn btn-default-outline"
-			});
-		});
-	</script>
-	<script>
-		$(document).ready(function(){
-			$("input[name='demo5']").TouchSpin({
-				prefix: "pre",
-				postfix: "post"
-			});
-		});
-	</script>
+	<script src="js/lib/bootstrap-sweetalert/sweetalert.min.js"></script>
+<script type="text/javascript">
+	$('.swal-btn-cancel').click(function(e){
+		var deptid=$(this).val();
+		e.preventDefault();
+			swal({
+					title: "Are you sure?",
+					text: "You will not be able to recover this imaginary file!",
+					type: "warning",
+					showCancelButton: true,
+					confirmButtonClass: "btn-danger",
+					confirmButtonText: "Yes, delete it!",
+					cancelButtonText: "No, cancel plx!",
+					closeOnConfirm: false,
+					closeOnCancel: false
+				},
+				function(isConfirm) {
+					if (isConfirm) {
+						$.ajax({
+				                type: "POST",
+				                url: "manage-department.php",
+				                data: { 
+				                	deptid : deptid,
+				                    deletedept:true
+				                }
+				            }).success(function(msg){
+				               swal({
+									title: "Deleted!",
+									text: "The Department is Deleted.",
+									type: "success",
+									confirmButtonClass: "btn-success"
+								});
+				        });
+						
+					} else {
+						swal({
+							title: "Cancelled",
+							text: "The Department is Deleted :)",
+							type: "error",
+							confirmButtonClass: "btn-danger"
+						});
+					}
+				});
+	});
+</script>
 
 <script src="js/app.js"></script>
 </body>
