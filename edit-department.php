@@ -4,16 +4,16 @@
 require_once('app/Department.php');
 $message;
 $dept;
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['edit-dept'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['editdept'])) {
 	
-	$result=Department::edit($_POST['dept-id'],$_POST['dept'],$_POST['descr']);
+	$result=Department::edit($_POST['deptid'],$_POST['dept'],$_POST['descr']);
 	if ($result) {
 		$message=true;
 
 	}else{
 		$message=false;
 	}
-	$dept=Department::getOne($_GET['id']);
+	$dept=Department::getOne($_POST['deptid']);
 }else{
 	$dept=Department::getOne($_GET['id']);
 }
@@ -41,9 +41,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['edit-dept'])) {
 <link rel="stylesheet" href="css/separate/vendor/select2.min.css">
 <link rel="stylesheet" href="css/lib/font-awesome/font-awesome.min.css">
 <link rel="stylesheet" href="css/separate/vendor/bootstrap-touchspin.min.css">
-    <link rel="stylesheet" href="css/lib/font-awesome/font-awesome.min.css">
-    <link rel="stylesheet" href="css/lib/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/lib/font-awesome/font-awesome.min.css">
+<link rel="stylesheet" href="css/lib/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="css/lib/bootstrap-sweetalert/sweetalert.css">
+<link rel="stylesheet" href="css/separate/vendor/sweet-alert-animations.min.css">
+<link rel="stylesheet" href="css/main.css">
+
 </head>
 <body class="with-side-menu">
 
@@ -79,21 +82,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['edit-dept'])) {
 					<div class="form-group row">
 						<label for="DepartmentName" class="col-sm-2 form-control-label">Department Name</label>
 						<div class="col-sm-10">
-							<p class="form-control-static"><input type="text" name="dept" class="form-control" id="inputPassword" value="<?php echo $dept['name']; ?>" placeholder="Department Name"></p>
+							<p class="form-control-static"><input type="text" name="dept" class="form-control" id="name" value="<?php echo $dept['name']; ?>" placeholder="Department Name"></p>
 						</div>
 					</div>
 					
 					<div class="form-group row">
 						<label for="DeptDescr" class="col-sm-2 form-control-label">Department Description</label>
 						<div class="col-sm-10">
-							<textarea rows="4" name="descr" class="form-control" placeholder="Describe The Department"><?php echo $dept['descr']; ?></textarea>
+							<textarea rows="4" name="descr" class="form-control" placeholder="Describe The Department" id="descr" ><?php echo $dept['descr']; ?></textarea>
 						</div>
 					</div>
-					<input type="hidden" name="dept-id" value="<?php echo $dept['id'];?> ">
+					<input type="hidden" id="deptid" name="dept-id" value="<?php echo $dept['id'];?> ">
 					<div class="form-group row">
 						<label for="button" class="col-sm-2 form-control-label"></label>
 						<div class="col-sm-10">
-							<button type="submit" name="edit-dept" class="btn btn-inline btn-success-outline">Update Department</button>
+							<button type="submit" name="edit-dept" class="btn btn-inline btn-success-outline swal-btn-success">Update Department</button>
 						</div>
 					</div>
 					
@@ -111,84 +114,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['edit-dept'])) {
 
 	<script src="js/lib/select2/select2.full.min.js"></script>
 	<script src="js/lib/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
-	<script>
-		$(document).ready(function() {
-			$("input[name='demo1']").TouchSpin({
-				min: 0,
-				max: 100,
-				step: 0.1,
-				decimals: 2,
-				boostat: 5,
-				maxboostedstep: 10,
-				postfix: '%'
-			});
-		});
-	</script>
-	<script>
-		$(document).ready(function(){
-			$("input[name='demo2']").TouchSpin({
-				min: -1000000000,
-				max: 1000000000,
-				stepinterval: 50,
-				maxboostedstep: 10000000,
-				prefix: '$'
-			});
-		});
-	</script>
-	<script>
-		$(document).ready(function(){
-			$("input[name='demo_vertical']").TouchSpin({
-				verticalbuttons: true
-			});
-		});
-	</script>
-	<script>
-		$(document).ready(function(){
-			$("input[name='demo_vertical2']").TouchSpin({
-				verticalbuttons: true,
-				verticalupclass: 'glyphicon glyphicon-plus',
-				verticaldownclass: 'glyphicon glyphicon-minus'
-			});
-		});
-	</script>
-	<script>
-		$(document).ready(function(){
-			$("input[name='demo3']").TouchSpin();
-		});
-	</script>
-	<script>
-		$(document).ready(function(){
-			$("input[name='demo4']").TouchSpin({
-				postfix: "a button",
-				postfix_extraclass: "btn btn-default"
-			});
-		});
-	</script>
-	<script>
-		$(document).ready(function(){
-			$("input[name='demo4_2']").TouchSpin({
-				postfix: "a button",
-				postfix_extraclass: "btn btn-default"
-			});
-		});
-	</script>
-	<script>
-		$(document).ready(function(){
-			$("input[name='demo6']").TouchSpin({
-				buttondown_class: "btn btn-default-outline",
-				buttonup_class: "btn btn-default-outline"
-			});
-		});
-	</script>
-	<script>
-		$(document).ready(function(){
-			$("input[name='demo5']").TouchSpin({
-				prefix: "pre",
-				postfix: "post"
-			});
-		});
-	</script>
 
+<script src="js/lib/bootstrap-sweetalert/sweetalert.min.js"></script>
+<script type="text/javascript">
+	$('.swal-btn-success').click(function(e){
+		e.preventDefault();
+		var id=$("#deptid").val();
+		var name=$("#name").val();
+		var descr=$("#descr").val();
+		$.ajax({
+                type: "POST",
+                url: "edit-department.php",
+                data: { 
+                	deptid : id,
+                    dept: name,
+                    descr:descr,
+                    editdept: true
+                }
+            }).success(function(msg){
+                swal({
+					title: "Good job!",
+					text: "Updated The Department!",
+					type: "success",
+					confirmButtonClass: "btn-success",
+					confirmButtonText: "OK"
+				});
+        });
+		
+	});
+</script>
 <script src="js/app.js"></script>
 </body>
 </html>
