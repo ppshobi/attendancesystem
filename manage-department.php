@@ -78,7 +78,7 @@ $depts=Department::getAll();
 							<th>Sl.No</th>
 							<th>Dept. Name</th>
 							<th>Description</th>
-							<th>Options</th>
+							<th colspan="2">Options</th>
 						</tr>
 						</thead>
 						<tfoot>
@@ -86,7 +86,7 @@ $depts=Department::getAll();
 							<th>Sl.No</th>
 							<th>Dept. Name</th>
 							<th>Description</th>
-							<th>Options</th>
+							<th colspan="2">Options</th>
 						</tr>
 						</tfoot>
 						<tbody>
@@ -98,7 +98,9 @@ $depts=Department::getAll();
 									echo "<td>" . $count ."</td>";
 									echo "<td>" . $dept['name'] ."</td>";
 									echo "<td>" . $dept['descr'] ."</td>";
-									echo "<td>" . "Edit , Delete" ."</td>";
+									echo "<td>" . "<button type=\"button\" class=\"btn btn-rounded btn-inline btn-warning\">Edit</button>" ."</td>";
+									echo "<td>" . "<button type=\"button\" class=\"btn btn-rounded btn-inline btn-danger\">Delete</button>" ."</td>";
+									
 		 						echo "</tr>";
 		 						$count++;
 	 						}
