@@ -3,16 +3,20 @@
 
 require_once('app/Department.php');
 $message;
+$dept;
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['edit-dept'])) {
 	
-	$result=Department::edit($_POST['dept'],$_POST['descr']);
+	$result=Department::edit($_POST['dept-id'],$_POST['dept'],$_POST['descr']);
 	if ($result) {
 		$message=true;
+
 	}else{
 		$message=false;
 	}
+	$dept=Department::getOne($_GET['id']);
+}else{
+	$dept=Department::getOne($_GET['id']);
 }
-$depts=Department::getAll();
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +24,7 @@ $depts=Department::getAll();
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Manage Department</title>
+	<title>Edit a department</title>
 
 	<link href="img/favicon.144x144.png" rel="apple-touch-icon" type="image/png" sizes="144x144">
 	<link href="img/favicon.114x114.png" rel="apple-touch-icon" type="image/png" sizes="114x114">
@@ -53,7 +57,7 @@ $depts=Department::getAll();
 				<div class="tbl">
 					<div class="tbl-row">
 						<div class="tbl-cell">
-							<h3>Manage Department</h3>
+							<h3>Edit Department</h3>
 							<ol class="breadcrumb breadcrumb-simple">
 								<li><a href="#">StartUI</a></li>
 								<li><a href="#">Forms</a></li>
@@ -71,45 +75,30 @@ $depts=Department::getAll();
 
 				<h5 class="m-t-lg with-border">Enter Details</h5>
 
-				<div class="card-block">
-					<table id="example" class="display table table-striped table-bordered" cellspacing="0" width="100%">
-						<thead>
-						<tr>
-							<th>Sl.No</th>
-							<th>Dept. Name</th>
-							<th>Description</th>
-							<th colspan="2">Options</th>
-						</tr>
-						</thead>
-						<tfoot>
-						<tr>
-							<th>Sl.No</th>
-							<th>Dept. Name</th>
-							<th>Description</th>
-							<th colspan="2">Options</th>
-						</tr>
-						</tfoot>
-						<tbody>
-						<?php
-						if($depts){
-							$count=1;
-							foreach ($depts as $dept) {
-								echo "<tr>";
-									echo "<td>" . $count ."</td>";
-									echo "<td>" . $dept['name'] ."</td>";
-									echo "<td>" . $dept['descr'] ."</td>";
-									echo "<td>" . "<a href=\"edit-department.php?id=".$dept['id']."\" class=\"btn btn-rounded btn-inline btn-warning\" >"."Edit</a></td>";
-									echo "<td>" . "<a href=\"delete-department.php?id=".$dept['id']."\" class=\"btn btn-rounded btn-inline btn-danger\" >"."Delete</a></td>";
-									
-		 						echo "</tr>";
-		 						$count++;
-	 						}
-						}
-						?>
-						
-						</tbody>
-					</table>
-				</div>
+				<form method="post" action="">
+					<div class="form-group row">
+						<label for="DepartmentName" class="col-sm-2 form-control-label">Department Name</label>
+						<div class="col-sm-10">
+							<p class="form-control-static"><input type="text" name="dept" class="form-control" id="inputPassword" value="<?php echo $dept['name']; ?>" placeholder="Department Name"></p>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="DeptDescr" class="col-sm-2 form-control-label">Department Description</label>
+						<div class="col-sm-10">
+							<textarea rows="4" name="descr" class="form-control" placeholder="Describe The Department"><?php echo $dept['descr']; ?></textarea>
+						</div>
+					</div>
+					<input type="hidden" name="dept-id" value="<?php echo $dept['id'];?> ">
+					<div class="form-group row">
+						<label for="button" class="col-sm-2 form-control-label"></label>
+						<div class="col-sm-10">
+							<button type="submit" name="edit-dept" class="btn btn-inline btn-success-outline">Update Department</button>
+						</div>
+					</div>
+					
+				</form>
+
 
 			</div><!--.box-typical-->
 		</div><!--.container-fluid-->
