@@ -3,7 +3,7 @@
 	* 
 	*/
 	require_once('DB.php');
-	class Department 
+	class Teacher
 	{
 		public static function add($name,$dept){
 			$db = new Db();
