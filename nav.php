@@ -24,8 +24,8 @@
 	                <span class="lbl">Students</span>
 	            </span>
 	            <ul>
-	                <li><a href="index.php">Add a Student</a></li>
-	                <li><a href="dashboard-top-menu.php">Manage</a></li>
+	                <li><a href="add-student.php">Add a Student</a></li>
+	                <li><a href="manage-student.php">Manage</a></li>
 	                
 	            </ul>
 
@@ -36,8 +36,8 @@
 	                <span class="lbl">Teachers</span>
 	            </span>
 	            <ul>
-	                <li><a href="index.php">Add a Teacher</a></li>
-	                <li><a href="dashboard-top-menu.php">Manage</a></li>
+	                <li><a href="add-teacher.php">Add a Teacher</a></li>
+	                <li><a href="manage-teacher.php">Manage</a></li>
 	                
 	            </ul>
 	        </li>
@@ -47,8 +47,8 @@
 	                <span class="lbl">HOD</span>
 	            </span>
 	            <ul>
-	                <li><a href="index.php">Add a HOD</a></li>
-	                <li><a href="dashboard-top-menu.php">Manage</a></li>
+	                <li><a href="add-hod.php">Add a HOD</a></li>
+	                <li><a href="manage-hod.php">Manage</a></li>
 	                
 	            </ul>
 	        </li>
