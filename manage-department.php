@@ -156,6 +156,7 @@ $depts=Department::getAll();
 									type: "success",
 									confirmButtonClass: "btn-success"
 								});
+				               location.reload();
 				        });
 						
 					} else {

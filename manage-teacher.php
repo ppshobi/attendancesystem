@@ -159,6 +159,7 @@ $teachers=Teacher::getAll();
 									type: "success",
 									confirmButtonClass: "btn-success"
 								});
+				               location.reload();
 				        });
 						
 					} else {
