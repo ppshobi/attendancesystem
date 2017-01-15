@@ -135,7 +135,7 @@ $students=Student::getAll();
 	<script src="js/lib/bootstrap-sweetalert/sweetalert.min.js"></script>
 <script type="text/javascript">
 	$('.swal-btn-cancel').click(function(e){
-		var teacherid=$(this).val();
+		var studentid=$(this).val();
 		e.preventDefault();
 			swal({
 					title: "Are you sure?",
@@ -152,15 +152,15 @@ $students=Student::getAll();
 					if (isConfirm) {
 						$.ajax({
 				                type: "POST",
-				                url: "manage-teacher.php",
+				                url: "manage-student.php",
 				                data: { 
-				                	teacherid : teacherid,
-				                    deleteteacher:true
+				                	studentid : studentid,
+				                    deletestudent:true
 				                }
 				            }).success(function(msg){
 				               swal({
 									title: "Deleted!",
-									text: "The Teacher is Deleted.",
+									text: "The Student is Deleted.",
 									type: "success",
 									confirmButtonClass: "btn-success"
 								});
@@ -170,7 +170,7 @@ $students=Student::getAll();
 					} else {
 						swal({
 							title: "Cancelled",
-							text: "The Teacher is not Deleted :)",
+							text: "The Student is not Deleted :)",
 							type: "error",
 							confirmButtonClass: "btn-danger"
 						});
