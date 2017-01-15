@@ -2,11 +2,11 @@ n<?php
 //login check
 
 require_once('app/Department.php');
-require_once('app/Teacher.php');
+require_once('app/Student.php');
 $message;
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['deleteteacher'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['deletestudent'])) {
 	
-	$result=Teacher::delete($_POST['teacherid']);
+	$result=Student::delete($_POST['studentid']);
 	if ($result) {
 		$message=true;
 	}else{
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['deleteteacher'])) {
 	}
 }
 $depts=Department::getAll();
-$teachers=Teacher::getAll();
+$students=Student::getAll();
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,7 +22,7 @@ $teachers=Teacher::getAll();
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Manage Teacher</title>
+	<title>Manage Student</title>
 
 	<link href="img/favicon.144x144.png" rel="apple-touch-icon" type="image/png" sizes="144x144">
 	<link href="img/favicon.114x114.png" rel="apple-touch-icon" type="image/png" sizes="114x114">
@@ -57,7 +57,7 @@ $teachers=Teacher::getAll();
 				<div class="tbl">
 					<div class="tbl-row">
 						<div class="tbl-cell">
-							<h3>Manage Teacher</h3>
+							<h3>Manage Students</h3>
 							<ol class="breadcrumb breadcrumb-simple">
 								<li><a href="#">StartUI</a></li>
 								<li><a href="#">Forms</a></li>
@@ -80,31 +80,36 @@ $teachers=Teacher::getAll();
 						<thead>
 						<tr>
 							<th>Sl.No</th>
-							<th>Teacher Name</th>
+							<th>Student Name</th>
+							<th>Register No</th>
 							<th>Department</th>
+							<th>Batch</th>
 							<th colspan="2">Options</th>
 						</tr>
 						</thead>
 						<tfoot>
 						<tr>
 							<th>Sl.No</th>
-							<th>Teacher Name</th>
+							<th>Student Name</th>
+							<th>Register No</th>
 							<th>Department</th>
+							<th>Batch</th>
 							<th colspan="2">Options</th>
 						</tr>
 						</tfoot>
 						<tbody>
 						<?php
-						if($teachers){
+						if($students){
 							$count=1;
-							foreach ($teachers as $teacher) {
-								$dept=Department::getOne($teacher['dept']);
+							foreach ($students as $student) {
+								$dept=Department::getOne($student['dept']);
 								echo "<tr>";
 									echo "<td>" . $count ."</td>";
-									echo "<td>" . $teacher['name'] ."</td>";
+									echo "<td>" . $student['name'] ."</td>";
+									echo "<td>" . $student['regno'] ."</td>";
 									echo "<td>" . $dept['name'] ."</td>";
-									echo "<td>" . "<a href=\"edit-teacher.php?id=".$teacher['id']."\" class=\"btn btn-rounded btn-inline btn-warning\" >"."Edit</a></td>";
-									echo "<td>" . "<button value=".$teacher['id']." class=\"btn btn-rounded btn-inline btn-danger swal-btn-cancel\" >"."Delete</button></td>";
+									echo "<td>" . "<a href=\"edit-student.php?id=".$student['id']."\" class=\"btn btn-rounded btn-inline btn-warning\" >"."Edit</a></td>";
+									echo "<td>" . "<button value=".$student['id']." class=\"btn btn-rounded btn-inline btn-danger swal-btn-cancel\" >"."Delete</button></td>";
 									
 		 						echo "</tr>";
 		 						$count++;
