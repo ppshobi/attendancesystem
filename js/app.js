@@ -231,7 +231,7 @@ $(document).ready(function(){
 		// Select2
 		//$.fn.select2.defaults.set("minimumResultsForSearch", "Infinity");
 
-		$('.select2').not('.manual').select2();
+		//$('.select2').not('.manual').select2();
 
 		$(".select2-icon").not('.manual').select2({
 			templateSelection: select2Icons,
