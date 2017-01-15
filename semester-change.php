@@ -2,9 +2,10 @@
 //login check
 
 require_once('app/WorkingDay.php');
-$message;
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['setsemester'])) {
-	
+$dates;
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['set-semester'])) {
+	$WD =new WorkingDay();
+	$dates=$WD->date_range($_POST['start'],$_POST['end']);
 }
 ?>
 <!DOCTYPE html>
@@ -74,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['setsemester'])) {
 							
 							<div class="form-group">
 								<div class='input-group date'>
-									<input id="daterange3" type="text" value="10/24/2016" class="form-control">
+									<input id="daterange3" type="text" name="start" value="10/24/2016" class="form-control">
 									<span class="input-group-addon">
 										<i class="font-icon font-icon-calend"></i>
 									</span>
@@ -89,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['setsemester'])) {
 							
 							<div class="form-group">
 								<div class='input-group date'>
-									<input id="daterange4" type="text" value="10/24/2016" class="form-control">
+									<input id="daterange4" name="end" type="text" value="10/24/2016" class="form-control">
 									<span class="input-group-addon">
 										<i class="font-icon font-icon-calend"></i>
 									</span>
@@ -103,12 +104,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['setsemester'])) {
 					<div class="form-group row">
 						<label for="button" class="col-sm-2 form-control-label"></label>
 						<div class="col-sm-10">
-							<button type="submit" name="add-dept" class="btn btn-inline btn-success-outline ">Set Semester</button>
+							<button type="submit" name="set-semester" class="btn btn-inline btn-success-outline ">Set Semester</button>
 						</div>
 					</div>
 					
 				</form>
-
+				<div class="col-md-10">
+					<?php
+						if (isset($dates)) {
+							foreach ($dates as $date) {
+								echo $date . "<br/>";
+							}
+						}
+					?>
+				</div>
 
 			</div><!--.box-typical-->
 		</div><!--.container-fluid-->
