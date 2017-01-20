@@ -111,10 +111,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['set-semester'])) {
 				</form>
 				<div class="col-md-10">
 					<?php
+
 						if (isset($dates)) {
-							foreach ($dates as $date) {
-								echo $date . "<br/>";
-							}
+							WorkingDay::reset_semester_working_days($dates);
 						}
 					?>
 				</div>

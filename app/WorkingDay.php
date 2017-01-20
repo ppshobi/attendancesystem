@@ -6,7 +6,7 @@
 	require_once('Department.php');
 	class WorkingDay
 	{
-		function date_range($first, $last, $step = '+1 day', $output_format = 'd/m/Y' ) {
+		function date_range($first, $last, $step = '+1 day', $output_format = 'Y-m-d' ) {
 
 		    $dates = array();
 		    $current = strtotime($first);
