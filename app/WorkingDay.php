@@ -10,14 +10,15 @@
 		    $dates = array();
 		    $current = strtotime($first);
 		    $last = strtotime($last);
-
+		    echo gettype(date("D",$current)) . "<br/>";
 		    while( $current <= $last ) {
-		    	if (date("D", $current) !== 'Sun' || date("D", $current) !== 'Sat')
-		    		echo date("D",$current);
-		        	//$dates[] = date($output_format, $current);
+		    	$day=date("D", $current);
+		    	if (!(strcmp($day,"Sun") == 0 || strcmp($day,"Sat") == 0)){
+		    		array_push($dates,date($output_format, $current));
+		    	}		        	
 		        $current = strtotime($step, $current);
 		    }
-		    die();
+		    
 		    return $dates;
 		}
 	}
