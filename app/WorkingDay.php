@@ -3,6 +3,7 @@
 	* 
 	*/
 	require_once('DB.php');
+	require_once('Department.php');
 	class WorkingDay
 	{
 		function date_range($first, $last, $step = '+1 day', $output_format = 'd/m/Y' ) {
@@ -20,6 +21,23 @@
 		    }
 		    
 		    return $dates;
+		}
+
+		function reset_semester_working_days($dates){
+			$db = new Db();
+			$sql="TRUNCATE TABLE workingdays";
+			$result=$db -> query($sql);
+			if ($result) {
+				$depts=Department::getAll();
+				foreach ($depts as $dept) {
+					$dptid=$dept['id'];
+					foreach ($dates as $date) {
+						$sql="INSERT INTO workingdays(`date`,dept) VALUES('$date','$dptid')";
+						$result=$db->query($sql);
+					}
+					
+				}
+			}
 		}
 	}
 ?>
