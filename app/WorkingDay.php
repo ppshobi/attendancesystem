@@ -34,6 +34,9 @@
 					foreach ($dates as $date) {
 						$sql="INSERT INTO workingdays(`date`,dept) VALUES('$date','$dptid')";
 						$result=$db->query($sql);
+						if(!$result){
+							die("Some Error inserting to db");
+						}
 					}
 					
 				}
