@@ -70,7 +70,7 @@
 	            </span>
 	            <ul>
 	                <li><a href="index.php">Year Change</a></li>
-	                <li><a href="dashboard-top-menu.php">Semester change</a></li>
+	                <li><a href="semester-change.php">Semester change</a></li>
 	                <li><a href="dashboard-top-menu.php">Backup</a></li>
 	                
 	            </ul>
