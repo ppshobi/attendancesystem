@@ -93,7 +93,20 @@
 			return false;
 			
 		}
-		
+		public static function getUserByEmail($email){
+			$db=new Db();
+			$sql="SELECT * FROM users WHERE email= '$email' LIMIT 1";
+			$rows=[];
+			$result=$db->query($sql);
+			if($result){
+				while ($r=mysqli_fetch_assoc($result)) {
+					array_push($rows, $r);
+				}
+				return $rows[0];
+			}
+			return false;
+			
+		}
 		public static function delete($id){
 			$db=new Db();
 			$sql="DELETE FROM users WHERE id='$id'";
