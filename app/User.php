@@ -2,7 +2,7 @@
 	/**
 	* 
 	*/
-	require_once('DB2.php');
+	require_once('DB.php');
 	class User	{
 		public static function add($email,$pass){
 			$db = new Db();

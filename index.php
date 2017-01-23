@@ -1,3 +1,11 @@
+<?php
+require_once('app/Auth.php');
+
+if(!Auth::isloggedin()){
+	Auth::redirect('login.php');
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head lang="en">
