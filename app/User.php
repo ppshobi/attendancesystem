@@ -39,7 +39,20 @@
 				return false;
 			}
 		}
-
+		public static function getAllEmployees(){
+			$db=new Db();
+			$sql="SELECT * FROM hod UNION ALL SELECT * FROM teachers ORDER BY dept";
+			$rows=[];
+			$result=$db->query($sql);
+			if($result){
+				while ($r=mysqli_fetch_assoc($result)) {
+					array_push($rows, $r);
+				}
+				return $rows;
+			}
+			return false;
+			
+		}
 		public static function getAll(){
 			$db=new Db();
 			$sql="SELECT * FROM users";
