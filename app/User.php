@@ -4,15 +4,14 @@
 	*/
 	require_once('DB.php');
 	class User	{
-		public static function add($email,$pass){
+		public static function add($name,$email,$pass,$level){
 			$db = new Db();
 			$name=$db -> quote($name);
 			$pass=$db -> quote($pass);
-			$address=$db -> quote($address);
 			$email=$db -> quote($email);
-			$phone=$db -> quote($phone);
+			$level=$db -> quote($level);
 
-			$sql=" INSERT INTO users(email,password,level) VALUES('$email','$pass',0)";
+			$sql=" INSERT INTO users(name,email,password,level) VALUES('$name','$email','$pass','$level')";
 			$result=$db -> query($sql);
 			if($result){
 				return true;

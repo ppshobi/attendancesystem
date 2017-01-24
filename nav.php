@@ -63,6 +63,17 @@
                 
             </ul>
         </li>
+         <li class="grey with-sub">
+            <span>
+                <i class="font-icon font-icon-dashboard"></i>
+                <span class="lbl">Users</span>
+            </span>
+            <ul>
+                <li><a href="add-user.php">Add User</a></li>
+                <li><a href="manage-users.php">Manage Users</a></li>
+                
+            </ul>
+        </li>
         <li class="grey with-sub">
             <span>
                 <i class="font-icon font-icon-dashboard"></i>
@@ -76,6 +87,6 @@
             </ul>
         </li>
        
-        </ul>
+    </ul>
  
 </nav><!--.side-menu-->
