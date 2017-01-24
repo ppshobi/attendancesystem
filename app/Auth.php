@@ -9,7 +9,7 @@
 	class Auth
 	{
 		public static function login($username,$pass){
-			$user=User::getUserByUsername($username);
+			$user=User::getUserByEmail($username);
 			if($user){
 				if($pass==$user['password']){
 					$_SESSION['current_user']=$user['id'];

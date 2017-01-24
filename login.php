@@ -1,10 +1,21 @@
+<?php
+    require_once('app/Auth.php');
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
+        $login_status=Auth::login($_POST['username'],$_POST['password']);
+        if ($login_status) {
+            Auth::redirect('index.php');
+        }else{
+            echo "Incorrect Password";
+        }
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head lang="en">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>StartUI - Premium Bootstrap 4 Admin Dashboard Template</title>
+	<title>Login</title>
 
 	<link href="img/favicon.144x144.png" rel="apple-touch-icon" type="image/png" sizes="144x144">
 	<link href="img/favicon.114x114.png" rel="apple-touch-icon" type="image/png" sizes="114x114">
@@ -28,16 +39,16 @@
     <div class="page-center">
         <div class="page-center-in">
             <div class="container-fluid">
-                <form class="sign-box">
+                <form class="sign-box" method="post" action="">
                     <div class="sign-avatar">
                         <img src="img/avatar-sign.png" alt="">
                     </div>
                     <header class="sign-title">Sign In</header>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="E-Mail or Phone"/>
+                        <input type="text" name="username" class="form-control" placeholder="E-Mail or Phone"/>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Password"/>
+                        <input type="password" name="password" class="form-control" placeholder="Password"/>
                     </div>
                     <div class="form-group">
                         <div class="checkbox float-left">
@@ -48,7 +59,7 @@
                             <a href="reset-password.php">Reset Password</a>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-rounded">Sign in</button>
+                    <button type="submit" name="login" class="btn btn-rounded">Sign in</button>
                     <p class="sign-note">New to our website? <a href="sign-up.php">Sign up</a></p>
                     <!--<button type="button" class="close">
                         <span aria-hidden="true">&times;</span>
