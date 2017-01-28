@@ -9,9 +9,8 @@
 			$teacher_id=$db -> quote($teacher_id);
 			$pass=$db -> quote($pass);
 			$email=$db -> quote($email);
-			$level=$db -> quote($level);
 
-			$sql=" INSERT INTO users(teacher_id,email,password,level) VALUES('$teacher_id','$email','$pass')";
+			$sql=" INSERT INTO users(teacher_id,email,password) VALUES('$teacher_id','$email','$pass')";
 			$result=$db -> query($sql);
 			if($result){
 				return true;

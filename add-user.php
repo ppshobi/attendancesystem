@@ -1,11 +1,17 @@
 <?php
 //login check
+require_once('app/Auth.php');
+
+if(!Auth::isloggedin()){
+	Auth::redirect('login.php');
+}
+
 
 require_once('app/User.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['adduser'])) {
 	
-	$result=User::add($_POST['name'], $_POST['email'],$_POST['password'], $_POST['level']);
+	$result=User::add($_POST['teacher_id'], $_POST['email'],$_POST['password']);
 	if ($result) {
 		$message=true;
 	}else{
@@ -77,10 +83,10 @@ $employees=User::getAllEmployees();
 					<div class="form-group row">
 						<label for="User" class="col-sm-2 form-control-label">Select Employee</label>
 						<div class="col-sm-10">
-							<select name="name" id="name" class="select2">
+							<select name="teacher_id" id="teacher_id" class="select2">
 							 	<?php
 							 		foreach ($employees as $employee) {
-							 			echo "<option value=\"".$employee['name']."\">".$employee['name']."</option>";
+							 			echo "<option value=\"".$employee['id']."\">".$employee['name']."</option>";
 							 		}
 							 	?>	
 							</select>
@@ -99,14 +105,7 @@ $employees=User::getAllEmployees();
 						</div>
 					</div>
 					
-					<div class="form-group row">
-						<label for="UserLevel" class="col-sm-2 form-control-label">User Level</label>
-						<div class="col-sm-10">
-								<input type="radio" name="level" value="0"/>Super Admin				
-								<input type="radio" name="level" value="1"/>Head Of Department	
- 								<input type="radio" name="level" value="2" checked />Teacher
-						</div>
-					</div>
+					
 					<div class="form-group row">
 						<label for="button" class="col-sm-2 form-control-label"></label>
 						<div class="col-sm-10">
@@ -132,19 +131,18 @@ $employees=User::getAllEmployees();
 
 	$('.swal-btn-success').click(function(e){
 		e.preventDefault();
-		var name=$("#name").val();
+		var teacher_id=$("#teacher_id").val();
 		var email=$("#email").val();
 		var password=$("#password").val();		
-		var level=$('input[name=level]:checked', '#userform').val()
+		
 		
 		$.ajax({
                 type: "POST",
                 url: "add-user.php",
                 data: { 
-                    name: name,
+                    teacher_id: teacher_id,
                     email: email,
                     password: password,
-                    level: level,
                     adduser: true
                 }
             }).success(function(msg){
