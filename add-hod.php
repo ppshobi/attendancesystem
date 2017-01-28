@@ -14,11 +14,10 @@ $departments=Department::getAll();
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addhod'])) {
 	
 	$result=HOD::add($_POST['name'],$_POST['dept']);
-	if ($result) {
-		$message=true;
-	}else{
-		$message=false;
-	}
+
+	header('Content-Type: application/json');
+	echo json_encode(['status' => $result]);
+	exit();
 }
 ?>
 <!DOCTYPE html>
@@ -135,16 +134,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addhod'])) {
                 data: { 
                     name: name,
                     dept: dept,
-                    addhod: true
+                    addhod: true,
+                    dataType: "json"
                 }
-            }).success(function(msg){
-                swal({
-					title: "Good job!",
-					text: "Created a New Head Of Department!",
-					type: "success",
-					confirmButtonClass: "btn-success",
-					confirmButtonText: "OK"
-				});
+            }).success(function(data){
+            	if (data.status) {
+            		swal({
+						title: "Good job!",
+						text: "Created a New Head Of Department!",
+						type: "success",
+						confirmButtonClass: "btn-success",
+						confirmButtonText: "OK"
+					});
+            	} else {
+            		console.log('error');
+            	}
+                /**/
         });
 		
 	});
