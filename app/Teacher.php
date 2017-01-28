@@ -36,7 +36,7 @@
 
 		public static function getAll(){
 			$db=new Db();
-			$sql="SELECT * FROM teachers";
+			$sql="SELECT * FROM teachers WHERE level = 0";
 			$rows=[];
 			$result=$db->query($sql);
 			if($result){

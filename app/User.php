@@ -102,6 +102,17 @@
 			return false;			
 		}
 
+		public static function getDepartment($user_id){	
+				
+			$user=self::getOne($user_id);
+			$teacher_id=$user['teacher_id'];
+			$teacher=Teacher::getOne($teacher_id);
+			if ($teacher) {
+				return $teacher['dept'];
+			}
+			return false;			
+		}
+
 
 		public static function getUserByEmail($email){
 			$db=new Db();
@@ -117,6 +128,7 @@
 			return false;
 			
 		}
+
 		public static function delete($id){
 			$db=new Db();
 			$sql="DELETE FROM users WHERE id='$id'";

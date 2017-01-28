@@ -46,7 +46,18 @@
 			}
 			
 		}
-		public static function isadmin(){
+		
+		
+		public static function isteacher(){
+			$userlevel= User::getUserLevel(self::getuserid());
+			if ($userlevel==0) {
+				return true;
+			}else{
+				return false;
+			}
+			
+		}
+		public static function ishod(){
 			$userlevel= User::getUserLevel(self::getuserid());
 			if ($userlevel==1) {
 				return true;
@@ -55,19 +66,18 @@
 			}
 			
 		}
+		
+		public static function isadmin(){
+			$userlevel= User::getUserLevel(self::getuserid());
+			if ($userlevel==2) {
+				return true;
+			}else{
+				return false;
+			}
+			
+		}
 
 		
-		public static function authcheck(){
-			if (self::isloggedin()) {
-				if (self::isadmin()) {
-					self::redirect("index.php");
-				}else{
-					self::redirect("../index.php");
-				}
-			}else{
-				self::redirect("login.php");
-			}
-		}
 
 		public static function redirect($url){
 			header('location:'.$url);

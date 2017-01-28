@@ -40,7 +40,21 @@
 
 		public static function getAll(){
 			$db=new Db();
-			$sql="SELECT * FROM student";
+			$sql="SELECT * FROM student ORDER BY dept ASC";
+			$rows=[];
+			$result=$db->query($sql);
+			if($result){
+				while ($r=mysqli_fetch_assoc($result)) {
+					array_push($rows, $r);
+				}
+				return $rows;
+			}
+			return false;
+			
+		}
+		public static function getAllByDept($deptid){
+			$db=new Db();
+			$sql="SELECT * FROM student WHERE dept = $deptid";
 			$rows=[];
 			$result=$db->query($sql);
 			if($result){
