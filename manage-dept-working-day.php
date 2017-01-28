@@ -8,6 +8,7 @@ if(!Auth::isloggedin()){
 
 require_once('app/Department.php');
 require_once('app/HOD.php');
+require_once('app/User.php');
 require_once('app/WorkingDay.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['markday'])) {
@@ -18,8 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['markday'])) {
 	echo json_encode(['status' => $result]);
 	exit();
 }
-
-$hod=HOD::getOne(Auth::getuserid());
+$user=User::getOne(Auth::getuserid());
+$hod=HOD::getOne($user['teacher_id']);
 $dept=$hod['dept'];
 $workingdays=WorkingDay::getDeptWorkingDays($dept);
 
