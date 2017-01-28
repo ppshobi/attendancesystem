@@ -1,5 +1,10 @@
 <?php
 //login check
+require_once('app/Auth.php');
+
+if(!Auth::isloggedin()){
+	Auth::redirect('login.php');
+}
 
 require_once('app/Department.php');
 $message;

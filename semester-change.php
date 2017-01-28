@@ -10,7 +10,7 @@ require_once('app/WorkingDay.php');
 $dates;
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['set-semester'])) {
 	$WD =new WorkingDay();
-	$dates=$WD->date_range($_POST['start'],$_POST['end']);
+	$dates=$WD->date_range($_POST['start'], $_POST['end']);
 }
 ?>
 <!DOCTYPE html>
