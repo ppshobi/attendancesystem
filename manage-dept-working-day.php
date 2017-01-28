@@ -9,18 +9,20 @@ if(!Auth::isloggedin()){
 require_once('app/Department.php');
 require_once('app/HOD.php');
 require_once('app/WorkingDay.php');
-$message;
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['deleteteacher'])) {
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['markday'])) {
 	
-	$result=Teacher::delete($_POST['teacherid']);
-	if ($result) {
-		$message=true;
-	}else{
-		$message=false;
-	}
+	$result=WorkingDay::mark_non_workingday($_POST['date_id'],$_POST['reason']);
+
+	header('Content-Type: application/json');
+	echo json_encode(['status' => $result]);
+	exit();
 }
-$depts=Department::getAll();
-$teachers=Teacher::getAll();
+
+$hod=HOD::getOne(Auth::getuserid());
+$dept=$hod['dept'];
+$workingdays=WorkingDay::getDeptWorkingDays($dept);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,7 +30,7 @@ $teachers=Teacher::getAll();
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Manage Teacher</title>
+	<title>Manage Departmetn Working Days</title>
 
 	<link href="img/favicon.144x144.png" rel="apple-touch-icon" type="image/png" sizes="144x144">
 	<link href="img/favicon.114x114.png" rel="apple-touch-icon" type="image/png" sizes="114x114">
@@ -63,7 +65,7 @@ $teachers=Teacher::getAll();
 				<div class="tbl">
 					<div class="tbl-row">
 						<div class="tbl-cell">
-							<h3>Manage Teacher</h3>
+							<h3>Mark Off Non workingdays in this semester</h3>
 							<ol class="breadcrumb breadcrumb-simple">
 								<li><a href="#">StartUI</a></li>
 								<li><a href="#">Forms</a></li>
@@ -79,47 +81,40 @@ $teachers=Teacher::getAll();
 					Examples of standard form controls supported in an example form layout. Individual form controls automatically receive some global styling. All textual <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, and <code>&lt;select&gt</code>; elements with <code>.form-control</code> are set to <code>width: 100%;</code> by default. Wrap labels and controls in <code>.form-group</code> for optimum spacing. Labels in horizontal form require <code>.control-label</code> class.
 				</p>
 
-				<h5 class="m-t-lg with-border">Enter Details</h5>
+				<h5 class="m-t-lg with-border">Select Working Day</h5>
 
 				<div class="card-block">
-					<table id="example" class="display table table-striped table-bordered" cellspacing="0" width="100%">
-						<thead>
-						<tr>
-							<th>Sl.No</th>
-							<th>Teacher Name</th>
-							<th>Department</th>
-							<th colspan="2">Options</th>
-						</tr>
-						</thead>
-						<tfoot>
-						<tr>
-							<th>Sl.No</th>
-							<th>Teacher Name</th>
-							<th>Department</th>
-							<th colspan="2">Options</th>
-						</tr>
-						</tfoot>
-						<tbody>
-						<?php
-						if($teachers){
-							$count=1;
-							foreach ($teachers as $teacher) {
-								$dept=Department::getOne($teacher['dept']);
-								echo "<tr>";
-									echo "<td>" . $count ."</td>";
-									echo "<td>" . $teacher['name'] ."</td>";
-									echo "<td>" . $dept['name'] ."</td>";
-									echo "<td>" . "<a href=\"edit-teacher.php?id=".$teacher['id']."\" class=\"btn btn-rounded btn-inline btn-warning\" >"."Edit</a></td>";
-									echo "<td>" . "<button value=".$teacher['id']." class=\"btn btn-rounded btn-inline btn-danger swal-btn-cancel\" >"."Delete</button></td>";
-									
-		 						echo "</tr>";
-		 						$count++;
-	 						}
-						}
-						?>
-						
-						</tbody>
-					</table>
+					<form method="post" action="">
+				
+					
+					<div class="form-group row">
+						<label for="WorkingDay" class="col-sm-2 form-control-label">Select Non WorkingDay</label>
+						<div class="col-sm-10">
+							<select name="date" id="date" class="select2">
+							 	<?php
+							 		foreach ($workingdays as $date) {
+							 			echo "<option value=\"".$date['id']."\">".date("d-M-Y",strtotime($date['date']))."</option>";
+							 		}
+							 	?>
+								
+								
+							</select>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="Reason" class="col-sm-2 form-control-label">Reason</label>
+						<div class="col-sm-10">
+							<p class="form-control-static"><input id="reason" type="text" name="reason" class="form-control" placeholder="Enter Reason For Non working Day"></p>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="button" class="col-sm-2 form-control-label"></label>
+						<div class="col-sm-10">
+							<button type="submit" name="add-hod" class="btn btn-inline btn-success-outline swal-btn-cancel">Mark it as non working day</button>
+						</div>
+					</div>
+					
+				</form>
 				</div>
 
 			</div><!--.box-typical-->
@@ -134,51 +129,59 @@ $teachers=Teacher::getAll();
 	<script src="js/lib/select2/select2.full.min.js"></script>
 	<script src="js/lib/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
 	<script src="js/lib/bootstrap-sweetalert/sweetalert.min.js"></script>
-<script type="text/javascript">
-	$('.swal-btn-cancel').click(function(e){
-		var teacherid=$(this).val();
-		e.preventDefault();
-			swal({
-					title: "Are you sure?",
-					text: "You will not be able to undo this Opration!",
-					type: "warning",
-					showCancelButton: true,
-					confirmButtonClass: "btn-danger",
-					confirmButtonText: "Yes, delete it!",
-					cancelButtonText: "No, cancel!",
-					closeOnConfirm: false,
-					closeOnCancel: false
-				},
-				function(isConfirm) {
-					if (isConfirm) {
-						$.ajax({
-				                type: "POST",
-				                url: "manage-teacher.php",
-				                data: { 
-				                	teacherid : teacherid,
-				                    deleteteacher:true
-				                }
-				            }).success(function(msg){
-				               swal({
-									title: "Deleted!",
-									text: "The Teacher is Deleted.",
-									type: "success",
-									confirmButtonClass: "btn-success"
-								});
-				               location.reload();
-				        });
-						
-					} else {
-						swal({
-							title: "Cancelled",
-							text: "The Teacher is not Deleted :)",
-							type: "error",
-							confirmButtonClass: "btn-danger"
-						});
-					}
-				});
-	});
-</script>
+	<script type="text/javascript">
+		$('.swal-btn-cancel').click(function(e){
+			var date_id=$("#date").val();
+			var reason=$("#reason").val();
+			e.preventDefault();
+				swal({
+						title: "Are you sure?",
+						text: "You will not be able to undo this Opration!",
+						type: "warning",
+						showCancelButton: true,
+						confirmButtonClass: "btn-danger",
+						confirmButtonText: "Yes, delete it!",
+						cancelButtonText: "No, cancel!",
+						closeOnConfirm: false,
+						closeOnCancel: false
+					},
+					function(isConfirm) {
+						if (isConfirm) {
+							$.ajax({
+					                type: "POST",
+					                url: "manage-dept-working-day.php",
+					                data: { 
+					                	date_id : date_id,
+					                	reason : reason,
+					                	
+					                    markday:true,
+					                    dataType: "json"
+					                }
+					            }).success(function(data){
+					               if (data.status) {
+						               	swal({
+											title: "Deleted!",
+											text: "The Date Marked as a Non working day.",
+											type: "success",
+											confirmButtonClass: "btn-success"
+										});
+						               location.reload();
+					           		}else{
+					           			console.log("Error");
+					           		}
+					        	});
+							
+						}else {
+							swal({
+								title: "Cancelled",
+								text: "The Date is still a working day :)",
+								type: "error",
+								confirmButtonClass: "btn-danger"
+							});
+						}
+					});
+		});
+	</script>
 
 <script src="js/app.js"></script>
 </body>

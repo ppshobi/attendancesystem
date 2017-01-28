@@ -42,5 +42,29 @@
 				}
 			}
 		}
+		function getDeptWorkingDays($dept_id){
+			//return all working days
+			$db=new Db();
+			$sql="SELECT * FROM workingdays WHERE dept = '$dept_id' AND remark IS NULL ";
+			$result=$db->query($sql);
+			$rows=[];
+			if ($result) {
+				while ($r=mysqli_fetch_assoc($result)) {
+					array_push($rows, $r);
+				}
+				return $rows;
+			}
+		}
+		public static function mark_non_workingday($date_id, $reason){
+			$db=new Db();
+			$date_id=$db->quote($date_id);
+			$reason=$db->quote($reason);
+			$sql="UPDATE workingdays SET remark = '$reason' WHERE id = '$date_id'";
+			$result = $db->query($sql);
+			if ($result) {
+				return true;
+			}
+			return false;
+		}
 	}
 ?>
