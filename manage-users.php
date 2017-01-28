@@ -3,13 +3,12 @@
 require_once('app/User.php');
 $message;
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['deleteuser'])) {
-	
 	$result=User::delete($_POST['userid']);
 	if ($result) {
 		$message=true;
 	}else{
 		$message=false;
-}
+	}
 }
 $users=User::getAll();
 ?>
