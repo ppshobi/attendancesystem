@@ -3,6 +3,7 @@
 	* 
 	*/
 	require_once('DB.php');
+	require_once('Teacher.php');
 	class User	{
 		public static function add($teacher_id,$email,$pass){
 			$db = new Db();
@@ -26,7 +27,7 @@
 			$email=$db -> quote($email);
 			
 			$pass=$db -> quote($pass);
-			$level=$db -> quote($level);
+
 
 			$sql=" UPDATE users SET email='$email',password='$pass', WHERE id= '$id' ";
 			$result=$db -> query($sql);
@@ -90,20 +91,18 @@
 			
 		}
 
-		public static function getUserLevel($id){
-			$db= new Db();
-			$sql="SELECT * FROM users WHERE id= '$id' LIMIT 1";
-			$rows=[];
-			$result=$db->query($sql);
-			if($result && mysqli_num_rows($result)>0){
-				while ($r=mysqli_fetch_assoc($result)) {
-					array_push($rows, $r);
-				}
-				return $rows[0]['level'];
+		public static function getUserLevel($id){	
+				
+			$user=self::getOne($id);
+			$teacher_id=$user['teacher_id'];
+			$teacher=Teacher::getOne($teacher_id);
+			if ($teacher) {
+				return $teacher['level'];
 			}
-			return false;
-			
+			return false;			
 		}
+
+
 		public static function getUserByEmail($email){
 			$db=new Db();
 			$sql="SELECT * FROM users WHERE email= '$email' LIMIT 1";

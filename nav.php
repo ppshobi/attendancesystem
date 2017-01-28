@@ -2,7 +2,7 @@
     require_once('app/User.php');
    $user_level=User::getUserLevel(Auth::getuserid());
 
-   if ($user_level==0) {
+   if ($user_level==2) {
    
 ?>
 <nav class="side-menu">
