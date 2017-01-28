@@ -190,7 +190,7 @@
 	                            <a class="dropdown-item" href="#"><span class="font-icon glyphicon glyphicon-cog"></span>Settings</a>
 	                            <a class="dropdown-item" href="#"><span class="font-icon glyphicon glyphicon-question-sign"></span>Help</a>
 	                            <div class="dropdown-divider"></div>
-	                            <a class="dropdown-item" href="#"><span class="font-icon glyphicon glyphicon-log-out"></span>Logout</a>
+	                            <a class="dropdown-item" href="login.php?logout"><span class="font-icon glyphicon glyphicon-log-out"></span>Logout</a>
 	                        </div>
 	                    </div>
 	

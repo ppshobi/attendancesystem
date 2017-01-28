@@ -1,5 +1,12 @@
 <?php
     require_once('app/Auth.php');
+    if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['logout'])) {
+       if (isset($_SESSION['current_user'])) {
+           $_SESSION['current_user']='';
+           session_destroy();
+           echo "Logout Successfull";
+       }
+    }
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
         $login_status=Auth::login($_POST['username'],$_POST['password']);
         if ($login_status) {
