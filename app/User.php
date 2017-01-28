@@ -4,14 +4,14 @@
 	*/
 	require_once('DB.php');
 	class User	{
-		public static function add($name,$email,$pass,$level){
+		public static function add($name,$email,$pass){
 			$db = new Db();
 			$name=$db -> quote($name);
 			$pass=$db -> quote($pass);
 			$email=$db -> quote($email);
 			$level=$db -> quote($level);
 
-			$sql=" INSERT INTO users(name,email,password,level) VALUES('$name','$email','$pass','$level')";
+			$sql=" INSERT INTO users(name,email,password,level) VALUES('$name','$email','$pass')";
 			$result=$db -> query($sql);
 			if($result){
 				return true;
@@ -21,7 +21,7 @@
 			}
 		}
 
-		public static function edit($id,$email,$pass,$level){
+		public static function edit($id,$email,$pass){
 			$db = new Db();
 			
 			$email=$db -> quote($email);
@@ -29,7 +29,7 @@
 			$pass=$db -> quote($pass);
 			$level=$db -> quote($level);
 
-			$sql=" UPDATE users SET email='$email',password='$pass',level='$level' WHERE id= '$id' ";
+			$sql=" UPDATE users SET email='$email',password='$pass', WHERE id= '$id' ";
 			$result=$db -> query($sql);
 			if($result){
 				return true;
@@ -40,7 +40,7 @@
 		}
 		public static function getAllEmployees(){
 			$db=new Db();
-			$sql="SELECT * FROM hod UNION ALL SELECT * FROM teachers ORDER BY dept";
+			$sql="SELECT * FROM teachers ORDER BY dept";
 			$rows=[];
 			$result=$db->query($sql);
 			if($result){
