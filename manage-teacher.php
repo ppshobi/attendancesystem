@@ -19,7 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['deleteteacher'])) {
 	}
 }
 $depts=Department::getAll();
-$teachers=Teacher::getAll();
+if(Auth::ishod()){
+	$teachers=Teacher::getAllByDept(User::getDepartment(Auth::getuserid()));
+}else{
+	$teachers=Teacher::getAll();
+}
 ?>
 <!DOCTYPE html>
 <html>

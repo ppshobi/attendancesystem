@@ -48,6 +48,21 @@
 			return false;
 			
 		}
+
+		public static function getAllByDept($dept_id){
+			$db=new Db();
+			$sql="SELECT * FROM teachers WHERE level = 0 AND dept = '$dept_id'";
+			$rows=[];
+			$result=$db->query($sql);
+			if($result){
+				while ($r=mysqli_fetch_assoc($result)) {
+					array_push($rows, $r);
+				}
+				return $rows;
+			}
+			return false;
+			
+		}
 		public static function getOne($id){
 			$db=new Db();
 			$sql="SELECT * FROM teachers WHERE id= $id LIMIT 1";
