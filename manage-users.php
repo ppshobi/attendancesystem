@@ -59,7 +59,7 @@ $users=User::getAll();
 				<div class="tbl">
 					<div class="tbl-row">
 						<div class="tbl-cell">
-							<h3>Manage Teacher</h3>
+							<h3>Manage Users</h3>
 							<ol class="breadcrumb breadcrumb-simple">
 								<li><a href="#">StartUI</a></li>
 								<li><a href="#">Forms</a></li>
@@ -100,9 +100,10 @@ $users=User::getAll();
 						if($users){
 							$count=1;
 							foreach ($users as $user) {
+								$teacher=Teacher::getOne($user['teacher_id']);
 								echo "<tr>";
 									echo "<td>" . $count ."</td>";
-									echo "<td>" . $user['name'] ."</td>";
+									echo "<td>" . $teacher['name'] ."</td>";
 									echo "<td>" . $user['email'] ."</td>";
 									echo "<td>" . "<a href=\"reset-password.php?id=".$user['id']."\" class=\"btn btn-rounded btn-inline btn-warning\" >"."Reset Password</a></td>";
 									echo "<td>" . "<button value=".$user['id']." class=\"btn btn-rounded btn-inline btn-danger swal-btn-cancel\" >"."Delete</button></td>";
