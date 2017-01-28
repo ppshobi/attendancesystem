@@ -10,7 +10,7 @@
 			$name=$db -> quote($name);
 			$dept=$db -> quote($dept);
 
-			$sql="INSERT INTO teachers(name,dept,ishod) VALUES('$name','$dept',1)";
+			$sql="INSERT INTO teachers(name,dept,level) VALUES('$name','$dept',1)";
 			$result=$db -> query($sql);
 			if($result){
 				return true;
@@ -36,7 +36,7 @@
 
 		public static function getAll(){
 			$db=new Db();
-			$sql="SELECT * FROM teachers WHERE ishod = 1";
+			$sql="SELECT * FROM teachers WHERE level = 1";
 			$rows=[];
 			$result=$db->query($sql);
 			if($result){
@@ -50,7 +50,7 @@
 		}
 		public static function getOne($id){
 			$db=new Db();
-			$sql="SELECT * FROM teachers WHERE id= $id AND ishod = 1 LIMIT 1";
+			$sql="SELECT * FROM teachers WHERE id= $id AND level = 1 LIMIT 1";
 			$rows=[];
 			$result=$db->query($sql);
 			if($result){
@@ -64,7 +64,7 @@
 		}
 		public static function delete($id){
 			$db=new Db();
-			$sql="DELETE FROM teachers WHERE id='$id' AND ishod=1 LIMIT 1";
+			$sql="DELETE FROM teachers WHERE id='$id' AND level=1 LIMIT 1";
 			$result=$db->query($sql);
 			if($result){				
 				return true;
