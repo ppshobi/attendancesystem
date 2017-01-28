@@ -6,20 +6,21 @@ if(!Auth::isloggedin()){
 	Auth::redirect('login.php');
 }
 
-
-require_once('app/HOD.php');
 require_once('app/Department.php');
+require_once('app/HOD.php');
+require_once('app/WorkingDay.php');
 $message;
-$departments=Department::getAll();
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addhod'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['deleteteacher'])) {
 	
-	$result=HOD::add($_POST['name'],$_POST['dept']);
+	$result=Teacher::delete($_POST['teacherid']);
 	if ($result) {
 		$message=true;
 	}else{
 		$message=false;
 	}
 }
+$depts=Department::getAll();
+$teachers=Teacher::getAll();
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addhod'])) {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Add a HOD</title>
+	<title>Manage Teacher</title>
 
 	<link href="img/favicon.144x144.png" rel="apple-touch-icon" type="image/png" sizes="144x144">
 	<link href="img/favicon.114x114.png" rel="apple-touch-icon" type="image/png" sizes="114x114">
@@ -62,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addhod'])) {
 				<div class="tbl">
 					<div class="tbl-row">
 						<div class="tbl-cell">
-							<h3>Add HOD</h3>
+							<h3>Manage Teacher</h3>
 							<ol class="breadcrumb breadcrumb-simple">
 								<li><a href="#">StartUI</a></li>
 								<li><a href="#">Forms</a></li>
@@ -80,37 +81,46 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addhod'])) {
 
 				<h5 class="m-t-lg with-border">Enter Details</h5>
 
-				<form method="post" action="">
-					<div class="form-group row">
-						<label for="TeacherName" class="col-sm-2 form-control-label">HOD Name</label>
-						<div class="col-sm-10">
-							<p class="form-control-static"><input id="name" type="text" name="hod" class="form-control" id="inputPassword" placeholder="Teacher Name"></p>
-						</div>
-					</div>
-					
-					<div class="form-group row">
-						<label for="Department" class="col-sm-2 form-control-label">Select Department</label>
-						<div class="col-sm-10">
-							<select name="dept" id="dept" class="select2">
-							 	<?php
-							 		foreach ($departments as $dept) {
-							 			echo "<option value=\"".$dept['id']."\">".$dept['name']."</option>";
-							 		}
-							 	?>
-								
-								
-							</select>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="button" class="col-sm-2 form-control-label"></label>
-						<div class="col-sm-10">
-							<button type="submit" name="add-hod" class="btn btn-inline btn-success-outline swal-btn-success">Create HOD</button>
-						</div>
-					</div>
-					
-				</form>
-
+				<div class="card-block">
+					<table id="example" class="display table table-striped table-bordered" cellspacing="0" width="100%">
+						<thead>
+						<tr>
+							<th>Sl.No</th>
+							<th>Teacher Name</th>
+							<th>Department</th>
+							<th colspan="2">Options</th>
+						</tr>
+						</thead>
+						<tfoot>
+						<tr>
+							<th>Sl.No</th>
+							<th>Teacher Name</th>
+							<th>Department</th>
+							<th colspan="2">Options</th>
+						</tr>
+						</tfoot>
+						<tbody>
+						<?php
+						if($teachers){
+							$count=1;
+							foreach ($teachers as $teacher) {
+								$dept=Department::getOne($teacher['dept']);
+								echo "<tr>";
+									echo "<td>" . $count ."</td>";
+									echo "<td>" . $teacher['name'] ."</td>";
+									echo "<td>" . $dept['name'] ."</td>";
+									echo "<td>" . "<a href=\"edit-teacher.php?id=".$teacher['id']."\" class=\"btn btn-rounded btn-inline btn-warning\" >"."Edit</a></td>";
+									echo "<td>" . "<button value=".$teacher['id']." class=\"btn btn-rounded btn-inline btn-danger swal-btn-cancel\" >"."Delete</button></td>";
+									
+		 						echo "</tr>";
+		 						$count++;
+	 						}
+						}
+						?>
+						
+						</tbody>
+					</table>
+				</div>
 
 			</div><!--.box-typical-->
 		</div><!--.container-fluid-->
@@ -123,32 +133,53 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addhod'])) {
 
 	<script src="js/lib/select2/select2.full.min.js"></script>
 	<script src="js/lib/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
-<script src="js/lib/bootstrap-sweetalert/sweetalert.min.js"></script>
+	<script src="js/lib/bootstrap-sweetalert/sweetalert.min.js"></script>
 <script type="text/javascript">
-	$('.swal-btn-success').click(function(e){
+	$('.swal-btn-cancel').click(function(e){
+		var teacherid=$(this).val();
 		e.preventDefault();
-		var name=$("#name").val();
-		var dept=$("#dept").val();
-		$.ajax({
-                type: "POST",
-                url: "add-hod.php",
-                data: { 
-                    name: name,
-                    dept: dept,
-                    addhod: true
-                }
-            }).success(function(msg){
-                swal({
-					title: "Good job!",
-					text: "Created a New Head Of Department!",
-					type: "success",
-					confirmButtonClass: "btn-success",
-					confirmButtonText: "OK"
+			swal({
+					title: "Are you sure?",
+					text: "You will not be able to undo this Opration!",
+					type: "warning",
+					showCancelButton: true,
+					confirmButtonClass: "btn-danger",
+					confirmButtonText: "Yes, delete it!",
+					cancelButtonText: "No, cancel!",
+					closeOnConfirm: false,
+					closeOnCancel: false
+				},
+				function(isConfirm) {
+					if (isConfirm) {
+						$.ajax({
+				                type: "POST",
+				                url: "manage-teacher.php",
+				                data: { 
+				                	teacherid : teacherid,
+				                    deleteteacher:true
+				                }
+				            }).success(function(msg){
+				               swal({
+									title: "Deleted!",
+									text: "The Teacher is Deleted.",
+									type: "success",
+									confirmButtonClass: "btn-success"
+								});
+				               location.reload();
+				        });
+						
+					} else {
+						swal({
+							title: "Cancelled",
+							text: "The Teacher is not Deleted :)",
+							type: "error",
+							confirmButtonClass: "btn-danger"
+						});
+					}
 				});
-        });
-		
 	});
 </script>
+
 <script src="js/app.js"></script>
 </body>
 </html>

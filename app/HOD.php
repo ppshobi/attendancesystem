@@ -10,7 +10,7 @@
 			$name=$db -> quote($name);
 			$dept=$db -> quote($dept);
 
-			$sql="INSERT INTO hod(name,dept) VALUES('$name','$dept')";
+			$sql="INSERT INTO teachers(name,dept,ishod) VALUES('$name','$dept',1)";
 			$result=$db -> query($sql);
 			if($result){
 				return true;
@@ -24,7 +24,7 @@
 			$name=$db -> quote($name);
 			$dept=$db -> quote($dept);
 
-			$sql=" UPDATE hod SET name = '$name',dept = '$dept' WHERE id= '$id' ";
+			$sql=" UPDATE teachers SET name = '$name',dept = '$dept' WHERE id= '$id' ";
 			$result=$db -> query($sql);
 			if($result){
 				return true;
@@ -36,7 +36,7 @@
 
 		public static function getAll(){
 			$db=new Db();
-			$sql="SELECT * FROM hod";
+			$sql="SELECT * FROM teachers WHERE ishod = 1";
 			$rows=[];
 			$result=$db->query($sql);
 			if($result){
@@ -50,7 +50,7 @@
 		}
 		public static function getOne($id){
 			$db=new Db();
-			$sql="SELECT * FROM hod WHERE id= $id LIMIT 1";
+			$sql="SELECT * FROM teachers WHERE id= $id AND ishod = 1 LIMIT 1";
 			$rows=[];
 			$result=$db->query($sql);
 			if($result){
@@ -64,7 +64,7 @@
 		}
 		public static function delete($id){
 			$db=new Db();
-			$sql="DELETE FROM hod WHERE id='$id' LIMIT 1";
+			$sql="DELETE FROM teachers WHERE id='$id' AND ishod=1 LIMIT 1";
 			$result=$db->query($sql);
 			if($result){				
 				return true;

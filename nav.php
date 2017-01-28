@@ -114,7 +114,7 @@
                 <span class="lbl">Manage Working Days</span>
             </span>
             <ul>
-                <li><a href="manage-working-day.php">Manage Days</a></li>
+                <li><a href="manage-dept-working-day.php">Manage Days</a></li>
                 
             </ul>
         </li>
