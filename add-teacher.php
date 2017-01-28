@@ -92,8 +92,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addteacher'])) {
 						<div class="col-sm-10">
 							<select name="dept" id="dept" class="select2">
 							 	<?php
-							 		foreach ($departments as $dept) {
-							 			echo "<option value=\"".$dept['id']."\">".$dept['name']."</option>";
+							 		if (Auth::ishod()) {
+							 			$dept=Department::getOne(User::getDepartment(Auth::getuserid()));
+							 			echo "<option value=".$dept['id']."selected>".$dept['name']."</option>";
+							 		}else{
+								 		foreach ($departments as $dept) {
+								 			echo "<option value=\"".$dept['id']."\">".$dept['name']."</option>";
+								 		}
 							 		}
 							 	?>
 								
