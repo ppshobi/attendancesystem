@@ -11,6 +11,13 @@ require_once('app/Teacher.php');
 if(Auth::ishod() && isset($_GET['tid'])){
 	$teacher=Teacher::getOne($_GET['tid']);
 }
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	
+	header('Content-Type: text/html');
+	var_dump($_POST['timetable']);
+	//echo json_encode(['status' => $result]);
+	exit();
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,6 +43,8 @@ if(Auth::ishod() && isset($_GET['tid'])){
 <link rel="stylesheet" href="css/lib/font-awesome/font-awesome.min.css">
 <link rel="stylesheet" href="css/separate/vendor/bootstrap-touchspin.min.css">
 <link rel="stylesheet" href="css/lib/font-awesome/font-awesome.min.css">
+<link rel="stylesheet" href="css/separate/vendor/bootstrap-select/bootstrap-select.min.css">
+<link rel="stylesheet" href="css/separate/vendor/select2.min.css">
 <link rel="stylesheet" href="css/lib/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/lib/bootstrap-sweetalert/sweetalert.css">
@@ -94,6 +103,7 @@ if(Auth::ishod() && isset($_GET['tid'])){
 						</tr>
 						</tfoot>
 						<tbody>
+						<form id="timetable" method="POST">
 						<?php
 						$depts=Department::getAll();
 						$days=['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
@@ -102,12 +112,14 @@ if(Auth::ishod() && isset($_GET['tid'])){
 							echo "<tr id=\"".$day."\">";
 								echo "<td>" . $day ."</td>";
 								for($i=0;$i<5;$i++){
-									echo "<td> <select id=\"dept\">" ;
+									echo "<td> <select name=\"timetable[$day][$i][dept]\" class=\"select2\" id=\"dept\">" ;
+										echo "<option selected value=\"\">Select Department</option>";
 										foreach ($depts as $dept) {
 											echo "<option value=\"".$dept['id']."\">". $dept['name'] ."</option>";
 										}
 									echo "</select></td>";
-									echo "<td> <select id=\"batch\">" ;
+									echo "<td> <select id=\"batch\" name=\"timetable[$day][$i][batch]\">" ;
+									echo "<option selected value=\"\">Batch</option>";
 										foreach ($batches as $batch) {
 											echo "<option value=\"".$batch."\">". $batch ."</option>";
 										}
@@ -122,7 +134,8 @@ if(Auth::ishod() && isset($_GET['tid'])){
 						
 						</tbody>
 					</table>
-					
+					<button value="<?php echo $teacher['id'] ?>" type="button" id= "set" class="btn btn-inline btn-success swal-btn-cancel">Set Time Table</button>
+					</form>
 				</div>
 
 			</div><!--.box-typical-->
@@ -134,12 +147,14 @@ if(Auth::ishod() && isset($_GET['tid'])){
 	<script src="js/lib/bootstrap/bootstrap.min.js"></script>
 	<script src="js/plugins.js"></script>
 
+		<script src="js/lib/bootstrap-select/bootstrap-select.min.js"></script>
 	<script src="js/lib/select2/select2.full.min.js"></script>
 	<script src="js/lib/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
 	<script src="js/lib/bootstrap-sweetalert/sweetalert.min.js"></script>
 <script type="text/javascript">
 	$('.swal-btn-cancel').click(function(e){
-		var teacherid=$(this).val();
+		var teacherid = $("#set").val();
+		var timetable = $('#timetable').serialize();
 		e.preventDefault();
 			swal({
 					title: "Are you sure?",
@@ -147,7 +162,7 @@ if(Auth::ishod() && isset($_GET['tid'])){
 					type: "warning",
 					showCancelButton: true,
 					confirmButtonClass: "btn-danger",
-					confirmButtonText: "Yes, delete it!",
+					confirmButtonText: "Yes, Set Timetable!",
 					cancelButtonText: "No, cancel!",
 					closeOnConfirm: false,
 					closeOnCancel: false
@@ -156,10 +171,11 @@ if(Auth::ishod() && isset($_GET['tid'])){
 					if (isConfirm) {
 						$.ajax({
 				                type: "POST",
-				                url: "manage-teacher.php",
+				                url: "set-timetable.php",
 				                data: { 
 				                	teacherid : teacherid,
-				                    deleteteacher:true
+				                	timetable : timetable,
+				                    settimetable:true
 				                }
 				            }).success(function(msg){
 				               swal({
