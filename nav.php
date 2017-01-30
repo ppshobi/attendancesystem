@@ -65,9 +65,7 @@
                 <span class="lbl">Binding</span>
             </span>
             <ul>
-                <li><a href="index.php">Binding HOD to Department</a></li>
-                <li><a href="dashboard-top-menu.php">Binding Teachers to Periods</a></li>
-                
+                <li><a href="bind-teacher-perieds.php">Bind Teachers to Perieds</a></li>
             </ul>
         </li>
          <li class="grey with-sub">
@@ -147,9 +145,7 @@
                 <span class="lbl">Binding</span>
             </span>
             <ul>
-                <li><a href="index.php">Binding HOD to Department</a></li>
-                <li><a href="dashboard-top-menu.php">Binding Teachers to Periods</a></li>
-                
+                <li><a href="bind-teacher-perieds.php">Bind Teachers to Perieds</a></li>
             </ul>
         </li>
        
