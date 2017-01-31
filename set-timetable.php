@@ -22,9 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['timetable'])) {
 
 	foreach ($timetable as $day => $peried) {
 
-		foreach ($peried as $p => $val) {
-			$dept=$val['dept'];
-			$batch=$val['batch'];
+		foreach ($peried as $p => $data) {
+			$dept=$data['dept'];
+			$batch=$data['batch'];
 			if($table->set_a_peried($teacher_id, $day, $p+1, $dept, $batch)){
 				continue;
 			}else{
@@ -171,12 +171,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['timetable'])) {
 	<script src="js/lib/bootstrap-sweetalert/sweetalert.min.js"></script>
 <script type="text/javascript">
 	$('.swal-btn-cancel').click(function(e){
-		var teacherid = $("#set").val();
-		var timetable = $('#timetable').serialize();
 		e.preventDefault();
 			swal({
 					title: "Are you sure?",
-					text: "You will not be able to undo this Opration!",
+					text: "This Operation will Overwrite any Previous data",
 					type: "warning",
 					showCancelButton: true,
 					confirmButtonClass: "btn-danger",
@@ -189,7 +187,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['timetable'])) {
 					if (isConfirm) {
 						$("#timetable").submit();
 						swal({
-							title: "Deleted!",
+							title: "Success!",
 							text: "The Timetable is set.",
 							type: "success",
 							confirmButtonClass: "btn-success"
@@ -197,7 +195,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['timetable'])) {
 					} else {
 						swal({
 							title: "Cancelled",
-							text: "The Teacher is not Deleted :)",
+							text: "The Timetable was not set :)",
 							type: "error",
 							confirmButtonClass: "btn-danger"
 						});

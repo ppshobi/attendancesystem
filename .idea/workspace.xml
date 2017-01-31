@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="777d4467-8c6f-4590-a6d2-3da8e1fcc136" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Timetable.php" afterPath="$PROJECT_DIR$/app/Timetable.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/set-timetable.php" afterPath="$PROJECT_DIR$/set-timetable.php" />
-    </list>
+    <list default="true" id="777d4467-8c6f-4590-a6d2-3da8e1fcc136" name="Default" comment="" />
     <ignored path="attendance.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -29,8 +25,8 @@
       <file leaf-file-name="set-timetable.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/set-timetable.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="330">
+              <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -180,12 +176,12 @@
       <workItem from="1485160095080" duration="15000" />
       <workItem from="1485271998359" duration="697000" />
       <workItem from="1485599040824" duration="7075000" />
-      <workItem from="1485872397619" duration="2547000" />
+      <workItem from="1485872397619" duration="2597000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18707000" />
+    <option name="totallyTimeSpent" value="18757000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="7" width="1932" height="1031" extended-state="0" />
@@ -631,8 +627,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/set-timetable.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="330">
+          <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
           <folding />
         </state>
       </provider>
