@@ -1,4 +1,4 @@
-n<?php
+<?php
 //login check
 require_once('app/Auth.php');
 
@@ -7,16 +7,33 @@ if(!Auth::isloggedin()){
 }
 require_once('app/Department.php');
 require_once('app/Teacher.php');
+require_once('app/Timetable.php');
 
 if(Auth::ishod() && isset($_GET['tid'])){
 	$teacher=Teacher::getOne($_GET['tid']);
 }
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['timetable'])) {
+	$table=new Timetable();
 	
-	header('Content-Type: text/html');
-	var_dump($_POST['timetable']);
+	$timetable=$_POST['timetable'];
+	$teacher_id=$_POST['teacherid'];
+	//truncate any existing entries in timetable for a teacher
+	$table->delete_current_timetable($teacher_id);
+
+	foreach ($timetable as $day => $peried) {
+
+		foreach ($peried as $p => $val) {
+			$dept=$val['dept'];
+			$batch=$val['batch'];
+			if($table->set_a_peried($teacher_id, $day, $p+1, $dept, $batch)){
+				continue;
+			}else{
+				die("Error When setting a peried");
+			}
+		}
+	}
+
 	//echo json_encode(['status' => $result]);
-	exit();
 }
 ?>
 <!DOCTYPE html>
@@ -134,7 +151,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 						
 						</tbody>
 					</table>
-					<button value="<?php echo $teacher['id'] ?>" type="button" id= "set" class="btn btn-inline btn-success swal-btn-cancel">Set Time Table</button>
+					<input type="hidden" name="teacherid" value="<?php echo $teacher['id'] ?>">
+					<button type="button" id= "set" class="btn btn-inline btn-success swal-btn-cancel">Set Time Table</button>
 					</form>
 				</div>
 
