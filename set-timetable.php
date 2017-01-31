@@ -169,24 +169,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				},
 				function(isConfirm) {
 					if (isConfirm) {
-						$.ajax({
-				                type: "POST",
-				                url: "set-timetable.php",
-				                data: { 
-				                	teacherid : teacherid,
-				                	timetable : timetable,
-				                    settimetable:true
-				                }
-				            }).success(function(msg){
-				               swal({
-									title: "Deleted!",
-									text: "The Teacher is Deleted.",
-									type: "success",
-									confirmButtonClass: "btn-success"
-								});
-				               location.reload();
-				        });
-						
+						$("#timetable").submit();
+						swal({
+							title: "Deleted!",
+							text: "The Timetable is set.",
+							type: "success",
+							confirmButtonClass: "btn-success"
+						});
 					} else {
 						swal({
 							title: "Cancelled",
