@@ -165,10 +165,10 @@
         <li class="grey with-sub">
             <span>
                 <i class="font-icon font-icon-dashboard"></i>
-                <span class="lbl">Students</span>
+                <span class="lbl">Attendance</span>
             </span>
             <ul>
-                <li><a href="add-student.php">Add a Student</a></li>
+                <li><a href="mark-attendace.php">Todays Attendance</a></li>
                 <li><a href="manage-student.php">Manage</a></li>
                 
             </ul>
