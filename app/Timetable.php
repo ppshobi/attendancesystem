@@ -28,5 +28,9 @@
 			}
 			return false;
 		}
+		public function getTimeTableForTeacher($teacher_id){
+			$db=new Db();
+			return true;
+		}
 	}
 ?>
