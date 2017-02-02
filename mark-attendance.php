@@ -15,7 +15,9 @@ if(Auth::isteacher()){
 	$today=date('Y-m-d');
 	$dept=User::getDepartment(Auth::getuserid());
 	if (WorkingDay::isWorkingDay($today,$dept)){
-		$teacher=Teacher::getOne(Auth::getuserid());
+		
+		$user=User::getOne(Auth::getuserid());
+		$teacher=Teacher::getOne($user['teacher_id']);
 		$day=date("D",strtotime($today));
 		$timetable=Timetable::getTimeTableForTeacher($teacher['id'],$day);
 		var_dump($timetable);

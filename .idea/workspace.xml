@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="777d4467-8c6f-4590-a6d2-3da8e1fcc136" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mark-attendance.php" afterPath="$PROJECT_DIR$/mark-attendance.php" />
     </list>
     <ignored path="attendance.iws" />
@@ -28,7 +27,7 @@
       <file leaf-file-name="Timetable.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Timetable.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
+            <state relative-caret-position="226">
               <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding>
                 <marker date="1486053876867" expanded="true" signature="148:202" placeholder="DELETE FROM " />
@@ -56,9 +55,45 @@
       <file leaf-file-name="mark-attendance.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mark-attendance.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="332">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="469">
+              <caret line="99" column="28" selection-start-line="99" selection-start-column="28" selection-end-line="99" selection-end-column="28" />
+              <folding>
+                <marker date="1485619862025" expanded="true" signature="279:362" placeholder="INSERT INTO users... " />
+                <marker date="1485619862025" expanded="true" signature="620:685" placeholder="UPDATE users... " />
+                <marker date="1485619862025" expanded="true" signature="863:899" placeholder="SELECT * FRO... teachers" />
+                <marker date="1485619862025" expanded="true" signature="1148:1167" placeholder="SELECT * FRO... users" />
+                <marker date="1485619862025" expanded="true" signature="1418:1437" placeholder="SELECT * FRO... users" />
+                <marker date="1485619862025" expanded="true" signature="1616:1659" placeholder="SELECT * FRO... users" />
+                <marker date="1485619862025" expanded="true" signature="2437:2486" placeholder="SELECT * FRO... users" />
+                <marker date="1485619862025" expanded="true" signature="2742:2774" placeholder="DELETE FROM " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Teacher.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Teacher.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+              <folding>
+                <marker date="1485620896692" expanded="true" signature="195:250" placeholder="INSERT INTO teachers... " />
+                <marker date="1485620896692" expanded="true" signature="494:559" placeholder="UPDATE teach... " />
+                <marker date="1485620896692" expanded="true" signature="729:767" placeholder="SELECT * FRO... teachers" />
+                <marker date="1485620896692" expanded="true" signature="1031:1091" placeholder="SELECT * FRO... teachers" />
+                <marker date="1485620896692" expanded="true" signature="1343:1387" placeholder="SELECT * FRO... teachers" />
+                <marker date="1485620896692" expanded="true" signature="1649:1699" placeholder="DELETE FROM " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -174,6 +209,32 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../phpMyAdmin" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+  </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
@@ -196,12 +257,12 @@
       <workItem from="1485271998359" duration="697000" />
       <workItem from="1485599040824" duration="7075000" />
       <workItem from="1485872397619" duration="3192000" />
-      <workItem from="1486054145261" duration="1215000" />
+      <workItem from="1486054145261" duration="1516000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20567000" />
+    <option name="totallyTimeSpent" value="20868000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="7" width="1932" height="1031" extended-state="0" />
@@ -242,34 +303,44 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/mark-attendance.php</url>
-          <line>18</line>
-          <option name="timeStamp" value="82" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/mark-attendance.php</url>
-          <line>19</line>
+          <line>21</line>
           <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/mark-attendance.php</url>
-          <line>20</line>
+          <line>22</line>
           <option name="timeStamp" value="84" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/mark-attendance.php</url>
-          <line>22</line>
-          <option name="timeStamp" value="93" />
+          <url>file://$PROJECT_DIR$/app/Timetable.php</url>
+          <line>31</line>
+          <option name="timeStamp" value="95" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Timetable.php</url>
+          <line>33</line>
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Timetable.php</url>
+          <line>35</line>
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Timetable.php</url>
+          <line>39</line>
+          <option name="timeStamp" value="98" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/mark-attendance.php</url>
-          <line>15</line>
-          <option name="timeStamp" value="94" />
+          <line>19</line>
+          <option name="timeStamp" value="99" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="95" />
+      <option name="time" value="100" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -373,7 +444,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="902">
           <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1485619862025" expanded="true" signature="279:362" placeholder="INSERT INTO users... " />
+            <marker date="1485619862025" expanded="true" signature="620:685" placeholder="UPDATE users... " />
+            <marker date="1485619862025" expanded="true" signature="863:899" placeholder="SELECT * FRO... teachers" />
+            <marker date="1485619862025" expanded="true" signature="1148:1167" placeholder="SELECT * FRO... users" />
+            <marker date="1485619862025" expanded="true" signature="1418:1437" placeholder="SELECT * FRO... users" />
+            <marker date="1485619862025" expanded="true" signature="1616:1659" placeholder="SELECT * FRO... users" />
+            <marker date="1485619862025" expanded="true" signature="2437:2486" placeholder="SELECT * FRO... users" />
+            <marker date="1485619862025" expanded="true" signature="2742:2774" placeholder="DELETE FROM " />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -601,14 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Teacher.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nav.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
@@ -620,14 +692,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -674,9 +738,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="99" column="28" selection-start-line="99" selection-start-column="28" selection-end-line="99" selection-end-column="28" />
+          <folding>
+            <marker date="1485619862025" expanded="true" signature="279:362" placeholder="INSERT INTO users... " />
+            <marker date="1485619862025" expanded="true" signature="620:685" placeholder="UPDATE users... " />
+            <marker date="1485619862025" expanded="true" signature="863:899" placeholder="SELECT * FRO... teachers" />
+            <marker date="1485619862025" expanded="true" signature="1148:1167" placeholder="SELECT * FRO... users" />
+            <marker date="1485619862025" expanded="true" signature="1418:1437" placeholder="SELECT * FRO... users" />
+            <marker date="1485619862025" expanded="true" signature="1616:1659" placeholder="SELECT * FRO... users" />
+            <marker date="1485619862025" expanded="true" signature="2437:2486" placeholder="SELECT * FRO... users" />
+            <marker date="1485619862025" expanded="true" signature="2742:2774" placeholder="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Teacher.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding>
+            <marker date="1485620896692" expanded="true" signature="195:250" placeholder="INSERT INTO teachers... " />
+            <marker date="1485620896692" expanded="true" signature="494:559" placeholder="UPDATE teach... " />
+            <marker date="1485620896692" expanded="true" signature="729:767" placeholder="SELECT * FRO... teachers" />
+            <marker date="1485620896692" expanded="true" signature="1031:1091" placeholder="SELECT * FRO... teachers" />
+            <marker date="1485620896692" expanded="true" signature="1343:1387" placeholder="SELECT * FRO... teachers" />
+            <marker date="1485620896692" expanded="true" signature="1649:1699" placeholder="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Timetable.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
+        <state relative-caret-position="226">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding>
             <marker date="1486053876867" expanded="true" signature="148:202" placeholder="DELETE FROM " />
@@ -688,8 +784,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mark-attendance.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="332">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
