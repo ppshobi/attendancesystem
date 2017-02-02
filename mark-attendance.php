@@ -10,18 +10,17 @@ require_once('app/Teacher.php');
 require_once('app/Timetable.php');
 require_once('app/User.php');
 require_once('app/WorkingDay.php');
+require_once('app/Student.php');
 
 if(Auth::isteacher()){
 	$today=date('Y-m-d');
 	$dept=User::getDepartment(Auth::getuserid());
 	if (WorkingDay::isWorkingDay($today,$dept)){
-		
 		$user=User::getOne(Auth::getuserid());
 		$teacher=Teacher::getOne($user['teacher_id']);
 		$day=date("D",strtotime($today));
 		$timetable=Timetable::getTimeTableForTeacher($teacher['id'],$day);
-		var_dump($timetable);
-		exit();
+
 	}else{
 		echo "Not a WorkingDay";
 		die();
@@ -99,59 +98,77 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['timetable'])) {
 				<h5 class="m-t-lg with-border">Timetable for <?php echo $teacher['name'] ?></h5>
 
 				<div class="card-block">
-					<table id="example" class="display table table-striped table-bordered" cellspacing="0" width="100%">
-						<thead>
-						<tr>
-							<th>Day</th>
-							<th colspan="2">Peried 1</th>
-							<th colspan="2">Peried 2</th>
-							<th colspan="2">Peried 3</th>
-							<th colspan="2">Peried 4</th>
-							<th colspan="2">Peried 5</th>
-						</tr>
-						</thead>
-						<tfoot>
-						<tr>
-							<th>Day</th>
-							<th colspan="2">Peried 1</th>
-							<th colspan="2">Peried 2</th>
-							<th colspan="2">Peried 3</th>
-							<th colspan="2">Peried 4</th>
-							<th colspan="2">Peried 5</th>
-						</tr>
-						</tfoot>
-						<tbody>
-						<form id="timetable" method="POST">
-						<?php
-						$depts=Department::getAll();
-						$days=['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
-						$batches=['1', '2', '3'];
-						foreach ($days as $day) {
-							echo "<tr id=\"".$day."\">";
-								echo "<td>" . $day ."</td>";
-								for($i=0;$i<5;$i++){
-									echo "<td> <select name=\"timetable[$day][$i][dept]\" class=\"select2\" id=\"dept\">" ;
-										echo "<option selected value=\"\">Select Department</option>";
-										foreach ($depts as $dept) {
-											echo "<option value=\"".$dept['id']."\">". $dept['name'] ."</option>";
-										}
-									echo "</select></td>";
-									echo "<td> <select id=\"batch\" name=\"timetable[$day][$i][batch]\">" ;
-									echo "<option selected value=\"\">Batch</option>";
-										foreach ($batches as $batch) {
-											echo "<option value=\"".$batch."\">". $batch ."</option>";
-										}
-									echo "</select></td>";
+						<section class="tabs-section">
+				<div class="tabs-section-nav">
+					<div class="tbl">
+						<ul class="nav" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active" href="#tabs-2-tab-1" role="tab" data-toggle="tab">
+									<span class="nav-link-in">
+										Period
+										<span class="label label-pill label-danger">1</span>
+									</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#tabs-2-tab-2" role="tab" data-toggle="tab">
+									<span class="nav-link-in">
+										Period
+										<span class="label label-pill label-success">2</span>
+									</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#tabs-2-tab-3" role="tab" data-toggle="tab">
+									<span class="nav-link-in">
+										Period
+										<span class="label label-pill label-info">3</span>
+									</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#tabs-2-tab-4" role="tab" data-toggle="tab">
+									<span class="nav-link-in">
+										Period
+										<span class="label label-pill label-warning">4</span>
+									</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#tabs-2-tab-5" role="tab" data-toggle="tab">
+									<span class="nav-link-in">
+										Period
+										<span class="label label-pill label-default">5</span>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div><!--.tabs-section-nav-->
+
+				<div class="tab-content">
+					<?php
+					echo "<!--.tab-pane-->";
+						$count=1;
+						foreach ($timetable as $period) {
+							echo "<div role=\"tabpanel\" class=\"tab-pane fade in active\" id=\"tabs-2-tab-".$count++."\">".
+								$dept=$period['dept'];
+								$batch=$period['batch'];
+								if($dept==0 OR $batch==0){
+									echo "There is no class for you";
+								}else{
+									$students=Student::get_all_by_dept_batch($dept,$batch);
+									var_dump($students);
 								}
 								
- 							echo "</tr>";
-	 						
- 						}
-					
-						?>
-						
-						</tbody>
-					</table>
+								
+
+							echo "</div>";
+						}
+					echo "<!--.tab-pane-->";
+					?>
+				</div><!--.tab-content-->
+			</section><!--.tabs-section-->
 					<input type="hidden" name="teacherid" value="<?php echo $teacher['id'] ?>">
 					<button type="button" id= "set" class="btn btn-inline btn-success swal-btn-cancel">Set Time Table</button>
 					</form>
