@@ -66,6 +66,21 @@
 			return false;
 			
 		}
+
+		public static function get_all_by_dept_batch($deptid,$batch){
+			$db=new Db();
+			$sql="SELECT * FROM student WHERE dept = '$deptid' AND batch = '$batch'";
+			$rows=[];
+			$result=$db->query($sql);
+			if($result){
+				while ($r=mysqli_fetch_assoc($result)) {
+					array_push($rows, $r);
+				}
+				return $rows;
+			}
+			return false;
+			
+		}
 		public static function getOne($id){
 			$db=new Db();
 			$sql="SELECT * FROM student WHERE id= $id LIMIT 1";
