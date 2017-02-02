@@ -28,9 +28,19 @@
 			}
 			return false;
 		}
-		public function getTimeTableForTeacher($teacher_id){
+		public static function getTimeTableForTeacher($teacher_id,$day){
 			$db=new Db();
-			return true;
+			$sql="SELECT * FROM timetable WHERE teacher_id = '$teacher_id' AND day = '$day'";
+			$result=$db->query($sql);
+			if ($result) {
+				$rows=array();
+				while ($r=mysqli_fetch_assoc($result)) {
+					array_push($rows, $r);
+				}
+				return $rows;
+			}
+
+			return false;
 		}
 	}
 ?>
