@@ -55,9 +55,10 @@
 				return $rows;
 			}
 		}
+		
 		function isWorkingDay($date,$dept_id){
-			$workingdays=self::getDeptWorkingDays($dept_id);
-			if (in_array($date, $workingdays['date'])) {
+			$workingdays=array_column(self::getDeptWorkingDays($dept_id),'date');
+			if (in_array($date, $workingdays)) {
 				return true;
 			}else{
 				return false;
