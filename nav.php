@@ -168,7 +168,7 @@
                 <span class="lbl">Attendance</span>
             </span>
             <ul>
-                <li><a href="mark-attendace.php">Todays Attendance</a></li>
+                <li><a href="mark-attendance.php">Todays Attendance</a></li>
                 <li><a href="manage-student.php">Manage</a></li>
                 
             </ul>
