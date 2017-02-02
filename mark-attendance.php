@@ -8,11 +8,23 @@ if(!Auth::isloggedin()){
 require_once('app/Department.php');
 require_once('app/Teacher.php');
 require_once('app/Timetable.php');
+require_once('app/User.php');
+require_once('app/WorkingDay.php');
 
-if(Auth::isteacher() && isset($_GET['date'])){
-	$date=date('Y-m-d');
-	$teacher=Teacher::getOne(Auth::getuserid());
-	$timetable=getTimeTableForTeacher($teacher['id']);
+if(Auth::isteacher()){
+	$today=date('Y-m-d');
+	$dept=User::getDepartment(Auth::getuserid());
+	if (WorkingDay::isWorkingDay($today,$dept)){
+		$teacher=Teacher::getOne(Auth::getuserid());
+		$day=date("D",strtotime($today));
+		$timetable=Timetable::getTimeTableForTeacher($teacher['id'],$day);
+		var_dump($timetable);
+		exit();
+	}else{
+		echo "Not a WorkingDay";
+		die();
+	}
+	
 }else{
 
 	//not a teacher error
@@ -66,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['timetable'])) {
 				<div class="tbl">
 					<div class="tbl-row">
 						<div class="tbl-cell">
-							<h3>Set Time Table for Teachers</h3>
+							<h3>Mark Attendance</h3>
 							<ol class="breadcrumb breadcrumb-simple">
 								<li><a href="#">StartUI</a></li>
 								<li><a href="#">Forms</a></li>

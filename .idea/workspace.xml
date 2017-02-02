@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="777d4467-8c6f-4590-a6d2-3da8e1fcc136" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mark-attendance.php" afterPath="$PROJECT_DIR$/mark-attendance.php" />
     </list>
     <ignored path="attendance.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,25 +25,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="set-timetable.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/set-timetable.php">
+      <file leaf-file-name="Timetable.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Timetable.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
-              <folding />
+            <state relative-caret-position="204">
+              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <folding>
+                <marker date="1486053876867" expanded="true" signature="148:202" placeholder="DELETE FROM " />
+                <marker date="1486053876867" expanded="true" signature="477:597" placeholder="INSERT INTO timetable... " />
+                <marker date="1486053876867" expanded="true" signature="785:858" placeholder="SELECT * FRO... timetable" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Timetable.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Timetable.php">
+      <file leaf-file-name="WorkingDay.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/WorkingDay.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="305">
+              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
               <folding>
-                <marker date="1485877413087" expanded="true" signature="148:202" placeholder="DELETE FROM " />
-                <marker date="1485877413087" expanded="true" signature="477:597" placeholder="INSERT INTO timetable... " />
+                <marker date="1486054553799" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
+                <marker date="1486054553799" expanded="true" signature="1209:1277" placeholder="SELECT * FRO... workingdays" />
+                <marker date="1486054553799" expanded="true" signature="1815:1878" placeholder="UPDATE worki... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mark-attendance.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mark-attendance.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="244">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -59,11 +75,12 @@
         <option value="$PROJECT_DIR$/edit-teacher.php" />
         <option value="$PROJECT_DIR$/edit-student.php" />
         <option value="$PROJECT_DIR$/semester-change.php" />
-        <option value="$PROJECT_DIR$/app/WorkingDay.php" />
         <option value="$PROJECT_DIR$/add-user.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/manage-dept-working-day.php" />
         <option value="$PROJECT_DIR$/set-timetable.php" />
+        <option value="$PROJECT_DIR$/app/WorkingDay.php" />
+        <option value="$PROJECT_DIR$/mark-attendance.php" />
       </list>
     </option>
   </component>
@@ -113,7 +130,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -149,6 +165,7 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -179,11 +196,12 @@
       <workItem from="1485271998359" duration="697000" />
       <workItem from="1485599040824" duration="7075000" />
       <workItem from="1485872397619" duration="3192000" />
+      <workItem from="1486054145261" duration="1215000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19352000" />
+    <option name="totallyTimeSpent" value="20567000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="7" width="1932" height="1031" extended-state="0" />
@@ -193,12 +211,12 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40691194" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40691194" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -221,19 +239,65 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/mark-attendance.php</url>
+          <line>18</line>
+          <option name="timeStamp" value="82" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/mark-attendance.php</url>
+          <line>19</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/mark-attendance.php</url>
+          <line>20</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/mark-attendance.php</url>
+          <line>22</line>
+          <option name="timeStamp" value="93" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/mark-attendance.php</url>
+          <line>15</line>
+          <option name="timeStamp" value="94" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="81" />
+      <option name="time" value="95" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/set-timetable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Timetable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <marker date="1486053876867" expanded="true" signature="148:202" placeholder="DELETE FROM " />
+            <marker date="1486053876867" expanded="true" signature="477:597" placeholder="INSERT INTO timetable... " />
+            <marker date="1486053876867" expanded="true" signature="785:858" placeholder="SELECT * FRO... timetable" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/semester-change.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -242,9 +306,9 @@
         <state relative-caret-position="1386">
           <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding>
-            <marker date="1485615469725" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
-            <marker date="1485615469725" expanded="true" signature="1209:1249" placeholder="SELECT * FRO... workingdays" />
-            <marker date="1485615469725" expanded="true" signature="1209:1258" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1486054553799" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
+            <marker date="1486054553799" expanded="true" signature="1209:1277" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1486054553799" expanded="true" signature="1815:1878" placeholder="UPDATE worki... " />
           </folding>
         </state>
       </provider>
@@ -261,7 +325,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2244">
           <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -269,7 +332,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -285,7 +347,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -294,9 +355,9 @@
         <state relative-caret-position="704">
           <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
-            <marker date="1485615469725" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
-            <marker date="1485615469725" expanded="true" signature="1209:1249" placeholder="SELECT * FRO... workingdays" />
-            <marker date="1485615469725" expanded="true" signature="1209:1258" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1486054553799" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
+            <marker date="1486054553799" expanded="true" signature="1209:1277" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1486054553799" expanded="true" signature="1815:1878" placeholder="UPDATE worki... " />
           </folding>
         </state>
       </provider>
@@ -305,7 +366,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -329,7 +389,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -338,9 +397,9 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1485615469725" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
-            <marker date="1485615469725" expanded="true" signature="1209:1249" placeholder="SELECT * FRO... workingdays" />
-            <marker date="1485615469725" expanded="true" signature="1209:1258" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1486054553799" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
+            <marker date="1486054553799" expanded="true" signature="1209:1277" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1486054553799" expanded="true" signature="1815:1878" placeholder="UPDATE worki... " />
           </folding>
         </state>
       </provider>
@@ -349,7 +408,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -358,9 +416,9 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1485615469725" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
-            <marker date="1485615469725" expanded="true" signature="1209:1249" placeholder="SELECT * FRO... workingdays" />
-            <marker date="1485615469725" expanded="true" signature="1209:1258" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1486054553799" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
+            <marker date="1486054553799" expanded="true" signature="1209:1277" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1486054553799" expanded="true" signature="1815:1878" placeholder="UPDATE worki... " />
           </folding>
         </state>
       </provider>
@@ -369,7 +427,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -378,9 +435,9 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1485615469725" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
-            <marker date="1485615469725" expanded="true" signature="1209:1249" placeholder="SELECT * FRO... workingdays" />
-            <marker date="1485615469725" expanded="true" signature="1209:1258" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1486054553799" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
+            <marker date="1486054553799" expanded="true" signature="1209:1277" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1486054553799" expanded="true" signature="1815:1878" placeholder="UPDATE worki... " />
           </folding>
         </state>
       </provider>
@@ -389,7 +446,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -398,9 +454,9 @@
         <state relative-caret-position="308">
           <caret line="14" column="76" selection-start-line="14" selection-start-column="76" selection-end-line="14" selection-end-column="76" />
           <folding>
-            <marker date="1485615469725" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
-            <marker date="1485615469725" expanded="true" signature="1209:1249" placeholder="SELECT * FRO... workingdays" />
-            <marker date="1485615469725" expanded="true" signature="1209:1258" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1486054553799" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
+            <marker date="1486054553799" expanded="true" signature="1209:1277" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1486054553799" expanded="true" signature="1815:1878" placeholder="UPDATE worki... " />
           </folding>
         </state>
       </provider>
@@ -409,7 +465,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -529,7 +584,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="117">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -537,7 +591,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -545,19 +598,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/WorkingDay.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1386">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding>
-            <marker date="1485615469725" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
-            <marker date="1485615469725" expanded="true" signature="1209:1249" placeholder="SELECT * FRO... workingdays" />
-            <marker date="1485615469725" expanded="true" signature="1209:1258" placeholder="SELECT * FRO... workingdays" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -596,7 +636,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2244">
           <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -612,18 +651,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Timetable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <marker date="1485877413087" expanded="true" signature="148:202" placeholder="DELETE FROM " />
-            <marker date="1485877413087" expanded="true" signature="477:597" placeholder="INSERT INTO timetable... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -631,6 +658,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/WorkingDay.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding>
+            <marker date="1486054553799" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
+            <marker date="1486054553799" expanded="true" signature="1209:1277" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1486054553799" expanded="true" signature="1815:1878" placeholder="UPDATE worki... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Timetable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding>
+            <marker date="1486053876867" expanded="true" signature="148:202" placeholder="DELETE FROM " />
+            <marker date="1486053876867" expanded="true" signature="477:597" placeholder="INSERT INTO timetable... " />
+            <marker date="1486053876867" expanded="true" signature="785:858" placeholder="SELECT * FRO... timetable" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mark-attendance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
