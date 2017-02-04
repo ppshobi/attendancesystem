@@ -169,6 +169,7 @@
             </span>
             <ul>
                 <li><a href="mark-attendance.php">Todays Attendance</a></li>
+                <li><a href="attendance-date.php">Mark attendace for a date</a></li>
                 <li><a href="manage-student.php">Manage</a></li>
                 
             </ul>
