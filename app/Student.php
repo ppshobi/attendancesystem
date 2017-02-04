@@ -69,7 +69,7 @@
 
 		public static function get_all_by_dept_batch($deptid,$batch){
 			$db=new Db();
-			$sql="SELECT * FROM student WHERE dept = '$deptid' AND batch = '$batch'";
+			$sql="SELECT * FROM student WHERE dept = '$deptid' AND batch = '$batch' ORDER BY regno";
 			$rows=[];
 			$result=$db->query($sql);
 			if($result){
