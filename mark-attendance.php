@@ -13,7 +13,13 @@ require_once('app/WorkingDay.php');
 require_once('app/Student.php');
 
 if(Auth::isteacher()){
-	$today=date('Y-m-d');
+	if (isset($_GET['date'])) {
+		$date = str_replace('/', '-', $_GET['att_date']);
+		$today=date('Y-m-d', strtotime($date));
+	}else{
+		$today=date('Y-m-d');
+	}	
+
 	$dept=User::getDepartment(Auth::getuserid());
 	if (WorkingDay::isWorkingDay($today,$dept)){
 		$user=User::getOne(Auth::getuserid());
@@ -95,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['timetable'])) {
 					Examples of standard form controls supported in an example form layout. Individual form controls automatically receive some global styling. All textual <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, and <code>&lt;select&gt</code>; elements with <code>.form-control</code> are set to <code>width: 100%;</code> by default. Wrap labels and controls in <code>.form-group</code> for optimum spacing. Labels in horizontal form require <code>.control-label</code> class.
 				</p>
 
-				<h5 class="m-t-lg with-border">Timetable for <?php echo $teacher['name'] ?></h5>
+				<h5 class="m-t-lg with-border">Timetable for <?php echo $teacher['name'] . " On " . date('d-M-Y',strtotime($today)). " - " . date('D',strtotime($today)); ?></h5>
 
 				<div class="card-block">
 						<section class="tabs-section">
