@@ -157,14 +157,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['timetable'])) {
 					echo "<!--.tab-pane-->";
 						$count=1;
 						foreach ($timetable as $period) {
-							echo "<div role=\"tabpanel\" class=\"tab-pane fade in active\" id=\"tabs-2-tab-".$count++."\">".
+							echo "<div role=\"tabpanel\" class=\"tab-pane fade in active\" id=\"tabs-2-tab-".$count++."\">";
 								$dept=$period['dept'];
 								$batch=$period['batch'];
 								if($dept==0 OR $batch==0){
 									echo "There is no class for you";
 								}else{
 									$students=Student::get_all_by_dept_batch($dept,$batch);
-									var_dump($students);
+									echo "<table class=\"display table table-striped table-bordered\" cellspacing=\"0\" width=\"100%\">";
+									echo "<thead>";
+									echo "<th>Register No.</th>";
+									echo "<th>Student Name</th>";
+									echo "<th>Abscent</th>";
+									echo "</thead>";
+									echo "<tbody>";
+									foreach ($students as $student) {
+										echo "<tr>";
+											echo "<td>" . $student['regno'] . "</td>";
+											echo "<td>" . $student['name'] . "</td>";
+											echo "<td>" . "<div class=\"checkbox\">
+								<input type=\"checkbox\" id=\"check-".$student['id']."\">
+								<label for=\"check-".$student['id']."\">Check if Student is abscent</label>
+							</div>" . "</td>";
+										echo "</tr>";
+									}
+									echo "</tbody>";
+									echo "</table>";
 								}
 								
 								
