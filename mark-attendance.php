@@ -14,19 +14,21 @@ require_once('app/Student.php');
 require_once('app/Attendance.php');
 
 if(Auth::isteacher()){
-	if (isset($_GET['date'])) {
+	if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['date'])) {
 		$date = str_replace('/', '-', $_GET['att_date']);
-		$today=date('Y-m-d', strtotime($date));
+		$today = date('Y-m-d', strtotime($date));
+	}elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
+		$today=$_POST['att_date'];
 	}else{
 		$today=date('Y-m-d');
 	}	
 
 	$dept=User::getDepartment(Auth::getuserid());
 	if (WorkingDay::isWorkingDay($today,$dept)){
-		$user=User::getOne(Auth::getuserid());
-		$teacher=Teacher::getOne($user['teacher_id']);
-		$day=date("D",strtotime($today));
-		$timetable=Timetable::getTimeTableForTeacher($teacher['id'],$day);
+		$user = User::getOne(Auth::getuserid());
+		$teacher = Teacher::getOne($user['teacher_id']);
+		$day = date("D",strtotime($today));
+		$timetable = Timetable::getTimeTableForTeacher($teacher['id'],$day);
 
 	}else{
 		echo "Not a WorkingDay";
@@ -38,7 +40,7 @@ if(Auth::isteacher()){
 	//not a teacher error
 }
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mark'])) {
-	$result=Attendance::mark_attendance($_POST['absentees'],$_POST['dept'],$_POST['batch']);
+	$result=Attendance::mark_attendance($_POST['absentees'],$today,$_POST['dept'],$_POST['batch']);
 	header('Content-Type: application/json');
 	echo json_encode(['status' => $result]);
 	exit();
@@ -183,8 +185,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mark'])) {
 											echo "<td>" . $student['regno'] . "</td>";
 											echo "<td>" . $student['name'] . "</td>";
 											echo "<td>" . "<div class=\"checkbox\">";
-								echo "<input name=\"check-".$student['id']."\" type=\"checkbox\" id=\"check-".$student['id']."\">
-								<label for=\"check-".$student['id']."\">Check if Student is abscent</label>
+								echo "<input name=\"stud-".$student['id']."\" type=\"checkbox\" id=\"stud-".$student['id']."\">
+								<label for=\"stud-".$student['id']."\">Check if Student is abscent</label>
 							</div>" . "</td>";
 										echo "</tr>";
 									}
@@ -192,6 +194,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mark'])) {
 									echo "</table>";
 									echo "<input type=\"hidden\" id=\"dept\" value=\"".$dept."\">";
 									echo "<input type=\"hidden\" id=\"batch\" value=\"".$batch."\">";
+									echo "<input type=\"hidden\" id=\"att_date\" value=\"".$today."\">";
 									echo "<button type=\"submit\" id= \"set\" class=\"btn btn-inline btn-success swal-btn-cancel\">Mark Attendance</button>";
 									echo "</form>";
 								}
@@ -241,6 +244,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mark'])) {
 						var absentees = $("#attendance").serialize();
 						var dept=$("#dept").val();
 						var batch=$("#batch").val();
+						var att_date=$("#att_date").val();
 						$.ajax({
 				                type: "POST",
 				                url: "mark-attendance.php",
@@ -248,6 +252,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mark'])) {
 				                    absentees: absentees,
 				                    dept: dept,
 				                    batch: batch,
+				                    att_date: att_date,
 				                    mark: true,
 				                    dataType: "json"
 				                }
