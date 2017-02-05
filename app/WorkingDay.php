@@ -64,6 +64,18 @@
 				return false;
 			}
 		}
+		public static function get_working_day_id($date,$dept_id){
+			if(self::isWorkingDay($date,$dept_id)){
+				$workingdays=self::getDeptWorkingDays($dept_id);
+				foreach ($workingdays as $working_day) {
+					if ($working_day['date']==$date) {
+						return $working_day['id'];
+					}
+				}
+			}
+			return false;
+
+		}
 		public static function mark_non_workingday($date_id, $reason){
 			$db=new Db();
 			$date_id=$db->quote($date_id);
