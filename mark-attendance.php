@@ -36,8 +36,8 @@ if(Auth::isteacher()){
 
 	//not a teacher error
 }
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['timetable'])) {
-	
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	var_dump($_POST);
 
 	//echo json_encode(['status' => $result]);
 }
@@ -158,9 +158,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['timetable'])) {
 						$count=1;
 						foreach ($timetable as $period) {
 							echo "<div role=\"tabpanel\" class=\"tab-pane fade in ";
-							if($count==1){
-								echo "active";
-							}
+								if($count==1){
+									echo "active";
+								}
 								echo "\" id=\"tabs-2-tab-".$count++."\">";
 								$dept=$period['dept'];
 								$batch=$period['batch'];
@@ -168,6 +168,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['timetable'])) {
 									echo "There is no class for you";
 								}else{
 									$students=Student::get_all_by_dept_batch($dept,$batch);
+									echo "<form id=\"attendance\" method=\"POST\">";
 									echo "<table class=\"display table table-striped table-bordered\" cellspacing=\"0\" width=\"100%\">";
 									echo "<thead>";
 									echo "<th>Register No.</th>";
@@ -179,14 +180,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['timetable'])) {
 										echo "<tr>";
 											echo "<td>" . $student['regno'] . "</td>";
 											echo "<td>" . $student['name'] . "</td>";
-											echo "<td>" . "<div class=\"checkbox\">
-								<input type=\"checkbox\" id=\"check-".$student['id']."\">
+											echo "<td>" . "<div class=\"checkbox\">";
+								echo "<input name=\"check-".$student['id']."\" type=\"checkbox\" id=\"check-".$student['id']."\">
 								<label for=\"check-".$student['id']."\">Check if Student is abscent</label>
 							</div>" . "</td>";
 										echo "</tr>";
 									}
 									echo "</tbody>";
 									echo "</table>";
+									echo "<button type=\"submit\" id= \"set\" class=\"btn btn-inline btn-success\">Mark Attendance</button>";
+									echo "</form>";
 								}
 								
 								
@@ -198,8 +201,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['timetable'])) {
 				</div><!--.tab-content-->
 			</section><!--.tabs-section-->
 					<input type="hidden" name="teacherid" value="<?php echo $teacher['id'] ?>">
-					<button type="button" id= "set" class="btn btn-inline btn-success swal-btn-cancel">Mark Attendance</button>
-					</form>
+					
+					
 				</div>
 
 			</div><!--.box-typical-->
@@ -231,7 +234,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['timetable'])) {
 				},
 				function(isConfirm) {
 					if (isConfirm) {
-						$("#timetable").submit();
+						$("#attendance").submit();
 						swal({
 							title: "Success!",
 							text: "The Timetable is set.",

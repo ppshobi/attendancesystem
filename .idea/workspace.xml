@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="777d4467-8c6f-4590-a6d2-3da8e1fcc136" name="Default" comment="" />
+    <list default="true" id="777d4467-8c6f-4590-a6d2-3da8e1fcc136" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mark-attendance.php" afterPath="$PROJECT_DIR$/mark-attendance.php" />
+    </list>
     <ignored path="attendance.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -25,7 +28,7 @@
       <file leaf-file-name="Timetable.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Timetable.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="534">
+            <state relative-caret-position="858">
               <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding>
                 <marker date="1486053876867" expanded="true" signature="148:202" placeholder="DELETE FROM " />
@@ -39,7 +42,7 @@
       <file leaf-file-name="WorkingDay.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/WorkingDay.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
+            <state relative-caret-position="1320">
               <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
               <folding>
                 <marker date="1486054553799" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
@@ -53,9 +56,28 @@
       <file leaf-file-name="mark-attendance.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mark-attendance.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="163" column="0" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="156">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+              <folding>
+                <marker date="1486287321638" expanded="true" signature="6637:6882" placeholder="..." />
+                <marker date="1486287321638" expanded="true" signature="6666:6872" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Department.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Department.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+              <folding>
+                <marker date="1484066425998" expanded="true" signature="202:255" placeholder="INSERT INTO dept... " />
+                <marker date="1484066425998" expanded="true" signature="502:565" placeholder="UPDATE dept " />
+                <marker date="1484066425998" expanded="true" signature="735:753" placeholder="SELECT * FRO... dept" />
+                <marker date="1484066425998" expanded="true" signature="1005:1045" placeholder="SELECT * FRO... dept" />
+                <marker date="1484066425998" expanded="true" signature="1304:1339" placeholder="DELETE FROM " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -63,7 +85,7 @@
       <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
+            <state relative-caret-position="2178">
               <caret line="99" column="28" selection-start-line="99" selection-start-column="28" selection-end-line="99" selection-end-column="28" />
               <folding>
                 <marker date="1485619862025" expanded="true" signature="279:362" placeholder="INSERT INTO users... " />
@@ -82,7 +104,7 @@
       <file leaf-file-name="Teacher.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Teacher.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
+            <state relative-caret-position="1298">
               <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
               <folding>
                 <marker date="1485620896692" expanded="true" signature="195:250" placeholder="INSERT INTO teachers... " />
@@ -163,6 +185,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -197,7 +220,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -223,6 +245,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -256,11 +284,12 @@
       <workItem from="1485599040824" duration="7075000" />
       <workItem from="1485872397619" duration="3192000" />
       <workItem from="1486054145261" duration="3194000" />
+      <workItem from="1486285598202" duration="1758000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22546000" />
+    <option name="totallyTimeSpent" value="24304000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="7" width="1932" height="1031" extended-state="0" />
@@ -275,7 +304,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40691194" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40691194" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -298,19 +327,45 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/mark-attendance.php</url>
+          <line>38</line>
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/mark-attendance.php</url>
+          <line>42</line>
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="107" />
+      <option name="time" value="110" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/Teacher.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1298">
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding>
+            <marker date="1485620896692" expanded="true" signature="195:250" placeholder="INSERT INTO teachers... " />
+            <marker date="1485620896692" expanded="true" signature="494:559" placeholder="UPDATE teach... " />
+            <marker date="1485620896692" expanded="true" signature="729:767" placeholder="SELECT * FRO... teachers" />
+            <marker date="1485620896692" expanded="true" signature="1031:1091" placeholder="SELECT * FRO... teachers" />
+            <marker date="1485620896692" expanded="true" signature="1343:1387" placeholder="SELECT * FRO... teachers" />
+            <marker date="1485620896692" expanded="true" signature="1649:1699" placeholder="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/set-timetable.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -572,20 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Department.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding>
-            <marker date="1484066425998" expanded="true" signature="202:255" placeholder="INSERT INTO dept... " />
-            <marker date="1484066425998" expanded="true" signature="502:565" placeholder="UPDATE dept " />
-            <marker date="1484066425998" expanded="true" signature="735:753" placeholder="SELECT * FRO... dept" />
-            <marker date="1484066425998" expanded="true" signature="1005:1045" placeholder="SELECT * FRO... dept" />
-            <marker date="1484066425998" expanded="true" signature="1304:1339" placeholder="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../phpMyAdmin/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -683,13 +724,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/WorkingDay.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
+        <state relative-caret-position="1320">
           <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
           <folding>
             <marker date="1486054553799" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
@@ -701,7 +741,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
+        <state relative-caret-position="2178">
           <caret line="99" column="28" selection-start-line="99" selection-start-column="28" selection-end-line="99" selection-end-column="28" />
           <folding>
             <marker date="1485619862025" expanded="true" signature="279:362" placeholder="INSERT INTO users... " />
@@ -718,7 +758,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Teacher.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
+        <state relative-caret-position="1298">
           <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding>
             <marker date="1485620896692" expanded="true" signature="195:250" placeholder="INSERT INTO teachers... " />
@@ -733,7 +773,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Timetable.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
+        <state relative-caret-position="858">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding>
             <marker date="1486053876867" expanded="true" signature="148:202" placeholder="DELETE FROM " />
@@ -743,11 +783,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Department.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding>
+            <marker date="1484066425998" expanded="true" signature="202:255" placeholder="INSERT INTO dept... " />
+            <marker date="1484066425998" expanded="true" signature="502:565" placeholder="UPDATE dept " />
+            <marker date="1484066425998" expanded="true" signature="735:753" placeholder="SELECT * FRO... dept" />
+            <marker date="1484066425998" expanded="true" signature="1005:1045" placeholder="SELECT * FRO... dept" />
+            <marker date="1484066425998" expanded="true" signature="1304:1339" placeholder="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mark-attendance.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="163" column="0" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="156">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <marker date="1486287321638" expanded="true" signature="6637:6882" placeholder="..." />
+            <marker date="1486287321638" expanded="true" signature="6666:6872" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
