@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="777d4467-8c6f-4590-a6d2-3da8e1fcc136" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mark-attendance.php" afterPath="$PROJECT_DIR$/mark-attendance.php" />
-    </list>
+    <list default="true" id="777d4467-8c6f-4590-a6d2-3da8e1fcc136" name="Default" comment="" />
     <ignored path="attendance.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -284,15 +281,15 @@
       <workItem from="1485599040824" duration="7075000" />
       <workItem from="1485872397619" duration="3192000" />
       <workItem from="1486054145261" duration="3194000" />
-      <workItem from="1486285598202" duration="1758000" />
+      <workItem from="1486285598202" duration="2143000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24304000" />
+    <option name="totallyTimeSpent" value="24689000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="7" width="1932" height="1031" extended-state="0" />
+    <frame x="-8" y="7" width="1932" height="1031" extended-state="1" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24869384" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />

@@ -11,6 +11,7 @@ require_once('app/Timetable.php');
 require_once('app/User.php');
 require_once('app/WorkingDay.php');
 require_once('app/Student.php');
+require_once('app/Attendance.php');
 
 if(Auth::isteacher()){
 	if (isset($_GET['date'])) {
@@ -36,10 +37,11 @@ if(Auth::isteacher()){
 
 	//not a teacher error
 }
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	var_dump($_POST);
-
-	//echo json_encode(['status' => $result]);
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mark'])) {
+	$result=Attendance::mark_attendance($_POST['absentees'],$_POST['dept'],$_POST['batch']);
+	header('Content-Type: application/json');
+	echo json_encode(['status' => $result]);
+	exit();
 }
 ?>
 <!DOCTYPE html>
@@ -188,7 +190,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 									}
 									echo "</tbody>";
 									echo "</table>";
-									echo "<button type=\"submit\" id= \"set\" class=\"btn btn-inline btn-success\">Mark Attendance</button>";
+									echo "<input type=\"hidden\" id=\"dept\" value=\"".$dept."\">";
+									echo "<input type=\"hidden\" id=\"batch\" value=\"".$batch."\">";
+									echo "<button type=\"submit\" id= \"set\" class=\"btn btn-inline btn-success swal-btn-cancel\">Mark Attendance</button>";
 									echo "</form>";
 								}
 								
@@ -223,28 +227,48 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		e.preventDefault();
 			swal({
 					title: "Are you sure?",
-					text: "This Operation will Overwrite any Previous data",
+					text: "This will mark abcentees for today",
 					type: "warning",
 					showCancelButton: true,
 					confirmButtonClass: "btn-danger",
-					confirmButtonText: "Yes, Set Timetable!",
+					confirmButtonText: "Yes, Mark Attendance!",
 					cancelButtonText: "No, cancel!",
 					closeOnConfirm: false,
 					closeOnCancel: false
 				},
 				function(isConfirm) {
 					if (isConfirm) {
-						$("#attendance").submit();
-						swal({
-							title: "Success!",
-							text: "The Timetable is set.",
-							type: "success",
-							confirmButtonClass: "btn-success"
-						});
+						var absentees = $("#attendance").serialize();
+						var dept=$("#dept").val();
+						var batch=$("#batch").val();
+						$.ajax({
+				                type: "POST",
+				                url: "mark-attendance.php",
+				                data: { 
+				                    absentees: absentees,
+				                    dept: dept,
+				                    batch: batch,
+				                    mark: true,
+				                    dataType: "json"
+				                }
+				            }).success(function(data){
+				            	if (data.status) {
+				            		swal({
+										title: "Good job!",
+										text: "Marked The attendance",
+										type: "success",
+										confirmButtonClass: "btn-success",
+										confirmButtonText: "OK"
+									});
+				            	} else {
+				            		console.log('error');
+				            	}
+				                /**/
+				        	});
 					} else {
 						swal({
 							title: "Cancelled",
-							text: "The Timetable was not set :)",
+							text: "The Attendance was not Marked :)",
 							type: "error",
 							confirmButtonClass: "btn-danger"
 						});
