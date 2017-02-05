@@ -40,7 +40,7 @@ if(Auth::isteacher()){
 	//not a teacher error
 }
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mark'])) {
-	$result=Attendance::mark_attendance($_POST['absentees'],$today,$_POST['dept'],$_POST['batch']);
+	$result=Attendance::mark_attendance($_POST['absentees'],$today,$_POST['period'],$_POST['dept'],$_POST['batch']);
 	header('Content-Type: application/json');
 	echo json_encode(['status' => $result]);
 	exit();
@@ -195,6 +195,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mark'])) {
 									echo "<input type=\"hidden\" id=\"dept\" value=\"".$dept."\">";
 									echo "<input type=\"hidden\" id=\"batch\" value=\"".$batch."\">";
 									echo "<input type=\"hidden\" id=\"att_date\" value=\"".$today."\">";
+									echo "<input type=\"hidden\" id=\"period\" value=\"".$period['period']."\">";
 									echo "<button type=\"submit\" id= \"set\" class=\"btn btn-inline btn-success swal-btn-cancel\">Mark Attendance</button>";
 									echo "</form>";
 								}
@@ -241,10 +242,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mark'])) {
 				},
 				function(isConfirm) {
 					if (isConfirm) {
-						var absentees = $("#attendance").serialize();
+						var absentees = $("#attendance").serializeArray();
 						var dept=$("#dept").val();
 						var batch=$("#batch").val();
 						var att_date=$("#att_date").val();
+						var period=$("#period").val();
 						$.ajax({
 				                type: "POST",
 				                url: "mark-attendance.php",
@@ -253,6 +255,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mark'])) {
 				                    dept: dept,
 				                    batch: batch,
 				                    att_date: att_date,
+				                    period:period,
 				                    mark: true,
 				                    dataType: "json"
 				                }
