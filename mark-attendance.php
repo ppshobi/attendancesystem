@@ -157,7 +157,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['timetable'])) {
 					echo "<!--.tab-pane-->";
 						$count=1;
 						foreach ($timetable as $period) {
-							echo "<div role=\"tabpanel\" class=\"tab-pane fade in active\" id=\"tabs-2-tab-".$count++."\">";
+							echo "<div role=\"tabpanel\" class=\"tab-pane fade in ";
+							if($count==1){
+								echo "active";
+							}
+								echo "\" id=\"tabs-2-tab-".$count++."\">";
 								$dept=$period['dept'];
 								$batch=$period['batch'];
 								if($dept==0 OR $batch==0){
@@ -194,7 +198,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['timetable'])) {
 				</div><!--.tab-content-->
 			</section><!--.tabs-section-->
 					<input type="hidden" name="teacherid" value="<?php echo $teacher['id'] ?>">
-					<button type="button" id= "set" class="btn btn-inline btn-success swal-btn-cancel">Set Time Table</button>
+					<button type="button" id= "set" class="btn btn-inline btn-success swal-btn-cancel">Mark Attendance</button>
 					</form>
 				</div>
 
