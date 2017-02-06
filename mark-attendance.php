@@ -196,7 +196,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mark'])) {
 									echo "<input type=\"hidden\" class=\"batch\" value=\"".$batch."\">";
 									echo "<input type=\"hidden\" class=\"att_date\" value=\"".$today."\">";
 									echo "<input type=\"hidden\" class=\"period\" value=\"".$period['period']."\">";
-									echo "<button type=\"submit\" id= \"set\" class=\"btn btn-inline btn-success swal-btn-cancel\">Mark Attendance</button>";
+									echo "<button type=\"submit\" class=\"btn btn-inline btn-success swal-btn-cancel\">Mark Attendance</button>";
 									echo "</form>";
 								}
 								
@@ -244,9 +244,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mark'])) {
 				function(isConfirm) {
 					if (isConfirm) {
 						
-						var absentees = $(form).serializeArray();
+						var absentees = $("#"+form).serializeArray();
 						var dept=$("#"+form+" .dept").val();
-						var batch=$("#"+form+". batch").val();
+						var batch=$("#"+form+" .batch").val();
 						var att_date=$("#"+form+" .att_date").val();
 						var period=$("#"+form+" .period").val();
 						$.ajax({
@@ -270,8 +270,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mark'])) {
 										confirmButtonClass: "btn-success",
 										confirmButtonText: "OK"
 									});
+									location.reload();
 				            	} else {
-				            		console.log('error');
+				            		console.log('error in attendance marking');
 				            	}
 				                /**/
 				        	});
