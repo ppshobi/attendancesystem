@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="777d4467-8c6f-4590-a6d2-3da8e1fcc136" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mark-attendance.php" afterPath="$PROJECT_DIR$/mark-attendance.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nav.php" afterPath="$PROJECT_DIR$/nav.php" />
     </list>
     <ignored path="attendance.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/mark-attendance.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="158">
-              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -53,12 +52,12 @@
         <entry file="file://$PROJECT_DIR$/app/Attendance.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="202">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding>
-                <marker date="1486313054310" expanded="true" signature="645:691" placeholder="INSERT INTO attendance... " />
-                <marker date="1486313054310" expanded="true" signature="645:784" placeholder="INSERT INTO attendance... " />
-                <marker date="1486313054310" expanded="true" signature="809:947" placeholder="INSERT INTO attendance... " />
-                <marker date="1486313054310" expanded="true" signature="943:947" placeholder="INSERT INTO attendance... " />
+                <marker date="1486393196267" expanded="true" signature="645:691" placeholder="INSERT INTO attendance... " />
+                <marker date="1486393196267" expanded="true" signature="645:784" placeholder="INSERT INTO attendance... " />
+                <marker date="1486393196267" expanded="true" signature="809:947" placeholder="INSERT INTO attendance... " />
+                <marker date="1486393196267" expanded="true" signature="943:947" placeholder="INSERT INTO attendance... " />
               </folding>
             </state>
           </provider>
@@ -108,9 +107,9 @@
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/manage-dept-working-day.php" />
         <option value="$PROJECT_DIR$/set-timetable.php" />
-        <option value="$PROJECT_DIR$/app/Attendance.php" />
         <option value="$PROJECT_DIR$/app/WorkingDay.php" />
         <option value="$PROJECT_DIR$/mark-attendance.php" />
+        <option value="$PROJECT_DIR$/app/Attendance.php" />
       </list>
     </option>
   </component>
@@ -260,16 +259,16 @@
       <workItem from="1485872397619" duration="3192000" />
       <workItem from="1486054145261" duration="3194000" />
       <workItem from="1486285598202" duration="8694000" />
-      <workItem from="1486391433548" duration="1207000" />
+      <workItem from="1486391433548" duration="1803000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32447000" />
+    <option name="totallyTimeSpent" value="33043000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="7" width="1932" height="1031" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24764891" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -280,7 +279,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39910814" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39910814" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -761,7 +760,7 @@
     <entry file="file://$PROJECT_DIR$/mark-attendance.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -769,12 +768,12 @@
     <entry file="file://$PROJECT_DIR$/app/Attendance.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <marker date="1486313054310" expanded="true" signature="645:691" placeholder="INSERT INTO attendance... " />
-            <marker date="1486313054310" expanded="true" signature="645:784" placeholder="INSERT INTO attendance... " />
-            <marker date="1486313054310" expanded="true" signature="809:947" placeholder="INSERT INTO attendance... " />
-            <marker date="1486313054310" expanded="true" signature="943:947" placeholder="INSERT INTO attendance... " />
+            <marker date="1486393196267" expanded="true" signature="645:691" placeholder="INSERT INTO attendance... " />
+            <marker date="1486393196267" expanded="true" signature="645:784" placeholder="INSERT INTO attendance... " />
+            <marker date="1486393196267" expanded="true" signature="809:947" placeholder="INSERT INTO attendance... " />
+            <marker date="1486393196267" expanded="true" signature="943:947" placeholder="INSERT INTO attendance... " />
           </folding>
         </state>
       </provider>
