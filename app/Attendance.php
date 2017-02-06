@@ -27,10 +27,11 @@
 				$result=$db->query($sql);
 				if (!$result) {
 					die("error in marking attendance");
+					return false;
 				}
 			}
 
-			return false;
+			return true;
 		}
 		
 	}
