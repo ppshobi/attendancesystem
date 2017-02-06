@@ -82,12 +82,21 @@
         <li class="grey with-sub">
             <span>
                 <i class="font-icon font-icon-dashboard"></i>
+                <span class="lbl">Reports</span>
+            </span>
+            <ul>
+                <li><a href="report.php?dept">Get Department Wise Report</a></li>
+            </ul>
+        </li>
+        <li class="grey with-sub">
+            <span>
+                <i class="font-icon font-icon-dashboard"></i>
                 <span class="lbl">Reset</span>
             </span>
             <ul>
-                <li><a href="index.php">Year Change</a></li>
+                <li><a href="#">Year Change</a></li>
                 <li><a href="semester-change.php">Semester change</a></li>
-                <li><a href="dashboard-top-menu.php">Backup</a></li>
+                <li><a href="#">Backup</a></li>
                 
             </ul>
         </li>
@@ -146,6 +155,15 @@
             </span>
             <ul>
                 <li><a href="bind-teacher-perieds.php">Bind Teachers to Perieds</a></li>
+            </ul>
+        </li>
+        <li class="grey with-sub">
+            <span>
+                <i class="font-icon font-icon-dashboard"></i>
+                <span class="lbl">Reports</span>
+            </span>
+            <ul>
+                <li><a href="#">Get Department Reports</a></li>
             </ul>
         </li>
        
