@@ -172,7 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mark'])) {
 									echo "There is no class for you";
 								}else{
 									$students=Student::get_all_by_dept_batch($dept,$batch);
-									echo "<form id=\"attendance\" method=\"POST\">";
+									echo "<form id=\"attendance".$period['period']."\" method=\"POST\">";
 									echo "<table class=\"display table table-striped table-bordered\" cellspacing=\"0\" width=\"100%\">";
 									echo "<thead>";
 									echo "<th>Register No.</th>";
@@ -185,17 +185,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mark'])) {
 											echo "<td>" . $student['regno'] . "</td>";
 											echo "<td>" . $student['name'] . "</td>";
 											echo "<td>" . "<div class=\"checkbox\">";
-								echo "<input name=\"stud-".$student['id']."\" type=\"checkbox\" id=\"stud-".$student['id']."\">
-								<label for=\"stud-".$student['id']."\">Check if Student is abscent</label>
+								echo "<input name=\"stud-".$student['id']."-".$period['period']."\" type=\"checkbox\" id=\"stud-".$student['id']."-".$period['period']."\">
+								<label for=\"stud-".$student['id']."-".$period['period']."\">Check if Student is abscent</label>
 							</div>" . "</td>";
 										echo "</tr>";
 									}
 									echo "</tbody>";
 									echo "</table>";
-									echo "<input type=\"hidden\" id=\"dept\" value=\"".$dept."\">";
-									echo "<input type=\"hidden\" id=\"batch\" value=\"".$batch."\">";
-									echo "<input type=\"hidden\" id=\"att_date\" value=\"".$today."\">";
-									echo "<input type=\"hidden\" id=\"period\" value=\"".$period['period']."\">";
+									echo "<input type=\"hidden\" class=\"dept\" value=\"".$dept."\">";
+									echo "<input type=\"hidden\" class=\"batch\" value=\"".$batch."\">";
+									echo "<input type=\"hidden\" class=\"att_date\" value=\"".$today."\">";
+									echo "<input type=\"hidden\" class=\"period\" value=\"".$period['period']."\">";
 									echo "<button type=\"submit\" id= \"set\" class=\"btn btn-inline btn-success swal-btn-cancel\">Mark Attendance</button>";
 									echo "</form>";
 								}
@@ -228,6 +228,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mark'])) {
 	<script src="js/lib/bootstrap-sweetalert/sweetalert.min.js"></script>
 <script type="text/javascript">
 	$('.swal-btn-cancel').click(function(e){
+		var form=$(this).closest('form').attr('id');
 		e.preventDefault();
 			swal({
 					title: "Are you sure?",
@@ -242,11 +243,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['mark'])) {
 				},
 				function(isConfirm) {
 					if (isConfirm) {
-						var absentees = $("#attendance").serializeArray();
-						var dept=$("#dept").val();
-						var batch=$("#batch").val();
-						var att_date=$("#att_date").val();
-						var period=$("#period").val();
+						
+						var absentees = $(form).serializeArray();
+						var dept=$("#"+form+" .dept").val();
+						var batch=$("#"+form+". batch").val();
+						var att_date=$("#"+form+" .att_date").val();
+						var period=$("#"+form+" .period").val();
 						$.ajax({
 				                type: "POST",
 				                url: "mark-attendance.php",
