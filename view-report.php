@@ -9,25 +9,18 @@ if(!Auth::isloggedin()){
 require_once('app/Department.php');
 require_once('app/Student.php');
 require_once('app/Report.php');
-
+$att_report;
+$students;
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 	$start_date=date("Y-m-d",strtotime($_POST['start_date']));
 	$end_date=date("Y-m-d",strtotime($_POST['end_date']));
-	$dept=$_POST['dept'];
+	$dept_id=$_POST['dept'];
 	$batch=$_POST['batch'];
 	if($start_date==$end_date){
-		$report=Report::generate_single_day($start_date,$dept,$batch);
+		$att_report=Report::generate_single_day($start_date,$dept_id,$batch);
 	}
-	print_r($report);
-	die();
+	$students=Student::get_all_by_dept_batch($dept_id,$batch);
 
-
-}
-$depts=Department::getAll();
-if(Auth::ishod()){
-	$students=Student::getAllByDept(User::getDepartment(Auth::getuserid()));
-}else{
-	$students=Student::getAll();
 }
 
 ?>
@@ -37,7 +30,7 @@ if(Auth::ishod()){
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Manage Student</title>
+	<title>View Report</title>
 
 	<link href="img/favicon.144x144.png" rel="apple-touch-icon" type="image/png" sizes="144x144">
 	<link href="img/favicon.114x114.png" rel="apple-touch-icon" type="image/png" sizes="114x114">
@@ -60,6 +53,17 @@ if(Auth::ishod()){
 <link rel="stylesheet" href="css/lib/bootstrap-sweetalert/sweetalert.css">
 <link rel="stylesheet" href="css/separate/vendor/sweet-alert-animations.min.css">
 </head>
+<style type="text/css">
+	.green{
+		color:green;
+		text-align: center;
+		padding-left: 45%;
+	}
+	.red{
+		color:red;
+		padding-left: 45%;
+	}
+</style>
 <body class="with-side-menu">
 
 	<?php include_once('header.php');?>
@@ -72,7 +76,7 @@ if(Auth::ishod()){
 				<div class="tbl">
 					<div class="tbl-row">
 						<div class="tbl-cell">
-							<h3>Manage Students</h3>
+							<h3>Attendance Report</h3>
 							<ol class="breadcrumb breadcrumb-simple">
 								<li><a href="#">StartUI</a></li>
 								<li><a href="#">Forms</a></li>
@@ -88,7 +92,16 @@ if(Auth::ishod()){
 					Examples of standard form controls supported in an example form layout. Individual form controls automatically receive some global styling. All textual <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, and <code>&lt;select&gt</code>; elements with <code>.form-control</code> are set to <code>width: 100%;</code> by default. Wrap labels and controls in <code>.form-group</code> for optimum spacing. Labels in horizontal form require <code>.control-label</code> class.
 				</p>
 
-				<h5 class="m-t-lg with-border">Enter Details</h5>
+				<h5 class="m-t-lg with-border">Date : <?php 
+				if($start_date==$end_date){
+					echo date("d-M-Y",strtotime($start_date));
+				}else{
+					echo date("d-M-Y",strtotime($start_date)). " To " . date("d-M-Y",strtotime($end_date));
+				}
+				$dept=Department::getOne($dept_id);
+				echo ", Department: ".$dept['name'] . ", ";
+				echo "Batch: ".$batch. " ";
+				?></h5>
 
 				<div class="card-block">
 					<table id="example" class="display table table-striped table-bordered" cellspacing="0" width="100%">
@@ -97,9 +110,11 @@ if(Auth::ishod()){
 							<th>Sl.No</th>
 							<th>Student Name</th>
 							<th>Register No</th>
-							<th>Department</th>
-							<th>Batch</th>
-							<th colspan="2">Options</th>
+							<th>Period 1</th>
+							<th>Period 2</th>
+							<th>Period 3</th>
+							<th>Period 4</th>
+							<th>Period 5</th>
 						</tr>
 						</thead>
 						<tfoot>
@@ -107,9 +122,11 @@ if(Auth::ishod()){
 							<th>Sl.No</th>
 							<th>Student Name</th>
 							<th>Register No</th>
-							<th>Department</th>
-							<th>Batch</th>
-							<th colspan="2">Options</th>
+							<th>Period 1</th>
+							<th>Period 2</th>
+							<th>Period 3</th>
+							<th>Period 4</th>
+							<th>Period 5</th>
 						</tr>
 						</tfoot>
 						<tbody>
@@ -117,16 +134,54 @@ if(Auth::ishod()){
 						if($students){
 							$count=1;
 							foreach ($students as $student) {
-								$dept=Department::getOne($student['dept']);
+								$rep;
+								foreach ($att_report as $r) {
+									if ($student['id']==$r['student_id']) {
+										$rep=$r;
+										break;
+									}
+								}
+								
 								echo "<tr>";
 									echo "<td>" . $count ."</td>";
 									echo "<td>" . $student['name'] ."</td>";
 									echo "<td>" . $student['regno'] ."</td>";
-									echo "<td>" . $dept['name'] ."</td>";
-									echo "<td>" . $student['batch'] ."</td>";
-									echo "<td>" . "<a href=\"edit-student.php?id=".$student['id']."\" class=\"btn btn-rounded btn-inline btn-warning\" >"."Edit</a></td>";
-									echo "<td>" . "<button value=".$student['id']." class=\"btn btn-rounded btn-inline btn-danger swal-btn-cancel\" >"."Delete</button></td>";
-									
+									echo "<td>";
+									 if ($rep['p1']==1) {
+										echo "<span class=\"font-icon font-icon-ok green\"></span>";
+									} else{
+										echo "<span class=\"font-icon font-icon-del red\"></span>";
+									}
+									echo "</td>";
+									echo "<td>";
+									 if ($rep['p2']==1) {
+										echo "<span class=\"font-icon font-icon-ok green\"></span>";
+									} else{
+										echo "<span class=\"font-icon font-icon-del red\"></span>";
+									}
+									echo "</td>";
+									echo "<td>";
+									 if ($rep['p3']==1) {
+										echo "<span class=\"font-icon font-icon-ok green\"></span>";
+									} else{
+										echo "<span class=\"font-icon font-icon-del red\"></span>";
+									}
+									echo "</td>";
+									echo "<td>";
+									 if ($rep['p4']==1) {
+										echo "<span class=\"font-icon font-icon-ok green\"></span>";
+									} else{
+										echo "<span class=\"font-icon font-icon-del red\"></span>";
+									}
+									echo "</td>";
+									echo "<td>";
+									 if ($rep['p5']==1) {
+										echo "<span class=\"font-icon font-icon-ok green\"></span>";
+									} else{
+										echo "<span class=\"font-icon font-icon-del red\"></span>";
+									}
+									echo "</td>";
+															
 		 						echo "</tr>";
 		 						$count++;
 	 						}
