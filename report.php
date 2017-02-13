@@ -50,6 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/lib/bootstrap-sweetalert/sweetalert.css">
 <link rel="stylesheet" href="css/separate/vendor/sweet-alert-animations.min.css">
+<link rel="stylesheet" href="css/separate/vendor/bootstrap-daterangepicker.min.css">
+
 </head>
 <body class="with-side-menu">
 
@@ -81,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 
 				<h5 class="m-t-lg with-border">Enter Details</h5>
 
-				<form method="post" id="student" action="">
+				<form method="post" id="student" action="view-report.php">
 					<div class="form-group row">
 						<label for="Department" class="col-sm-2 form-control-label">Select Department</label>
 						<div class="col-sm-10">
@@ -94,12 +96,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 							</select>
 						</div>
 					</div>
+
+					<div class="form-group row">
+						<label for="date" class="col-sm-2 form-control-label">Pick Start Date</label>
+						<div class="col-sm-4">
+							
+							<div class="form-group">
+								<div class='input-group date'>
+									<input id="daterange2" type="text" name="start_date" value="10/24/2016" class="form-control">
+									<span class="input-group-addon">
+										<i class="font-icon font-icon-calend"></i>
+									</span>
+								</div>
+							</div>
+						
+						</div>
+					</div>		
+					<div class="form-group row">
+						<label for="date" class="col-sm-2 form-control-label">Pick End Date</label>
+						<div class="col-sm-4">
+							
+							<div class="form-group">
+								<div class='input-group date'>
+									<input id="daterange3" type="text" name="end_date" value="10/24/2016" class="form-control">
+									<span class="input-group-addon">
+										<i class="font-icon font-icon-calend"></i>
+									</span>
+								</div>
+							</div>
+						
+						</div>
+					</div>		
 					<div class="form-group row">
 						<label for="Batch" class="col-sm-2 form-control-label">Select Batch</label>
 						<div class="col-sm-10">
 								<input type="radio" name="batch" value="1"/>1 Year				
 								<input type="radio" name="batch" value="2"/>2 Year	
- 								<input type="radio" name="batch" value="3"/>3 Year
+ 								<input type="radio" name="batch" value="3" checked/>3 Year
 						</div>
 					</div>
 					<div class="form-group row">
@@ -122,36 +155,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 	<script src="js/plugins.js"></script>
 	<script src="js/lib/select2/select2.full.min.js"></script>
 	<script src="js/lib/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
+
 	<script src="js/lib/bootstrap-sweetalert/sweetalert.min.js"></script>
+	<script type="text/javascript" src="js/lib/moment/moment-with-locales.min.js"></script>
+		<script src="js/lib/daterangepicker/daterangepicker.js"></script>
+
 	<script type="text/javascript">
-	$('.swal-btn-success').click(function(e){
-		e.preventDefault();
-		var name=$("#name").val();
-		var regno=$("#regno").val();
-		var dept=$("#dept").val();
-		var batch=$('input[name=batch]:checked', '#student').val()
-		
-		$.ajax({
-                type: "POST",
-                url: "report.php",
-                data: { 
-                    name: name,
-                    regno: regno,
-                    dept: dept,
-                    batch: batch,
-                    addstudent: true
-                }
-            }).success(function(msg){
-                swal({
-					title: "Good job!",
-					text: "Created a New Student!",
-					type: "success",
-					confirmButtonClass: "btn-success",
-					confirmButtonText: "OK"
-				});
-        	});
-		
-		});
+	
+	
+	$('#daterange2').daterangepicker({
+				singleDatePicker: true,
+				showDropdowns: true
+	});
+	$('#daterange3').daterangepicker({
+				singleDatePicker: true,
+				showDropdowns: true
+	});
+
+	//setting start and end date as today
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+if(dd<10) {
+    dd='0'+dd
+} 
+
+if(mm<10) {
+    mm='0'+mm
+} 
+
+today = mm+'/'+dd+'/'+yyyy;
+
+$('#daterange3').val(today);//seting todays value in datepicker
+$('#daterange2').val(today);//seting todays value in datepicker
+	
+
 </script>
 <script src="js/app.js"></script>
 </body>
