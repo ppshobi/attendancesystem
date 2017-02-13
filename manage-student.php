@@ -1,4 +1,4 @@
-n<?php
+<?php
 //login check
 require_once('app/Auth.php');
 

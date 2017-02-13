@@ -6,21 +6,30 @@ if(!Auth::isloggedin()){
 	Auth::redirect('login.php');
 }
 
-
-require_once('app/Student.php');
 require_once('app/Department.php');
+require_once('app/Student.php');
 require_once('app/Report.php');
-$message;
-$departments=Department::getAll();
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
-	
-	$result=Student::add($_POST['name'], $_POST['regno'], $_POST['dept'],$_POST['batch']);
-	if ($result) {
-		$message=true;
-	}else{
-		$message=false;
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
+	$start_date=date("Y-m-d",strtotime($_POST['start_date']));
+	$end_date=date("Y-m-d",strtotime($_POST['end_date']));
+	$dept=$_POST['dept'];
+	$batch=$_POST['batch'];
+	if($start_date==$end_date){
+		$report=Report::generate_single_day($start_date,$dept,$batch);
 	}
+	print_r($report);
+	die();
+
+
 }
+$depts=Department::getAll();
+if(Auth::ishod()){
+	$students=Student::getAllByDept(User::getDepartment(Auth::getuserid()));
+}else{
+	$students=Student::getAll();
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Generate Report</title>
+	<title>Manage Student</title>
 
 	<link href="img/favicon.144x144.png" rel="apple-touch-icon" type="image/png" sizes="144x144">
 	<link href="img/favicon.114x114.png" rel="apple-touch-icon" type="image/png" sizes="114x114">
@@ -50,8 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/lib/bootstrap-sweetalert/sweetalert.css">
 <link rel="stylesheet" href="css/separate/vendor/sweet-alert-animations.min.css">
-<link rel="stylesheet" href="css/separate/vendor/bootstrap-daterangepicker.min.css">
-
 </head>
 <body class="with-side-menu">
 
@@ -65,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 				<div class="tbl">
 					<div class="tbl-row">
 						<div class="tbl-cell">
-							<h3>Add Student</h3>
+							<h3>Manage Students</h3>
 							<ol class="breadcrumb breadcrumb-simple">
 								<li><a href="#">StartUI</a></li>
 								<li><a href="#">Forms</a></li>
@@ -83,67 +90,52 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 
 				<h5 class="m-t-lg with-border">Enter Details</h5>
 
-				<form method="post" id="student" action="view-report.php">
-					<div class="form-group row">
-						<label for="Department" class="col-sm-2 form-control-label">Select Department</label>
-						<div class="col-sm-10">
-							<select name="dept" id="dept" class="select2">
-							 	<?php
-							 		foreach ($departments as $dept) {
-							 			echo "<option value=\"".$dept['id']."\">".$dept['name']."</option>";
-							 		}
-							 	?>	
-							</select>
-						</div>
-					</div>
-
-					<div class="form-group row">
-						<label for="date" class="col-sm-2 form-control-label">Pick Start Date</label>
-						<div class="col-sm-4">
-							
-							<div class="form-group">
-								<div class='input-group date'>
-									<input id="daterange2" type="text" name="start_date" value="10/24/2016" class="form-control">
-									<span class="input-group-addon">
-										<i class="font-icon font-icon-calend"></i>
-									</span>
-								</div>
-							</div>
+				<div class="card-block">
+					<table id="example" class="display table table-striped table-bordered" cellspacing="0" width="100%">
+						<thead>
+						<tr>
+							<th>Sl.No</th>
+							<th>Student Name</th>
+							<th>Register No</th>
+							<th>Department</th>
+							<th>Batch</th>
+							<th colspan="2">Options</th>
+						</tr>
+						</thead>
+						<tfoot>
+						<tr>
+							<th>Sl.No</th>
+							<th>Student Name</th>
+							<th>Register No</th>
+							<th>Department</th>
+							<th>Batch</th>
+							<th colspan="2">Options</th>
+						</tr>
+						</tfoot>
+						<tbody>
+						<?php
+						if($students){
+							$count=1;
+							foreach ($students as $student) {
+								$dept=Department::getOne($student['dept']);
+								echo "<tr>";
+									echo "<td>" . $count ."</td>";
+									echo "<td>" . $student['name'] ."</td>";
+									echo "<td>" . $student['regno'] ."</td>";
+									echo "<td>" . $dept['name'] ."</td>";
+									echo "<td>" . $student['batch'] ."</td>";
+									echo "<td>" . "<a href=\"edit-student.php?id=".$student['id']."\" class=\"btn btn-rounded btn-inline btn-warning\" >"."Edit</a></td>";
+									echo "<td>" . "<button value=".$student['id']." class=\"btn btn-rounded btn-inline btn-danger swal-btn-cancel\" >"."Delete</button></td>";
+									
+		 						echo "</tr>";
+		 						$count++;
+	 						}
+						}
+						?>
 						
-						</div>
-					</div>		
-					<div class="form-group row">
-						<label for="date" class="col-sm-2 form-control-label">Pick End Date</label>
-						<div class="col-sm-4">
-							
-							<div class="form-group">
-								<div class='input-group date'>
-									<input id="daterange3" type="text" name="end_date" value="10/24/2016" class="form-control">
-									<span class="input-group-addon">
-										<i class="font-icon font-icon-calend"></i>
-									</span>
-								</div>
-							</div>
-						
-						</div>
-					</div>		
-					<div class="form-group row">
-						<label for="Batch" class="col-sm-2 form-control-label">Select Batch</label>
-						<div class="col-sm-10">
-								<input type="radio" name="batch" value="1"/>1 Year				
-								<input type="radio" name="batch" value="2"/>2 Year	
- 								<input type="radio" name="batch" value="3" checked/>3 Year
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="button" class="col-sm-2 form-control-label"></label>
-						<div class="col-sm-10">
-							<button type="submit" name="gen-report" class="btn btn-inline btn-success-outline swal-btn-success">Generate Report</button>
-						</div>
-					</div>
-					
-				</form>
-
+						</tbody>
+					</table>
+				</div>
 
 			</div><!--.box-typical-->
 		</div><!--.container-fluid-->
@@ -153,46 +145,56 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 	<script src="js/lib/tether/tether.min.js"></script>
 	<script src="js/lib/bootstrap/bootstrap.min.js"></script>
 	<script src="js/plugins.js"></script>
+
 	<script src="js/lib/select2/select2.full.min.js"></script>
 	<script src="js/lib/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
-
 	<script src="js/lib/bootstrap-sweetalert/sweetalert.min.js"></script>
-	<script type="text/javascript" src="js/lib/moment/moment-with-locales.min.js"></script>
-		<script src="js/lib/daterangepicker/daterangepicker.js"></script>
-
-	<script type="text/javascript">
-	
-	
-	$('#daterange2').daterangepicker({
-				singleDatePicker: true,
-				showDropdowns: true
+<script type="text/javascript">
+	$('.swal-btn-cancel').click(function(e){
+		var studentid=$(this).val();
+		e.preventDefault();
+			swal({
+					title: "Are you sure?",
+					text: "You will not be able to undo this Opration!",
+					type: "warning",
+					showCancelButton: true,
+					confirmButtonClass: "btn-danger",
+					confirmButtonText: "Yes, delete it!",
+					cancelButtonText: "No, cancel!",
+					closeOnConfirm: false,
+					closeOnCancel: false
+				},
+				function(isConfirm) {
+					if (isConfirm) {
+						$.ajax({
+				                type: "POST",
+				                url: "omanage-student.php",
+				                data: { 
+				                	studentid : studentid,
+				                    deletestudent:true
+				                }
+				            }).success(function(msg){
+				               swal({
+									title: "Deleted!",
+									text: "The Student is Deleted.",
+									type: "success",
+									confirmButtonClass: "btn-success"
+								});
+				               location.reload();
+				        });
+						
+					} else {
+						swal({
+							title: "Cancelled",
+							text: "The Student is not Deleted :)",
+							type: "error",
+							confirmButtonClass: "btn-danger"
+						});
+					}
+				});
 	});
-	$('#daterange3').daterangepicker({
-				singleDatePicker: true,
-				showDropdowns: true
-	});
-
-	//setting start and end date as today
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-var yyyy = today.getFullYear();
-
-if(dd<10) {
-    dd='0'+dd
-} 
-
-if(mm<10) {
-    mm='0'+mm
-} 
-
-today = mm+'/'+dd+'/'+yyyy;
-
-$('#daterange3').val(today);//seting todays value in datepicker
-$('#daterange2').val(today);//seting todays value in datepicker
-	
-
 </script>
+
 <script src="js/app.js"></script>
 </body>
 </html>

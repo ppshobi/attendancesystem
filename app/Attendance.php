@@ -36,6 +36,7 @@
 		}
 
 		public static function get_attendance_for_date($date_id,$students){
+			$db=new Db();
 			$attendance=array();
 			foreach ($students as $student) {
 				$sql="SELECT * FROM attendance WHERE date_id='$date_id' AND student_id= '$student'";
