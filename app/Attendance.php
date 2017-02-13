@@ -16,6 +16,7 @@
 				$id=explode('-',$ab['name']);
 				array_push($absentees_stud_id, $id[1]);
 			}
+
 			foreach ($students as $student) {
 				$student_id=$student['id'];		
 				$sql="";
@@ -32,6 +33,22 @@
 			}
 
 			return true;
+		}
+
+		public static function get_attendance_for_date($date_id,$students){
+			$attendance=array();
+			foreach ($students as $student) {
+				$sql="SELECT * FROM attendance WHERE date_id='$date_id' AND student_id= '$student'";
+				$result=$db->query($sql);
+				if ($result) {
+					array_push($attendance, mysqli_fetch_assoc($result));
+				}else{
+					return false;
+				}
+				
+			}
+			return $attendance;
+			
 		}
 		
 	}
