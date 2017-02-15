@@ -71,6 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 		padding-left: 30%;
 		font-weight: bold;
 	}
+	.count{
+		font-weight: bolder;
+	}
 </style>
 <body class="with-side-menu">
 
@@ -129,23 +132,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 							<th>Remark</th>
 						</tr>
 						</thead>
-						<tfoot>
-						<tr>
-							<th>Sl.No</th>
-							<th>Student Name</th>
-							<th>Register No</th>
-							<th>Period 1</th>
-							<th>Period 2</th>
-							<th>Period 3</th>
-							<th>Period 4</th>
-							<th>Period 5</th>
-							<th>Remark</th>
-						</tr>
-						</tfoot>
+						
 						<tbody>
 						<?php
 						if($students){
 							$count=1;
+							$present_count=0;
+							$abscent_count=0;
+							$half_day_count=0;
 							foreach ($students as $student) {
 								$rep;
 								foreach ($att_report as $r) {
@@ -205,10 +199,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 									}
 									if ($afternoon+$fornoon==1) {
  										echo "<span class=\"remark green\">Present</span>";
+ 										$present_count++;
 									} elseif($afternoon+$fornoon==.5){
 										echo "<span class=\"remark orange\">Half Day</span>";
+										$half_day_count++;
 									}else{
 										echo "<span class=\"remark red\">Abscent</span>";
+										$abscent_count++;
 									}
 									echo "</td>";
 															
@@ -219,6 +216,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 						?>
 						
 						</tbody>
+						<tfoot>
+						<tr>
+							<th>Sl.No</th>
+							<th>Student Name</th>
+							<th>Register No</th>
+							<th>Period 1</th>
+							<th>Period 2</th>
+							<th>Period 3</th>
+							<th>Period 4</th>
+							<th>Period 5</th>
+							<th>Remark</th>
+						</tr>
+						<tr>
+							<td class="count" colspan="2">Total Today</td>
+							<td class="count" colspan="2">Present Count :<?php echo $present_count; ?></td>
+							<td class="count" colspan="2">Half Day Count :<?php echo $half_day_count; ?></td>
+							<td class="count" colspan="3">Abscent Count : <?php echo $abscent_count; ?></td>
+						</tr>
+						</tfoot>
 					</table>
 				</div>
 
