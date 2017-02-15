@@ -68,7 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 		padding-left: 45%;
 	}
 	.remark{
-		padding-left: 30%;
+		text-align: center;
+		padding: 0;
 		font-weight: bold;
 	}
 	.count{
@@ -103,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 					Examples of standard form controls supported in an example form layout. Individual form controls automatically receive some global styling. All textual <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, and <code>&lt;select&gt</code>; elements with <code>.form-control</code> are set to <code>width: 100%;</code> by default. Wrap labels and controls in <code>.form-group</code> for optimum spacing. Labels in horizontal form require <code>.control-label</code> class.
 				</p>
 
-				<h5 class="m-t-lg with-border">
+				<h5 class="m-t-lg with-border" id="report-header">
 				Date : <?php 
 				if($start_date==$end_date){
 					echo date("d-M-Y",strtotime($start_date));
@@ -118,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 				</h5>
 
 				<div class="card-block">
-					<table id="example" class="display table table-striped table-bordered" cellspacing="0" width="100%">
+					<table id="report" class="display table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 						<tr>
 							<th>Sl.No</th>
@@ -155,37 +156,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 									echo "<td>" . $student['regno'] ."</td>";
 									echo "<td>";
 									 if ($rep['p1']==1) {
-										echo "<span class=\"font-icon font-icon-ok green\"></span>";
+										echo "<span class=\"fa font-icon font-icon-ok green\"></span>";
 									} else{
-										echo "<span class=\"font-icon font-icon-del red\"></span>";
+										echo "<span class=\"fa font-icon font-icon-del red\"></span>";
 									}
 									echo "</td>";
 									echo "<td>";
 									 if ($rep['p2']==1) {
-										echo "<span class=\"font-icon font-icon-ok green\"></span>";
+										echo "<span class=\"fa font-icon font-icon-ok green\"></span>";
 									} else{
-										echo "<span class=\"font-icon font-icon-del red\"></span>";
+										echo "<span class=\"fa font-icon font-icon-del red\"></span>";
 									}
 									echo "</td>";
 									echo "<td>";
 									 if ($rep['p3']==1) {
-										echo "<span class=\"font-icon font-icon-ok green\"></span>";
+										echo "<span class=\"fa font-icon font-icon-ok green\"></span>";
 									} else{
-										echo "<span class=\"font-icon font-icon-del red\"></span>";
+										echo "<span class=\"fa font-icon font-icon-del red\"></span>";
 									}
 									echo "</td>";
 									echo "<td>";
 									 if ($rep['p4']==1) {
-										echo "<span class=\"font-icon font-icon-ok green\"></span>";
+										echo "<span class=\"fa font-icon font-icon-ok green\"></span>";
 									} else{
-										echo "<span class=\"font-icon font-icon-del red\"></span>";
+										echo "<span class=\"fa font-icon font-icon-del red\"></span>";
 									}
 									echo "</td>";
 									echo "<td>";
 									 if ($rep['p5']==1) {
-										echo "<span class=\"font-icon font-icon-ok green\"></span>";
+										echo "<span class=\"fa font-icon font-icon-ok green\"></span>";
 									} else{
-										echo "<span class=\"font-icon font-icon-del red\"></span>";
+										echo "<span class=\"fa font-icon font-icon-del red\"></span>";
 									}
 									echo "</td>";
 									echo "<td>";
@@ -231,11 +232,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 						<tr>
 							<td class="count" colspan="2">Total Today</td>
 							<td class="count" colspan="2">Present Count :<?php echo $present_count; ?></td>
-							<td class="count" colspan="2">Half Day Count :<?php echo $half_day_count; ?></td>
-							<td class="count" colspan="3">Abscent Count : <?php echo $abscent_count; ?></td>
+							<td class="count" colspan="3">Half Day Count :<?php echo $half_day_count; ?></td>
+							<td class="count" colspan="2">Abscent Count : <?php echo $abscent_count; ?></td>
 						</tr>
 						</tfoot>
 					</table>
+					<div class="col-sm-10">
+							<button type="submit" name="print" class="btn btn-inline btn-success-outline swal-btn-success">Print Report</button>
+					</div>
 				</div>
 
 			</div><!--.box-typical-->
@@ -250,44 +254,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 	<script src="js/lib/select2/select2.full.min.js"></script>
 	<script src="js/lib/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
 	<script src="js/lib/bootstrap-sweetalert/sweetalert.min.js"></script>
+	<script src="js/lib/printthis/printThis.js"></script>
 <script type="text/javascript">
-	$('.swal-btn-cancel').click(function(e){
-		var studentid=$(this).val();
-		e.preventDefault();
+	$('.swal-btn-success').click(function(e){
 			swal({
 					title: "Are you sure?",
-					text: "You will not be able to undo this Opration!",
+					text: "Print Report?",
 					type: "warning",
 					showCancelButton: true,
 					confirmButtonClass: "btn-danger",
-					confirmButtonText: "Yes, delete it!",
+					confirmButtonText: "Yes, Print it!",
 					cancelButtonText: "No, cancel!",
 					closeOnConfirm: false,
 					closeOnCancel: false
 				},
 				function(isConfirm) {
 					if (isConfirm) {
-						$.ajax({
-				                type: "POST",
-				                url: "omanage-student.php",
-				                data: { 
-				                	studentid : studentid,
-				                    deletestudent:true
-				                }
-				            }).success(function(msg){
-				               swal({
-									title: "Deleted!",
-									text: "The Student is Deleted.",
-									type: "success",
-									confirmButtonClass: "btn-success"
-								});
-				               location.reload();
-				        });
+						var report_header=$("#report-header").html();
+						$("#report").printThis({
+						    debug: true,               
+						    importCSS: true,            
+						    importStyle: true,        
+						    printContainer: true,        
+						    pageTitle: report_header,             
+						    removeInline: false,       
+						    printDelay: 333,            
+						    header: report_header,               
+						    footer: null,               
+						    base: false,                 
+						    formValues: true ,           
+						    canvas: false               
+						        
+						});
 						
 					} else {
 						swal({
 							title: "Cancelled",
-							text: "The Student is not Deleted :)",
+							text: "The Report Printing Cancelled :)",
 							type: "error",
 							confirmButtonClass: "btn-danger"
 						});
