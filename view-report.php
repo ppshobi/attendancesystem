@@ -272,7 +272,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 					if (isConfirm) {
 						var report_header=$("#report-header").html();
 						$("#report").printThis({
-						    debug: true,               
+						    debug: false,               
 						    importCSS: true,            
 						    importStyle: true,        
 						    printContainer: true,        
