@@ -63,6 +63,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 		color:red;
 		padding-left: 45%;
 	}
+	.orange{
+		color:orange;
+		padding-left: 45%;
+	}
+	.remark{
+		padding-left: 30%;
+		font-weight: bold;
+	}
 </style>
 <body class="with-side-menu">
 
@@ -92,7 +100,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 					Examples of standard form controls supported in an example form layout. Individual form controls automatically receive some global styling. All textual <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, and <code>&lt;select&gt</code>; elements with <code>.form-control</code> are set to <code>width: 100%;</code> by default. Wrap labels and controls in <code>.form-group</code> for optimum spacing. Labels in horizontal form require <code>.control-label</code> class.
 				</p>
 
-				<h5 class="m-t-lg with-border">Date : <?php 
+				<h5 class="m-t-lg with-border">
+				Date : <?php 
 				if($start_date==$end_date){
 					echo date("d-M-Y",strtotime($start_date));
 				}else{
@@ -101,7 +110,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 				$dept=Department::getOne($dept_id);
 				echo ", Department: ".$dept['name'] . ", ";
 				echo "Batch: ".$batch. " ";
-				?></h5>
+				?>
+					
+				</h5>
 
 				<div class="card-block">
 					<table id="example" class="display table table-striped table-bordered" cellspacing="0" width="100%">
@@ -115,6 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 							<th>Period 3</th>
 							<th>Period 4</th>
 							<th>Period 5</th>
+							<th>Remark</th>
 						</tr>
 						</thead>
 						<tfoot>
@@ -127,6 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 							<th>Period 3</th>
 							<th>Period 4</th>
 							<th>Period 5</th>
+							<th>Remark</th>
 						</tr>
 						</tfoot>
 						<tbody>
@@ -179,6 +192,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 										echo "<span class=\"font-icon font-icon-ok green\"></span>";
 									} else{
 										echo "<span class=\"font-icon font-icon-del red\"></span>";
+									}
+									echo "</td>";
+									echo "<td>";
+									$afternoon=0;
+									$fornoon=0;
+									if ($rep['p5']==1 && $rep['p4']==1) {
+										$afternoon=.5;
+									}
+									if ($rep['p1']==1 && $rep['p2']==1 && $rep['p3']==1 ) {
+										$fornoon=.5;
+									}
+									if ($afternoon+$fornoon==1) {
+ 										echo "<span class=\"remark green\">Present</span>";
+									} elseif($afternoon+$fornoon==.5){
+										echo "<span class=\"remark orange\">Half Day</span>";
+									}else{
+										echo "<span class=\"remark red\">Abscent</span>";
 									}
 									echo "</td>";
 															
