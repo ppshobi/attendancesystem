@@ -83,7 +83,21 @@
 		}
 		public static function getOne($id){
 			$db=new Db();
-			$sql="SELECT * FROM student WHERE id= $id LIMIT 1";
+			$sql="SELECT * FROM student WHERE id= '$id' LIMIT 1";
+			$rows=[];
+			$result=$db->query($sql);
+			if($result){
+				while ($r=mysqli_fetch_assoc($result)) {
+					array_push($rows, $r);
+				}
+				return $rows[0];
+			}
+			return false;
+			
+		}
+		public static function get_one_by_regno($regno){
+			$db=new Db();
+			$sql="SELECT * FROM student WHERE regno= '$regno' LIMIT 1";
 			$rows=[];
 			$result=$db->query($sql);
 			if($result){
