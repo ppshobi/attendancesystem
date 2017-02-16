@@ -19,5 +19,12 @@
 				echo "Its not a working day";
 			}
 		}
+
+		public static function generate_report_student($start_date,$end_date,$student_id,$dept_id){
+			$WD=new WorkingDay();
+			$working_days=$WD->getDeptWorkingDays($dept_id);
+			$attendance=Attendance::get_attendance_for_student($working_days,$student_id);
+			return $attendance;
+		}
 	}
 ?>
