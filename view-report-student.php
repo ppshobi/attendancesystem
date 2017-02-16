@@ -11,12 +11,17 @@ require_once('app/Student.php');
 require_once('app/Report.php');
 $att_report;
 $students;
+$start_date;
+$end_date;
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-stud-report'])) {
 	$start_date=date("Y-m-d",strtotime($_POST['start_date']));
 	$end_date=date("Y-m-d",strtotime($_POST['end_date']));
 	$reg_no=$_POST['reg_no'];
 	$student=Student::get_one_by_regno($reg_no);
 	$att_report=Report::generate_report_student($start_date,$end_date,$student['id'],$student['dept']);
+
+	var_dump($att_report);
+	die();
 }
 
 ?>
@@ -102,14 +107,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-stud-report'])) {
 
 				<h5 class="m-t-lg with-border" id="report-header">
 				Date : <?php 
-				if($start_date==$end_date){
-					echo date("d-M-Y",strtotime($start_date));
-				}else{
-					echo date("d-M-Y",strtotime($start_date)). " To " . date("d-M-Y",strtotime($end_date));
-				}
-				$dept=Department::getOne($dept_id);
-				echo ", Department: ".$dept['name'] . ", ";
-				echo "Batch: ".$batch. " ";
+				// if($start_date==$end_date){
+				// 	echo date("d-M-Y",strtotime($start_date));
+				// }else{
+				// 	echo date("d-M-Y",strtotime($start_date)). " To " . date("d-M-Y",strtotime($end_date));
+				// }
+				// $dept=Department::getOne($dept_id);
+				// echo ", Department: ".$dept['name'] . ", ";
+				// echo "Batch: ".$batch. " ";
 				?>
 					
 				</h5>
@@ -131,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-stud-report'])) {
 						</thead>
 						
 						<tbody>
-						<?php
+						<?php/*
 						if($students){
 							$count=1;
 							$present_count=0;
@@ -209,7 +214,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-stud-report'])) {
 		 						echo "</tr>";
 		 						$count++;
 	 						}
-						}
+						}*/
 						?>
 						
 						</tbody>

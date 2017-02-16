@@ -13,8 +13,8 @@
 			if ($WD->isWorkingDay($date,$dept_id)) {
 				$date_id=$WD->get_working_day_id($date,$dept_id);
 				$students=array_column(Student::get_all_by_dept_batch($dept_id,$batch), 'id');
-				$attendance=Attendance::get_attendance_for_date($date_id,$students);
-				return $attendance;
+				$report=Attendance::get_attendance_for_date($date_id,$students);
+				return $report;
 			}else{
 				echo "Its not a working day";
 			}
@@ -22,9 +22,9 @@
 
 		public static function generate_report_student($start_date,$end_date,$student_id,$dept_id){
 			$WD=new WorkingDay();
-			$working_days=$WD->getDeptWorkingDays($dept_id);
-			$attendance=Attendance::get_attendance_for_student($working_days,$student_id);
-			return $attendance;
+			$working_day_ids=array_column($WD->getDeptWorkingDays($dept_id), 'id');
+			$report=Attendance::get_attendance_for_student($working_day_ids,$student_id);
+			return $report;
 		}
 	}
 ?>

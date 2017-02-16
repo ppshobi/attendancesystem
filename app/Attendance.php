@@ -51,6 +51,22 @@
 			return $attendance;
 			
 		}
+
+		public static function get_attendance_for_student($working_day_ids,$student_id){
+			$db=new Db();
+			$attendance=array();
+			foreach ($working_day_ids as $date_id) {
+				$sql="SELECT * FROM attendance WHERE date_id='$date_id' AND student_id= '$student_id'";
+				$result=$db->query($sql);
+				if ($result) {
+					array_push($attendance, mysqli_fetch_assoc($result));
+				}else{
+					break;
+				}
+			}
+
+			return $attendance;
+		}
 		
 	}
 ?>
