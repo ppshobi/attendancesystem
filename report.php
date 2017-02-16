@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 				<div class="tbl">
 					<div class="tbl-row">
 						<div class="tbl-cell">
-							<h3>Add Student</h3>
+							<h3>Generate a Department Wise Report</h3>
 							<ol class="breadcrumb breadcrumb-simple">
 								<li><a href="#">StartUI</a></li>
 								<li><a href="#">Forms</a></li>
