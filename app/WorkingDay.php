@@ -55,7 +55,21 @@
 				return $rows;
 			}
 		}
-		
+
+		function get_dept_working_days_between_date($dept_id,$start,$end){
+			//return working days for a dept between a date range
+			$start=strtotime($start);
+			$end=strtotime($end);
+			$dept_working_days = $this->getDeptWorkingDays($dept_id);
+			$dates=array();
+			foreach ($dept_working_days as $day ) {
+			 	$date=strtotime($day['date']);
+			 	if ($date>$start && $date<$end ) {
+			 		array_push($dates, $day);
+			 	}
+			} 
+			return $dates;
+		}
 		function isWorkingDay($date,$dept_id){
 			$workingdays=array_column(self::getDeptWorkingDays($dept_id),'date');
 			if (in_array($date, $workingdays)) {
