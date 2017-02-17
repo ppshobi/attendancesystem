@@ -10,7 +10,7 @@ require_once('app/Department.php');
 require_once('app/Student.php');
 require_once('app/Report.php');
 $att_report;
-$students;
+$student;
 $start_date;
 $end_date;
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-stud-report'])) {
@@ -107,14 +107,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-stud-report'])) {
 
 				<h5 class="m-t-lg with-border" id="report-header">
 				Date : <?php 
-				// if($start_date==$end_date){
-				// 	echo date("d-M-Y",strtotime($start_date));
-				// }else{
-				// 	echo date("d-M-Y",strtotime($start_date)). " To " . date("d-M-Y",strtotime($end_date));
-				// }
-				// $dept=Department::getOne($dept_id);
-				// echo ", Department: ".$dept['name'] . ", ";
-				// echo "Batch: ".$batch. " ";
+				if($start_date==$end_date){
+					echo date("d-M-Y",strtotime($start_date));
+				}else{
+					echo date("d-M-Y",strtotime($start_date)). " To " . date("d-M-Y",strtotime($end_date));
+				}
+				$dept=Department::getOne($student['dept']);
+				echo ", Department: ".$dept['name'] . ", ";
+				echo "Batch: ".$student['batch']. " ";
 				?>
 					
 				</h5>
@@ -124,8 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-stud-report'])) {
 						<thead>
 						<tr>
 							<th>Sl.No</th>
-							<th>Student Name</th>
-							<th>Register No</th>
+							<th>Date</th>
 							<th>Period 1</th>
 							<th>Period 2</th>
 							<th>Period 3</th>
@@ -136,55 +135,51 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-stud-report'])) {
 						</thead>
 						
 						<tbody>
-						<?php/*
-						if($students){
-							$count=1;
-							$present_count=0;
+						<?php
+						$present_count=0;
 							$abscent_count=0;
 							$half_day_count=0;
-							foreach ($students as $student) {
-								$rep;
-								foreach ($att_report as $r) {
-									if ($student['id']==$r['student_id']) {
-										$rep=$r;
-										break;
-									}
+						if($att_report){
+							$count=1;
+							
+							foreach ($att_report as $r) {
+								$date=WorkingDay::get_date_by_id($r['date_id']);
+								if (!$date) {
+									$date="Attendance Was Not Marked";
 								}
-								
 								echo "<tr>";
 									echo "<td>" . $count ."</td>";
-									echo "<td>" . $student['name'] ."</td>";
-									echo "<td>" . $student['regno'] ."</td>";
+									echo "<td>" . $date ."</td>";
 									echo "<td>";
-									 if ($rep['p1']==1) {
+									 if ($r['p1']==1) {
 										echo "<span class=\"fa font-icon font-icon-ok green\"></span>";
 									} else{
 										echo "<span class=\"fa font-icon font-icon-del red\"></span>";
 									}
 									echo "</td>";
 									echo "<td>";
-									 if ($rep['p2']==1) {
+									 if ($r['p2']==1) {
 										echo "<span class=\"fa font-icon font-icon-ok green\"></span>";
 									} else{
 										echo "<span class=\"fa font-icon font-icon-del red\"></span>";
 									}
 									echo "</td>";
 									echo "<td>";
-									 if ($rep['p3']==1) {
+									 if ($r['p3']==1) {
 										echo "<span class=\"fa font-icon font-icon-ok green\"></span>";
 									} else{
 										echo "<span class=\"fa font-icon font-icon-del red\"></span>";
 									}
 									echo "</td>";
 									echo "<td>";
-									 if ($rep['p4']==1) {
+									 if ($r['p4']==1) {
 										echo "<span class=\"fa font-icon font-icon-ok green\"></span>";
 									} else{
 										echo "<span class=\"fa font-icon font-icon-del red\"></span>";
 									}
 									echo "</td>";
 									echo "<td>";
-									 if ($rep['p5']==1) {
+									 if ($r['p5']==1) {
 										echo "<span class=\"fa font-icon font-icon-ok green\"></span>";
 									} else{
 										echo "<span class=\"fa font-icon font-icon-del red\"></span>";
@@ -193,10 +188,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-stud-report'])) {
 									echo "<td>";
 									$afternoon=0;
 									$fornoon=0;
-									if ($rep['p5']==1 && $rep['p4']==1) {
+									if ($r['p5']==1 && $r['p4']==1) {
 										$afternoon=.5;
 									}
-									if ($rep['p1']==1 && $rep['p2']==1 && $rep['p3']==1 ) {
+									if ($r['p1']==1 && $r['p2']==1 && $r['p3']==1 ) {
 										$fornoon=.5;
 									}
 									if ($afternoon+$fornoon==1) {
@@ -214,15 +209,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-stud-report'])) {
 		 						echo "</tr>";
 		 						$count++;
 	 						}
-						}*/
+						}
 						?>
 						
 						</tbody>
 						<tfoot>
 						<tr>
 							<th>Sl.No</th>
-							<th>Student Name</th>
-							<th>Register No</th>
+							<th>Date</th>
 							<th>Period 1</th>
 							<th>Period 2</th>
 							<th>Period 3</th>
