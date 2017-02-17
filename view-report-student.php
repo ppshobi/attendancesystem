@@ -113,6 +113,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-stud-report'])) {
 					echo date("d-M-Y",strtotime($start_date)). " To " . date("d-M-Y",strtotime($end_date));
 				}
 				$dept=Department::getOne($student['dept']);
+				echo ", Name: ".$student['name'] . ", ";
+				echo ", Register No: ".$student['regno'] . ", ";
 				echo ", Department: ".$dept['name'] . ", ";
 				echo "Batch: ".$student['batch']. " ";
 				?>
@@ -137,8 +139,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-stud-report'])) {
 						<tbody>
 						<?php
 						$present_count=0;
-							$abscent_count=0;
-							$half_day_count=0;
+						$abscent_count=0;
+						$half_day_count=0;
 						if($att_report){
 							$count=1;
 							
