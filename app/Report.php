@@ -22,7 +22,8 @@
 
 		public static function generate_report_student($start_date,$end_date,$student_id,$dept_id){
 			$WD=new WorkingDay();
-			$working_day_ids=array_column($WD->getDeptWorkingDays($dept_id), 'id');
+
+			$working_day_ids=array_column($WD->get_dept_working_days_between_date($dept_id,$start_date,$end_date), 'id');
 			$report=Attendance::get_attendance_for_student($working_day_ids,$student_id);
 			return $report;
 		}
