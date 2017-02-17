@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="777d4467-8c6f-4590-a6d2-3da8e1fcc136" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/WorkingDay.php" afterPath="$PROJECT_DIR$/app/WorkingDay.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Report.php" afterPath="$PROJECT_DIR$/app/Report.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view-report-student.php" afterPath="$PROJECT_DIR$/view-report-student.php" />
     </list>
     <ignored path="attendance.iws" />
@@ -36,16 +36,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WorkingDay.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WorkingDay.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/WorkingDay.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="83" column="21" selection-start-line="83" selection-start-column="21" selection-end-line="83" selection-end-column="21" />
+            <state relative-caret-position="250">
+              <caret line="64" column="51" selection-start-line="64" selection-start-column="51" selection-end-line="64" selection-end-column="51" />
               <folding>
-                <marker date="1487345974170" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
-                <marker date="1487345974170" expanded="true" signature="1209:1277" placeholder="SELECT * FRO... workingdays" />
-                <marker date="1487345974170" expanded="true" signature="2053:2100" placeholder="SELECT * FRO... workingdays" />
-                <marker date="1487345974170" expanded="true" signature="2529:2592" placeholder="UPDATE worki... " />
+                <marker date="1487348323677" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
+                <marker date="1487348323677" expanded="true" signature="1209:1277" placeholder="SELECT * FRO... workingdays" />
+                <marker date="1487348323677" expanded="true" signature="1934:2100" placeholder="..." />
+                <marker date="1487348323677" expanded="true" signature="2162:2415" placeholder="..." />
+                <marker date="1487348323677" expanded="true" signature="2470:2813" placeholder="..." />
+                <marker date="1487348323677" expanded="true" signature="2497:2544" placeholder="SELECT * FRO... workingdays" />
+                <marker date="1487348323677" expanded="true" signature="2880:3129" placeholder="..." />
+                <marker date="1487348323677" expanded="true" signature="2973:3036" placeholder="UPDATE worki... " />
               </folding>
             </state>
           </provider>
@@ -55,24 +59,9 @@
         <entry file="file://$PROJECT_DIR$/view-report-student.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="260">
-              <caret line="151" column="65" selection-start-line="151" selection-start-column="65" selection-end-line="151" selection-end-column="65" />
+              <caret line="149" column="65" selection-start-line="149" selection-start-column="65" selection-end-line="149" selection-end-column="65" />
               <folding>
-                <marker date="1487346641194" expanded="true" signature="4660:6849" placeholder="..." />
-                <marker date="1487346641194" expanded="true" signature="4944:5028" placeholder="..." />
-                <marker date="1487346641194" expanded="true" signature="5035:5118" placeholder="..." />
-                <marker date="1487346641194" expanded="true" signature="5193:5277" placeholder="..." />
-                <marker date="1487346641194" expanded="true" signature="5284:5367" placeholder="..." />
-                <marker date="1487346641194" expanded="true" signature="5442:5526" placeholder="..." />
-                <marker date="1487346641194" expanded="true" signature="5533:5616" placeholder="..." />
-                <marker date="1487346641194" expanded="true" signature="5691:5775" placeholder="..." />
-                <marker date="1487346641194" expanded="true" signature="5782:5865" placeholder="..." />
-                <marker date="1487346641194" expanded="true" signature="5940:6024" placeholder="..." />
-                <marker date="1487346641194" expanded="true" signature="6031:6114" placeholder="..." />
-                <marker date="1487346641194" expanded="true" signature="6247:6282" placeholder="..." />
-                <marker date="1487346641194" expanded="true" signature="6342:6375" placeholder="..." />
-                <marker date="1487346641194" expanded="true" signature="6415:6517" placeholder="..." />
-                <marker date="1487346641194" expanded="true" signature="6551:6654" placeholder="..." />
-                <marker date="1487346641194" expanded="true" signature="6660:6758" placeholder="..." />
+                <marker date="1487347316118" expanded="true" signature="4719:6908" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -103,14 +92,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Report.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Report.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Report.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-              <folding>
-                <marker date="1487267224212" expanded="true" signature="295:438" placeholder="..." />
-              </folding>
+            <state relative-caret-position="286">
+              <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -161,8 +148,8 @@
         <option value="$PROJECT_DIR$/set-timetable.php" />
         <option value="$PROJECT_DIR$/mark-attendance.php" />
         <option value="$PROJECT_DIR$/view-report.php" />
-        <option value="$PROJECT_DIR$/app/WorkingDay.php" />
         <option value="$PROJECT_DIR$/app/Attendance.php" />
+        <option value="$PROJECT_DIR$/app/WorkingDay.php" />
       </list>
     </option>
   </component>
@@ -315,12 +302,12 @@
       <workItem from="1486285598202" duration="8694000" />
       <workItem from="1486391433548" duration="1803000" />
       <workItem from="1486996048598" duration="1668000" />
-      <workItem from="1487345040908" duration="1933000" />
+      <workItem from="1487345040908" duration="2762000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36644000" />
+    <option name="totallyTimeSpent" value="37473000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -396,7 +383,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="156" />
+      <option name="time" value="159" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -443,10 +430,14 @@
         <state relative-caret-position="704">
           <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
-            <marker date="1487345974170" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
-            <marker date="1487345974170" expanded="true" signature="1209:1277" placeholder="SELECT * FRO... workingdays" />
-            <marker date="1487345974170" expanded="true" signature="2053:2100" placeholder="SELECT * FRO... workingdays" />
-            <marker date="1487345974170" expanded="true" signature="2529:2592" placeholder="UPDATE worki... " />
+            <marker date="1487348323677" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
+            <marker date="1487348323677" expanded="true" signature="1209:1277" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1487348323677" expanded="true" signature="1934:2100" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2162:2415" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2470:2813" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2497:2544" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1487348323677" expanded="true" signature="2880:3129" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2973:3036" placeholder="UPDATE worki... " />
           </folding>
         </state>
       </provider>
@@ -485,10 +476,14 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1487345974170" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
-            <marker date="1487345974170" expanded="true" signature="1209:1277" placeholder="SELECT * FRO... workingdays" />
-            <marker date="1487345974170" expanded="true" signature="2053:2100" placeholder="SELECT * FRO... workingdays" />
-            <marker date="1487345974170" expanded="true" signature="2529:2592" placeholder="UPDATE worki... " />
+            <marker date="1487348323677" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
+            <marker date="1487348323677" expanded="true" signature="1209:1277" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1487348323677" expanded="true" signature="1934:2100" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2162:2415" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2470:2813" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2497:2544" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1487348323677" expanded="true" signature="2880:3129" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2973:3036" placeholder="UPDATE worki... " />
           </folding>
         </state>
       </provider>
@@ -505,10 +500,14 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1487345974170" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
-            <marker date="1487345974170" expanded="true" signature="1209:1277" placeholder="SELECT * FRO... workingdays" />
-            <marker date="1487345974170" expanded="true" signature="2053:2100" placeholder="SELECT * FRO... workingdays" />
-            <marker date="1487345974170" expanded="true" signature="2529:2592" placeholder="UPDATE worki... " />
+            <marker date="1487348323677" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
+            <marker date="1487348323677" expanded="true" signature="1209:1277" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1487348323677" expanded="true" signature="1934:2100" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2162:2415" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2470:2813" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2497:2544" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1487348323677" expanded="true" signature="2880:3129" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2973:3036" placeholder="UPDATE worki... " />
           </folding>
         </state>
       </provider>
@@ -525,10 +524,14 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1487345974170" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
-            <marker date="1487345974170" expanded="true" signature="1209:1277" placeholder="SELECT * FRO... workingdays" />
-            <marker date="1487345974170" expanded="true" signature="2053:2100" placeholder="SELECT * FRO... workingdays" />
-            <marker date="1487345974170" expanded="true" signature="2529:2592" placeholder="UPDATE worki... " />
+            <marker date="1487348323677" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
+            <marker date="1487348323677" expanded="true" signature="1209:1277" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1487348323677" expanded="true" signature="1934:2100" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2162:2415" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2470:2813" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2497:2544" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1487348323677" expanded="true" signature="2880:3129" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2973:3036" placeholder="UPDATE worki... " />
           </folding>
         </state>
       </provider>
@@ -545,10 +548,14 @@
         <state relative-caret-position="308">
           <caret line="14" column="76" selection-start-line="14" selection-start-column="76" selection-end-line="14" selection-end-column="76" />
           <folding>
-            <marker date="1487345974170" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
-            <marker date="1487345974170" expanded="true" signature="1209:1277" placeholder="SELECT * FRO... workingdays" />
-            <marker date="1487345974170" expanded="true" signature="2053:2100" placeholder="SELECT * FRO... workingdays" />
-            <marker date="1487345974170" expanded="true" signature="2529:2592" placeholder="UPDATE worki... " />
+            <marker date="1487348323677" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
+            <marker date="1487348323677" expanded="true" signature="1209:1277" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1487348323677" expanded="true" signature="1934:2100" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2162:2415" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2470:2813" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2497:2544" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1487348323677" expanded="true" signature="2880:3129" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2973:3036" placeholder="UPDATE worki... " />
           </folding>
         </state>
       </provider>
@@ -768,16 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Report.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-          <folding>
-            <marker date="1487267224212" expanded="true" signature="295:438" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view-report.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -789,24 +786,9 @@
     <entry file="file://$PROJECT_DIR$/view-report-student.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
-          <caret line="151" column="65" selection-start-line="151" selection-start-column="65" selection-end-line="151" selection-end-column="65" />
+          <caret line="149" column="65" selection-start-line="149" selection-start-column="65" selection-end-line="149" selection-end-column="65" />
           <folding>
-            <marker date="1487346641194" expanded="true" signature="4660:6849" placeholder="..." />
-            <marker date="1487346641194" expanded="true" signature="4944:5028" placeholder="..." />
-            <marker date="1487346641194" expanded="true" signature="5035:5118" placeholder="..." />
-            <marker date="1487346641194" expanded="true" signature="5193:5277" placeholder="..." />
-            <marker date="1487346641194" expanded="true" signature="5284:5367" placeholder="..." />
-            <marker date="1487346641194" expanded="true" signature="5442:5526" placeholder="..." />
-            <marker date="1487346641194" expanded="true" signature="5533:5616" placeholder="..." />
-            <marker date="1487346641194" expanded="true" signature="5691:5775" placeholder="..." />
-            <marker date="1487346641194" expanded="true" signature="5782:5865" placeholder="..." />
-            <marker date="1487346641194" expanded="true" signature="5940:6024" placeholder="..." />
-            <marker date="1487346641194" expanded="true" signature="6031:6114" placeholder="..." />
-            <marker date="1487346641194" expanded="true" signature="6247:6282" placeholder="..." />
-            <marker date="1487346641194" expanded="true" signature="6342:6375" placeholder="..." />
-            <marker date="1487346641194" expanded="true" signature="6415:6517" placeholder="..." />
-            <marker date="1487346641194" expanded="true" signature="6551:6654" placeholder="..." />
-            <marker date="1487346641194" expanded="true" signature="6660:6758" placeholder="..." />
+            <marker date="1487347316118" expanded="true" signature="4719:6908" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -826,14 +808,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/WorkingDay.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="83" column="21" selection-start-line="83" selection-start-column="21" selection-end-line="83" selection-end-column="21" />
+        <state relative-caret-position="250">
+          <caret line="64" column="51" selection-start-line="64" selection-start-column="51" selection-end-line="64" selection-end-column="51" />
           <folding>
-            <marker date="1487345974170" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
-            <marker date="1487345974170" expanded="true" signature="1209:1277" placeholder="SELECT * FRO... workingdays" />
-            <marker date="1487345974170" expanded="true" signature="2053:2100" placeholder="SELECT * FRO... workingdays" />
-            <marker date="1487345974170" expanded="true" signature="2529:2592" placeholder="UPDATE worki... " />
+            <marker date="1487348323677" expanded="true" signature="919:980" placeholder="INSERT INTO workingdays... " />
+            <marker date="1487348323677" expanded="true" signature="1209:1277" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1487348323677" expanded="true" signature="1934:2100" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2162:2415" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2470:2813" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2497:2544" placeholder="SELECT * FRO... workingdays" />
+            <marker date="1487348323677" expanded="true" signature="2880:3129" placeholder="..." />
+            <marker date="1487348323677" expanded="true" signature="2973:3036" placeholder="UPDATE worki... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Report.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>

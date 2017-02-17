@@ -19,9 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-stud-report'])) {
 	$reg_no=$_POST['reg_no'];
 	$student=Student::get_one_by_regno($reg_no);
 	$att_report=Report::generate_report_student($start_date,$end_date,$student['id'],$student['dept']);
-
-	//var_dump($att_report);
-	//die();
 }
 
 ?>
