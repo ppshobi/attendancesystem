@@ -86,7 +86,11 @@
 				while ($r=mysqli_fetch_assoc($result)) {
 					array_push($rows, $r);
 				}
-				return $rows[0]['date'];
+				if (sizeof($rows)==0) {
+					return false;
+				}else{
+					return date("d-m-Y",strtotime($rows[0]['date']));
+				}
 			}
 
 		}
