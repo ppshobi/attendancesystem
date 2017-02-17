@@ -58,10 +58,8 @@
 			foreach ($working_day_ids as $date_id) {
 				$sql="SELECT * FROM attendance WHERE date_id='$date_id' AND student_id= '$student_id'";
 				$result=$db->query($sql);
-				if ($result) {
+				if ($result && mysqli_num_rows($result)>0) {
 					array_push($attendance, mysqli_fetch_assoc($result));
-				}else{
-					break;
 				}
 			}
 
