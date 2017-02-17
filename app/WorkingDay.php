@@ -76,6 +76,21 @@
 			return false;
 
 		}
+		
+		public static function get_date_by_id($date_id){
+			$db=new Db();
+			$sql="SELECT * FROM workingdays WHERE id = '$date_id'";
+			$result=$db->query($sql);
+			$rows=[];
+			if ($result) {
+				while ($r=mysqli_fetch_assoc($result)) {
+					array_push($rows, $r);
+				}
+				return $rows[0]['date'];
+			}
+
+		}
+
 		public static function mark_non_workingday($date_id, $reason){
 			$db=new Db();
 			$date_id=$db->quote($date_id);
