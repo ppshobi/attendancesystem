@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 					<div class="form-group row">
 						<label for="student" class="col-sm-2 form-control-label">Enter Register Number</label>
 						<div class="col-sm-4">
-							<input type="text" name="reg_no" placeholder="Enter Resgister Number" class="form-control">
+							<input type="text" name="reg_no" placeholder="Enter Register Number" class="form-control">
 						</div>
 					</div>
 
@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 							
 							<div class="form-group">
 								<div class='input-group date'>
-									<input id="daterange2" type="text" name="start_date" value="10/24/2016" class="form-control">
+									<input id="daterange2" type="text" name="start_date" value="01/01/2017" class="form-control">
 									<span class="input-group-addon">
 										<i class="font-icon font-icon-calend"></i>
 									</span>
@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 							
 							<div class="form-group">
 								<div class='input-group date'>
-									<input id="daterange3" type="text" name="end_date" value="10/24/2016" class="form-control">
+									<input id="daterange3" type="text" name="end_date" value="03/31/2017" class="form-control">
 									<span class="input-group-addon">
 										<i class="font-icon font-icon-calend"></i>
 									</span>
