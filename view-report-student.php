@@ -13,6 +13,7 @@ $att_report;
 $student;
 $start_date;
 $end_date;
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-stud-report'])) {
 	$start_date=date("Y-m-d",strtotime($_POST['start_date']));
 	$end_date=date("Y-m-d",strtotime($_POST['end_date']));
@@ -20,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-stud-report'])) {
 	$student=Student::get_one_by_regno($reg_no);
 	$att_report=Report::generate_report_student($start_date,$end_date,$student['id'],$student['dept']);
 }
+
 
 ?>
 <!DOCTYPE html>
@@ -224,10 +226,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-stud-report'])) {
 							<th>Remark</th>
 						</tr>
 						<tr>
-							<td class="count" colspan="2">Total Today</td>
+							<td class="count" colspan="2">Total Days: <?php echo sizeof($att_report); ?></td>
 							<td class="count" colspan="2">Present Count :<?php echo $present_count; ?></td>
 							<td class="count" colspan="3">Half Day Count :<?php echo $half_day_count; ?></td>
 							<td class="count" colspan="2">Abscent Count : <?php echo $abscent_count; ?></td>
+						</tr>
+						<tr>
+							<td class="count" colspan="8">Attendance Percentage: <?php 
+
+								$total_days = sizeof($att_report);
+								$present=$present_count+(.5*$half_day_count);
+								$percentage=($present/$total_days)*100;
+								echo $percentage . "%";
+							?></td>
 						</tr>
 						</tfoot>
 					</table>
