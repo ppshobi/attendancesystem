@@ -164,7 +164,7 @@
                 <span class="lbl">Reports</span>
             </span>
             <ul>
-                <li><a href="#">Get Department Reports</a></li>
+                <li><a href="student-report.php">Get Student Report</a></li>
             </ul>
         </li>
        
