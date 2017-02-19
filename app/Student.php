@@ -104,7 +104,12 @@
 				while ($r=mysqli_fetch_assoc($result)) {
 					array_push($rows, $r);
 				}
-				return $rows[0];
+				if (sizeof($rows)>0) {
+					return $rows[0];
+				}else{
+					return false;
+				}
+				
 			}
 			return false;
 			

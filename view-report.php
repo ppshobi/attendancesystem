@@ -136,11 +136,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 						
 						<tbody>
 						<?php
-						if($students){
-							$count=1;
-							$present_count=0;
+						$present_count=0;
 							$abscent_count=0;
 							$half_day_count=0;
+						if($students && $att_report){
+							$count=1;
+							
 							foreach ($students as $student) {
 								$rep;
 								foreach ($att_report as $r) {
