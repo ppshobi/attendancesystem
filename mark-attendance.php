@@ -14,9 +14,10 @@ require_once('app/Student.php');
 require_once('app/Attendance.php');
 
 if(Auth::isteacher()){
-	if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['date'])) {
+	$today;
+	if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['att_date'])) {
 		$date = str_replace('/', '-', $_GET['att_date']);
-		$today = date('Y-m-d', strtotime($date));
+		$today = date("Y-m-d",strtotime($_GET['att_date']));
 	}elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$today=$_POST['att_date'];
 	}else{
