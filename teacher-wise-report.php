@@ -10,8 +10,10 @@ if(!Auth::isloggedin()){
 require_once('app/Student.php');
 require_once('app/Department.php');
 require_once('app/Report.php');
+require_once('app/Teacher.php');
 $message;
 $departments=Department::getAll();
+$teachers=Teacher::getAll();
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 	
 	$result=Student::add($_POST['name'], $_POST['regno'], $_POST['dept'],$_POST['batch']);
@@ -83,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 
 				<h5 class="m-t-lg with-border">Enter Details</h5>
 
-				<form method="post" id="student" action="view-report.php">
+				<form method="post" id="student" action="view-teacher-report.php">
 					<div class="form-group row">
 						<label for="Department" class="col-sm-2 form-control-label">Select Department</label>
 						<div class="col-sm-10">
@@ -96,7 +98,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 							</select>
 						</div>
 					</div>
-
+					<div class="form-group row">
+						<label for="Department" class="col-sm-2 form-control-label">Select Teacher</label>
+						<div class="col-sm-10">
+							<select name="teacher" id="teacher" class="select2">
+							 	<?php
+							 		foreach ($teachers as $teacher) {
+							 			echo "<option value=\"".$teacher['id']."\">".$teacher['name']."</option>";
+							 		}
+							 	?>	
+							</select>
+						</div>
+					</div>
 					<div class="form-group row">
 						<label for="date" class="col-sm-2 form-control-label">Pick Start Date</label>
 						<div class="col-sm-4">
