@@ -9,6 +9,7 @@ if(!Auth::isloggedin()){
 require_once('app/Department.php');
 require_once('app/Student.php');
 require_once('app/Report.php');
+require_once('app/Timetable.php');
 $att_report;
 $students;
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
@@ -18,6 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 	$dept_id=$_POST['dept'];
 	$batch=$_POST['batch'];
 	$students=Student::get_all_by_dept_batch($dept_id,$batch);
+
+	$period_count=Timetable::get_total_period_count_of_teacher_between_dates($teacher_id,$dept_id,$batch,$start_date,$end_date);
 	
 }
 
@@ -144,7 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 									echo "<td>" . $student['name'] ."</td>";
 									echo "<td>" . $student['regno'] ."</td>";
 									echo "<td>";
-											echo "Total Periods";
+											echo $period_count;
 									echo "</td>";
 									echo "<td>";
 											echo "Present";
