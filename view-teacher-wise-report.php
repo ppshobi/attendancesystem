@@ -10,23 +10,16 @@ require_once('app/Department.php');
 require_once('app/Student.php');
 require_once('app/Report.php');
 $att_report;
-$student;
-$start_date;
-$end_date;
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-stud-report'])) {
+$students;
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
+	$teacher_id=$_POST['teacher'];
 	$start_date=date("Y-m-d",strtotime($_POST['start_date']));
 	$end_date=date("Y-m-d",strtotime($_POST['end_date']));
-	$reg_no=$_POST['reg_no'];
-	$student=Student::get_one_by_regno($reg_no);
-	if ($student) {
-		$att_report=Report::generate_report_student($start_date,$end_date,$student['id'],$student['dept']);
-	}else{
-		die("Register Number Specified is not valid");
-	}
+	$dept_id=$_POST['dept'];
+	$batch=$_POST['batch'];
+	$students=Student::get_all_by_dept_batch($dept_id,$batch);
 	
 }
-
 
 ?>
 <!DOCTYPE html>
@@ -116,11 +109,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-stud-report'])) {
 				}else{
 					echo date("d-M-Y",strtotime($start_date)). " To " . date("d-M-Y",strtotime($end_date));
 				}
-				$dept=Department::getOne($student['dept']);
-				echo ", Name: ".$student['name'] . ", ";
-				echo ", Register No: ".$student['regno'] . ", ";
+				$dept=Department::getOne($dept_id);
 				echo ", Department: ".$dept['name'] . ", ";
-				echo "Batch: ".$student['batch']. " ";
+				echo "Batch: ".$batch. " ";
 				?>
 					
 				</h5>
@@ -130,86 +121,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-stud-report'])) {
 						<thead>
 						<tr>
 							<th>Sl.No</th>
-							<th>Date</th>
-							<th>Period 1</th>
-							<th>Period 2</th>
-							<th>Period 3</th>
-							<th>Period 4</th>
-							<th>Period 5</th>
-							<th>Remark</th>
+							<th>Student Name</th>
+							<th>Register No</th>
+							<th>Total Periods</th>
+							<th>Present Periods</th>
+							<th>Percentage</th>
 						</tr>
 						</thead>
 						
 						<tbody>
 						<?php
 						$present_count=0;
-						$abscent_count=0;
-						$half_day_count=0;
-						if($att_report){
+							$abscent_count=0;
+							$half_day_count=0;
+						if($students){
 							$count=1;
 							
-							foreach ($att_report as $r) {
-								$date=WorkingDay::get_date_by_id($r['date_id']);
-								if (!$date) {
-									$date="Attendance Was Not Marked";
-								}
+							foreach ($students as $student) {
+								
 								echo "<tr>";
 									echo "<td>" . $count ."</td>";
-									echo "<td>" . $date ."</td>";
+									echo "<td>" . $student['name'] ."</td>";
+									echo "<td>" . $student['regno'] ."</td>";
 									echo "<td>";
-									 if ($r['p1']==1) {
-										echo "<span class=\"fa font-icon font-icon-ok green\"></span>";
-									} else{
-										echo "<span class=\"fa font-icon font-icon-del red\"></span>";
-									}
+											echo "Total Periods";
 									echo "</td>";
 									echo "<td>";
-									 if ($r['p2']==1) {
-										echo "<span class=\"fa font-icon font-icon-ok green\"></span>";
-									} else{
-										echo "<span class=\"fa font-icon font-icon-del red\"></span>";
-									}
+											echo "Present";
 									echo "</td>";
 									echo "<td>";
-									 if ($r['p3']==1) {
-										echo "<span class=\"fa font-icon font-icon-ok green\"></span>";
-									} else{
-										echo "<span class=\"fa font-icon font-icon-del red\"></span>";
-									}
-									echo "</td>";
-									echo "<td>";
-									 if ($r['p4']==1) {
-										echo "<span class=\"fa font-icon font-icon-ok green\"></span>";
-									} else{
-										echo "<span class=\"fa font-icon font-icon-del red\"></span>";
-									}
-									echo "</td>";
-									echo "<td>";
-									 if ($r['p5']==1) {
-										echo "<span class=\"fa font-icon font-icon-ok green\"></span>";
-									} else{
-										echo "<span class=\"fa font-icon font-icon-del red\"></span>";
-									}
-									echo "</td>";
-									echo "<td>";
-									$afternoon=0;
-									$fornoon=0;
-									if ($r['p5']==1 && $r['p4']==1) {
-										$afternoon=.5;
-									}
-									if ($r['p1']==1 && $r['p2']==1 && $r['p3']==1 ) {
-										$fornoon=.5;
-									}
-									if ($afternoon+$fornoon==1) {
- 										echo "<span class=\"remark green\">Present</span>";
- 										$present_count++;
-									} elseif($afternoon+$fornoon==.5){
-										echo "<span class=\"remark orange\">Half Day</span>";
-										$half_day_count++;
-									}else{
-										echo "<span class=\"remark red\">Abscent</span>";
-										$abscent_count++;
-									}
+											echo "Percentage";
 									echo "</td>";
 															
 		 						echo "</tr>";
@@ -222,31 +163,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-stud-report'])) {
 						<tfoot>
 						<tr>
 							<th>Sl.No</th>
-							<th>Date</th>
-							<th>Period 1</th>
-							<th>Period 2</th>
-							<th>Period 3</th>
-							<th>Period 4</th>
-							<th>Period 5</th>
-							<th>Remark</th>
+							<th>Student Name</th>
+							<th>Register No</th>
+							<th>Total Periods</th>
+							<th>Present Periods</th>
+							<th>Percentage</th>
 						</tr>
 						<tr>
-							<td class="count" colspan="2">Total Days: <?php echo sizeof($att_report); ?></td>
+							<td class="count" colspan="2">Total Today</td>
 							<td class="count" colspan="2">Present Count :<?php echo $present_count; ?></td>
 							<td class="count" colspan="3">Half Day Count :<?php echo $half_day_count; ?></td>
 							<td class="count" colspan="2">Abscent Count : <?php echo $abscent_count; ?></td>
-						</tr>
-						<tr>
-							<td class="count" colspan="8">Attendance Percentage: <?php 
-
-								$total_days = sizeof($att_report);
-								$present=$present_count+(.5*$half_day_count);
-								if ($total_days!=0) {
-									$percentage=($present/$total_days)*100;
-								echo $percentage . "%";
-								}
-								
-							?></td>
 						</tr>
 						</tfoot>
 					</table>

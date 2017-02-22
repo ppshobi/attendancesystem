@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 
 				<h5 class="m-t-lg with-border">Enter Details</h5>
 
-				<form method="post" id="student" action="view-teacher-report.php">
+				<form method="post" id="student" action="view-teacher-wise-report.php">
 					<div class="form-group row">
 						<label for="Department" class="col-sm-2 form-control-label">Select Department</label>
 						<div class="col-sm-10">
@@ -116,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 							
 							<div class="form-group">
 								<div class='input-group date'>
-									<input id="daterange2" type="text" name="start_date" value="10/24/2016" class="form-control">
+									<input id="daterange2" type="text" name="start_date" value="12/01/2016" class="form-control">
 									<span class="input-group-addon">
 										<i class="font-icon font-icon-calend"></i>
 									</span>
@@ -131,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 							
 							<div class="form-group">
 								<div class='input-group date'>
-									<input id="daterange3" type="text" name="end_date" value="10/24/2016" class="form-control">
+									<input id="daterange3" type="text" name="end_date" value="03/31/2017" class="form-control">
 									<span class="input-group-addon">
 										<i class="font-icon font-icon-calend"></i>
 									</span>
@@ -201,8 +201,8 @@ if(mm<10) {
 
 today = mm+'/'+dd+'/'+yyyy;
 
-$('#daterange3').val(today);//seting todays value in datepicker
-$('#daterange2').val(today);//seting todays value in datepicker
+// $('#daterange3').val(today);//seting todays value in datepicker
+// $('#daterange2').val(today);//seting todays value in datepicker
 	
 
 </script>
