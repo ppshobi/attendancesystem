@@ -94,10 +94,12 @@
 					}
 				}
 			}
-			
-			var_dump($att_report);
-			die();
-			return $att_report;
+			$return_report=array();
+			//group by student id
+			foreach ($att_report as $report) {
+				$rtm[$report['student_id']][]=$report;
+			}
+			return $return_report;
 		}
 		
 	}
