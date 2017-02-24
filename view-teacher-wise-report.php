@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 	$students=Student::get_all_by_dept_batch($dept_id,$batch);
 
 	$period_count=Timetable::get_total_period_count_of_teacher_between_dates($teacher_id,$dept_id,$batch,$start_date,$end_date);
+	$present_count=Attendance::get_students_attendance_between_dates_for_a_teacher($students,$dept_id,$batch,$start_date,$end_date)
 	
 }
 

@@ -65,6 +65,14 @@
 
 			return $attendance;
 		}
+
+		public static function get_students_attendance_between_dates_for_a_teacher($students,$dept_id,$batch,$start_date,$end_date){
+			$working_days = new WorkingDay->get_dept_working_days_between_date($dept_id,$start_date,$end_date);
+			foreach ($working_days as $working_day) {
+				$day_time_table=self::getTimeTableForTeacher($teacher_id,date("D",strtotime($working_day['date'])));
+				$student_attendance=self::get_attendance_for_date($working_day['id'],$students)
+			}
+		}
 		
 	}
 ?>
