@@ -79,7 +79,7 @@
 			end loop
 
 			group the array by student id
-			return the report
+			return the reportg
 			*/
 
 			$WD=new WorkingDay();
@@ -111,7 +111,7 @@
 			$return_report=array();
 			//group by student id
 			foreach ($att_report as $report) {
-				$rtm[$report['student_id']][]=$report;
+				$return_report[$report['student_id']][]=$report;
 			}
 			return $return_report;
 		}
