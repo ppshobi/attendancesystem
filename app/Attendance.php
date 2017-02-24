@@ -68,6 +68,20 @@
 		}
 
 		public static function get_students_attendance_between_dates_for_a_teacher($students,$dept_id,$batch,$start_date,$end_date,$teacher_id){
+
+			/*
+			Grab working days between given dates
+			loopthrough each workingday
+				grab teacher timetable for that day
+				find all students attendance for that day
+				get only the attendance of the given teachers period
+				push it to an array
+			end loop
+
+			group the array by student id
+			return the report
+			*/
+
 			$WD=new WorkingDay();
 			$working_days = $WD->get_dept_working_days_between_date($dept_id,$start_date,$end_date);
 			$att_report=array();
