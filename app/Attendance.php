@@ -5,6 +5,7 @@
 	require_once('DB.php');
 	require_once('Student.php');
 	require_once('WorkingDay.php');
+	require_once('Timetable.php');
 	class Attendance
 	{
 		public static function mark_attendance($absentees, $date, $period, $dept, $batch){
@@ -66,12 +67,37 @@
 			return $attendance;
 		}
 
-		public static function get_students_attendance_between_dates_for_a_teacher($students,$dept_id,$batch,$start_date,$end_date){
-			$working_days = new WorkingDay->get_dept_working_days_between_date($dept_id,$start_date,$end_date);
+		public static function get_students_attendance_between_dates_for_a_teacher($students,$dept_id,$batch,$start_date,$end_date,$teacher_id){
+			$WD=new WorkingDay();
+			$working_days = $WD->get_dept_working_days_between_date($dept_id,$start_date,$end_date);
+			$att_report=array();
 			foreach ($working_days as $working_day) {
-				$day_time_table=self::getTimeTableForTeacher($teacher_id,date("D",strtotime($working_day['date'])));
-				$student_attendance=self::get_attendance_for_date($working_day['id'],$students)
+				$day_time_table=Timetable::getTimeTableForTeacher($teacher_id,date("D",strtotime($working_day['date'])));
+				$student_attendance=self::get_attendance_for_date($working_day['id'],array_column($students, 'id'));
+
+				foreach ($day_time_table as $period) {
+					if ($period['dept']==$dept_id && $period['batch']==$batch) {
+						$period_variable="p".$period['period'];
+						if (!empty(array_filter($student_attendance))) {
+							foreach ($student_attendance as $attend) {
+								$attendance=array(
+									'student_id' => $attend['student_id'],
+									'date_id' => $attend['date_id'] , 
+									'period' => $period_variable, 
+									'attedance' => $attend[$period_variable]
+								);
+								array_push($att_report, $attendance);
+							}	
+						}
+											
+						
+					}
+				}
 			}
+			
+			var_dump($att_report);
+			die();
+			return $att_report;
 		}
 		
 	}
