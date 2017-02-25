@@ -22,7 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reg_no'])) {
 	if ($student) {
 		$att_report=Report::generate_report_student($start_date,$end_date,$student['id'],$student['dept']);
 	}else{
-		die("Register Number Specified is not valid");
+		$att_report=false;
+		
 	}
 	
 }
@@ -116,11 +117,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reg_no'])) {
 				}else{
 					echo date("d-M-Y",strtotime($start_date)). " To " . date("d-M-Y",strtotime($end_date));
 				}
-				$dept=Department::getOne($student['dept']);
-				echo ", Name: ".$student['name'] . ", ";
-				echo ", Register No: ".$student['regno'] . ", ";
-				echo ", Department: ".$dept['name'] . ", ";
-				echo "Batch: ".$student['batch']. " ";
+				if ($student) {
+					$dept=Department::getOne($student['dept']);
+					echo ", Name: ".$student['name'] . ", ";
+					echo ", Register No: ".$student['regno'] . ", ";
+					echo ", Department: ".$dept['name'] . ", ";
+					echo "Batch: ".$student['batch']. " ";
+				}else{
+					echo "<span class=\"red\">Invalid Register No.</span>"	;
+				}
+				
 				?>
 					
 				</h5>
@@ -215,6 +221,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reg_no'])) {
 		 						echo "</tr>";
 		 						$count++;
 	 						}
+						}else{
+							echo "Register No. Given is not valid";
 						}
 						?>
 						

@@ -22,7 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 
 	$period_count=Timetable::get_total_period_count_of_teacher_between_dates($teacher_id,$dept_id,$batch,$start_date,$end_date);
 	$att_report=Attendance::generate_attendance_count(Attendance::get_students_attendance_between_dates_for_a_teacher($students,$dept_id,$batch,$start_date,$end_date,$teacher_id));
-	echo "abc";
 }
 
 ?>
