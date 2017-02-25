@@ -10,17 +10,7 @@ if(!Auth::isloggedin()){
 require_once('app/Student.php');
 require_once('app/Department.php');
 require_once('app/Report.php');
-$message;
 $departments=Department::getAll();
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
-	
-	$result=Student::add($_POST['name'], $_POST['regno'], $_POST['dept'],$_POST['batch']);
-	if ($result) {
-		$message=true;
-	}else{
-		$message=false;
-	}
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Generate Report</title>
+	<title>Generate Report Department</title>
 
 	<link href="img/favicon.144x144.png" rel="apple-touch-icon" type="image/png" sizes="144x144">
 	<link href="img/favicon.114x114.png" rel="apple-touch-icon" type="image/png" sizes="114x114">
@@ -111,22 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 							</div>
 						
 						</div>
-					</div>		
-					<div class="form-group row">
-						<label for="date" class="col-sm-2 form-control-label">Pick End Date</label>
-						<div class="col-sm-4">
-							
-							<div class="form-group">
-								<div class='input-group date'>
-									<input id="daterange3" type="text" name="end_date" value="10/24/2016" class="form-control">
-									<span class="input-group-addon">
-										<i class="font-icon font-icon-calend"></i>
-									</span>
-								</div>
-							</div>
-						
-						</div>
-					</div>		
+					</div>			
 					<div class="form-group row">
 						<label for="Batch" class="col-sm-2 form-control-label">Select Batch</label>
 						<div class="col-sm-10">
@@ -167,10 +142,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 				singleDatePicker: true,
 				showDropdowns: true
 	});
-	$('#daterange3').daterangepicker({
-				singleDatePicker: true,
-				showDropdowns: true
-	});
 
 	//setting start and end date as today
 var today = new Date();
@@ -188,7 +159,6 @@ if(mm<10) {
 
 today = mm+'/'+dd+'/'+yyyy;
 
-$('#daterange3').val(today);//seting todays value in datepicker
 $('#daterange2').val(today);//seting todays value in datepicker
 	
 
