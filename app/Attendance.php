@@ -150,6 +150,18 @@
 
 			return $attendance_count;
 		}
+
+
+		public static function get_working_day_count_with_entry_in_attendance($working_day_ids){
+			
+			$working_day_count=0;
+			foreach ($working_day_ids as $id) {
+				if (self::has_entry_for_date($id)) {
+					$working_day_count++;
+				}
+			}
+			return $working_day_count;
+		}
 		
 	}
 ?>
