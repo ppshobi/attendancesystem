@@ -64,7 +64,7 @@
 			$dates=array();
 			foreach ($dept_working_days as $day ) {
 			 	$date=strtotime($day['date']);
-			 	if ($date>$start && $date<$end ) {
+			 	if ($date>=$start && $date<=$end ) {
 			 		array_push($dates, $day);
 			 	}
 			} 
