@@ -52,6 +52,22 @@
 			return $attendance;
 			
 		}
+		public static function has_entry_for_date($date_id){
+			$db=new Db();
+			$sql="SELECT DISTINCT 'date_id' FROM attendance";
+			$result = $db->query($sql);
+
+			if ($result) {
+				while ($r=mysqli_fetch_assoc($result)) {
+					$date_ids=array();
+					array_push($date_ids, $r);
+				}
+				if (in_array($date_id, $date_ids)) {
+					return true;
+				}
+			}
+			return false;
+		}
 
 		public static function get_attendance_for_student($working_day_ids,$student_id){
 			$db=new Db();
