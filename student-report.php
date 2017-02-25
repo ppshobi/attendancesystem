@@ -10,17 +10,7 @@ if(!Auth::isloggedin()){
 require_once('app/Student.php');
 require_once('app/Department.php');
 require_once('app/Report.php');
-$message;
-$departments=Department::getAll();
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
-	
-	$result=Student::add($_POST['name'], $_POST['regno'], $_POST['dept'],$_POST['batch']);
-	if ($result) {
-		$message=true;
-	}else{
-		$message=false;
-	}
-}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Generate Report</title>
+	<title>Generate Report For a Single Student</title>
 
 	<link href="img/favicon.144x144.png" rel="apple-touch-icon" type="image/png" sizes="144x144">
 	<link href="img/favicon.114x114.png" rel="apple-touch-icon" type="image/png" sizes="114x114">
@@ -84,10 +74,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 				<h5 class="m-t-lg with-border">Enter Details</h5>
 
 				<form method="post" id="student" action="view-report-student.php">
+					
 					<div class="form-group row">
 						<label for="student" class="col-sm-2 form-control-label">Enter Register Number</label>
 						<div class="col-sm-4">
-							<input type="text" name="reg_no" placeholder="Enter Register Number" class="form-control">
+							<input type="text" name="reg_no" data-validation="[NOTEMPTY,MIXED,TRIM]" data-validation-message="Register No. Cant be empty. No special characters allowed." id="regno" placeholder="Enter Register Number" class="form-control">
 						</div>
 					</div>
 
@@ -144,11 +135,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 
 	<script src="js/lib/bootstrap-sweetalert/sweetalert.min.js"></script>
 	<script type="text/javascript" src="js/lib/moment/moment-with-locales.min.js"></script>
-		<script src="js/lib/daterangepicker/daterangepicker.js"></script>
+	<script src="js/lib/html5-form-validation/jquery.validation.min.js"></script>
+	<script src="js/lib/daterangepicker/daterangepicker.js"></script>
 
 	<script type="text/javascript">
 	
-	
+		
 	$('#daterange2').daterangepicker({
 				singleDatePicker: true,
 				showDropdowns: true
@@ -158,26 +150,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 				showDropdowns: true
 	});
 
-	//setting start and end date as today
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-var yyyy = today.getFullYear();
+		//setting start and end date as today
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //January is 0!
+	var yyyy = today.getFullYear();
 
-if(dd<10) {
-    dd='0'+dd
-} 
+	if(dd<10) {
+	    dd='0'+dd
+	} 
 
-if(mm<10) {
-    mm='0'+mm
-} 
+	if(mm<10) {
+	    mm='0'+mm
+	} 
 
-today = mm+'/'+dd+'/'+yyyy;
+	today = mm+'/'+dd+'/'+yyyy;
 
-$('#daterange3').val(today);//seting todays value in datepicker
-$('#daterange2').val(today);//seting todays value in datepicker
-	
-
+	$('#daterange3').val(today);//seting todays value in datepicker
+	$('#daterange2').val(today);//seting todays value in datepicker
+		
+ //Validation
+ //===========
+$(function() {
+  	$('#student').validate({
+		submit: {
+			settings: {
+				inputContainer: '.form-group',
+				errorListClass: 'form-tooltip-error'
+			}
+		}
+	});
+});
 </script>
 <script src="js/app.js"></script>
 </body>
