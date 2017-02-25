@@ -73,7 +73,7 @@ $departments=Department::getAll();
 
 				<h5 class="m-t-lg with-border">Enter Details</h5>
 
-				<form method="post" id="student" action="view-report.php">
+				<form method="post" id="student" action="view-report-department.php">
 					<div class="form-group row">
 						<label for="Department" class="col-sm-2 form-control-label">Select Department</label>
 						<div class="col-sm-10">
