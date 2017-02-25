@@ -166,8 +166,8 @@ require_once('app/Report.php');
 
 	today = mm+'/'+dd+'/'+yyyy;
 
-	$('#daterange3').val(today);//seting todays value in datepicker
-	$('#daterange2').val(today);//seting todays value in datepicker
+	//$('#daterange3').val(today);//seting todays value in datepicker
+	//$('#daterange2').val(today);//seting todays value in datepicker
 		
  //Validation
  //===========

@@ -14,10 +14,10 @@ $student;
 $start_date;
 $end_date;
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-stud-report'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reg_no'])) {
 	$start_date=date("Y-m-d",strtotime($_POST['start_date']));
 	$end_date=date("Y-m-d",strtotime($_POST['end_date']));
-	$reg_no=$_POST['reg_no'];
+	$reg_no=strtoupper($_POST['reg_no']);
 	$student=Student::get_one_by_regno($reg_no);
 	if ($student) {
 		$att_report=Report::generate_report_student($start_date,$end_date,$student['id'],$student['dept']);
