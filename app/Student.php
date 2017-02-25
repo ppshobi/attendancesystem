@@ -97,10 +97,10 @@
 		}
 		public static function get_one_by_regno($regno){
 			$db=new Db();
-			$sql="SELECT * FROM student WHERE regno= '$regno' LIMIT 1";
+			$sql="SELECT * FROM student WHERE regno = '$regno' LIMIT 1";
 			$rows=[];
 			$result=$db->query($sql);
-			if($result){
+			if($result && mysqli_num_rows($result)>0){
 				while ($r=mysqli_fetch_assoc($result)) {
 					array_push($rows, $r);
 				}
@@ -110,8 +110,10 @@
 					return false;
 				}
 				
+			}else{
+				return false;
 			}
-			return false;
+			
 			
 		}
 		public static function delete($id){
