@@ -85,7 +85,7 @@
                 <span class="lbl">Reports</span>
             </span>
             <ul>
-                <li><a href="report.php?dept">Get Department Wise Report</a></li>
+                <li><a href="report-department.php">Get Department Wise Report</a></li>
                 <li><a href="teacher-wise-report.php">Get Teacher Wise Report</a></li>
                 <li><a href="student-report.php">Get Student Report</a></li>
             </ul>
