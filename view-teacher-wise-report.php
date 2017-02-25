@@ -228,6 +228,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 						    canvas: false               
 						        
 						});
+						swal({
+							title: "Done",
+							text: "The Report is On the Way :)",
+							type: "success",
+							confirmButtonClass: "btn-success"
+						});
 						
 					} else {
 						swal({

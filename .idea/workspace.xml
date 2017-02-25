@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="777d4467-8c6f-4590-a6d2-3da8e1fcc136" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view-teacher-wise-report.php" afterPath="$PROJECT_DIR$/view-teacher-wise-report.php" />
     </list>
     <ignored path="attendance.iws" />
@@ -25,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="view-teacher-wise-report.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="view-teacher-wise-report.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view-teacher-wise-report.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="58">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -49,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Attendance.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Attendance.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Attendance.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+            <state relative-caret-position="86">
+              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
               <folding>
                 <marker date="1488031904027" expanded="true" signature="678:817" placeholder="INSERT INTO attendance... " />
                 <marker date="1488031904027" expanded="true" signature="842:980" placeholder="INSERT INTO attendance... " />
@@ -243,12 +242,12 @@
       <workItem from="1487576299922" duration="475000" />
       <workItem from="1487780374313" duration="346000" />
       <workItem from="1487961404310" duration="4521000" />
-      <workItem from="1488015846120" duration="1923000" />
+      <workItem from="1488015846120" duration="2532000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46198000" />
+    <option name="totallyTimeSpent" value="46807000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -728,20 +727,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Attendance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding>
-            <marker date="1488031904027" expanded="true" signature="678:817" placeholder="INSERT INTO attendance... " />
-            <marker date="1488031904027" expanded="true" signature="842:980" placeholder="INSERT INTO attendance... " />
-            <marker date="1488031904027" expanded="true" signature="1290:1366" placeholder="SELECT * FRO... attendance" />
-            <marker date="1488031904027" expanded="true" signature="1635:1674" placeholder="SELECT DISTI... attendance" />
-            <marker date="1488031904027" expanded="true" signature="2153:2232" placeholder="SELECT * FRO... attendance" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Timetable.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -756,9 +741,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view-teacher-wise-report.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="58">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Attendance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding>
+            <marker date="1488031904027" expanded="true" signature="678:817" placeholder="INSERT INTO attendance... " />
+            <marker date="1488031904027" expanded="true" signature="842:980" placeholder="INSERT INTO attendance... " />
+            <marker date="1488031904027" expanded="true" signature="1290:1366" placeholder="SELECT * FRO... attendance" />
+            <marker date="1488031904027" expanded="true" signature="1635:1674" placeholder="SELECT DISTI... attendance" />
+            <marker date="1488031904027" expanded="true" signature="2153:2232" placeholder="SELECT * FRO... attendance" />
+          </folding>
         </state>
       </provider>
     </entry>
