@@ -5,23 +5,12 @@ require_once('app/Auth.php');
 if(!Auth::isloggedin()){
 	Auth::redirect('login.php');
 }
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['backup'])){
+	$db=new Db();
+	$backup_file  = "attendance.sql";
+	$db->backup($backup_file);
+   
 
-require_once('app/Department.php');
-require_once('app/Student.php');
-require_once('app/Report.php');
-require_once('app/Timetable.php');
-$att_report;
-$students;
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
-	$teacher_id=$_POST['teacher'];
-	$start_date=date("Y-m-d",strtotime($_POST['start_date']));
-	$end_date=date("Y-m-d",strtotime($_POST['end_date']));
-	$dept_id=$_POST['dept'];
-	$batch=$_POST['batch'];
-	$students=Student::get_all_by_dept_batch($dept_id,$batch);
-
-	$period_count=Timetable::get_total_period_count_of_teacher_between_dates($teacher_id,$dept_id,$batch,$start_date,$end_date);
-	$att_report=Attendance::generate_attendance_count(Attendance::get_students_attendance_between_dates_for_a_teacher($students,$dept_id,$batch,$start_date,$end_date,$teacher_id));
 }
 
 ?>
@@ -101,94 +90,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 			</header>
 
 			<div class="box-typical box-typical-padding">
-				<p>
-					Examples of standard form controls supported in an example form layout. Individual form controls automatically receive some global styling. All textual <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, and <code>&lt;select&gt</code>; elements with <code>.form-control</code> are set to <code>width: 100%;</code> by default. Wrap labels and controls in <code>.form-group</code> for optimum spacing. Labels in horizontal form require <code>.control-label</code> class.
-				</p>
-
-				<h5 class="m-t-lg with-border" id="report-header">
-				Date : <?php 
-				if($start_date==$end_date){
-					echo date("d-M-Y",strtotime($start_date));
-				}else{
-					echo date("d-M-Y",strtotime($start_date)). " To " . date("d-M-Y",strtotime($end_date));
-				}
-				$dept=Department::getOne($dept_id);
-				echo ", Department: ".$dept['name'] . ", ";
-				echo "Batch: ".$batch. " ";
-				?>
-					
-				</h5>
-
-				<div class="card-block">
-					<table id="report" class="display table table-striped table-bordered" cellspacing="0" width="100%">
-						<thead>
-						<tr>
-							<th>Sl.No</th>
-							<th>Student Name</th>
-							<th>Register No</th>
-							<th>Total Periods</th>
-							<th>Present Periods</th>
-							<th>Absent Periods</th>
-							<th>Percentage</th>
-						</tr>
-						</thead>
-						
-						<tbody>
-						<?php
-						
-						if($students){
-							$count=1;
-							
-							foreach ($students as $student) {
-								$att_data=$att_report[$student['id']];
-								echo "<tr>";
-									echo "<td>" . $count ."</td>";
-									echo "<td>" . $student['name'] ."</td>";
-									echo "<td>" . $student['regno'] ."</td>";
-									echo "<td>";
-											echo $period_count;
-									echo "</td>";
-									echo "<td>";
-											echo $att_data['present'];
-									echo "</td>";
-									echo "<td>";
-											echo $att_data['absent'];
-									echo "</td>";
-									echo "<td>";
-										$percent=($att_data['present']/$period_count) * 100;
-										if ($percent<75) {
-											echo "<span class=\"remark red\">".$percent."%</span>";
-										}else{
-											echo "<span class=\"remark green\">".$percent."%</span>";
-										}
-										
-									echo "</td>";
-															
-		 						echo "</tr>";
-		 						$count++;
-	 						}
-						}
-						?>
-						
-						</tbody>
-						<tfoot>
-						<tr>
-							<th>Sl.No</th>
-							<th>Student Name</th>
-							<th>Register No</th>
-							<th>Total Periods</th>
-							<th>Present Periods</th>
-							<th>Absent Periods</th>
-							<th>Percentage</th>
-						</tr>
-						
-						</tfoot>
-					</table>
-					<div class="col-sm-10">
-							<button type="submit" name="print" class="btn btn-inline btn-success-outline swal-btn-success">Print Report</button>
-					</div>
-				</div>
-
+				<form method="post">
+					<button name="backup" class="btn btn-success" type="submit">Download Backup</button>
+				</form>
 			</div><!--.box-typical-->
 		</div><!--.container-fluid-->
 	</div><!--.page-content-->

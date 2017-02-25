@@ -99,7 +99,7 @@
             <ul>
                 <li><a href="#">Year Change</a></li>
                 <li><a href="semester-change.php">Semester change</a></li>
-                <li><a href="#">Backup</a></li>
+                <li><a href="backup.php">Backup</a></li>
                 
             </ul>
         </li>

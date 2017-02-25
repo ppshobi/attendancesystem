@@ -33,6 +33,13 @@ class Db
 		return self::$connection->insert_id;
 	}
 
+	function backup($filename){
+		$table_name="attendance";
+		$sql = "SELECT * INTO OUTFILE '$filename' FROM $table_name";
+		$result=$this->query($sql);
+   
+	}
+
 	  
 }
 
