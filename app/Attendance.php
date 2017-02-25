@@ -54,14 +54,15 @@
 		}
 		public static function has_entry_for_date($date_id){
 			$db=new Db();
-			$sql="SELECT DISTINCT 'date_id' FROM attendance";
+			$sql="SELECT DISTINCT date_id FROM attendance";
 			$result = $db->query($sql);
 
 			if ($result) {
+				$date_ids=array();
 				while ($r=mysqli_fetch_assoc($result)) {
-					$date_ids=array();
 					array_push($date_ids, $r);
 				}
+				$date_ids=array_column($date_ids, 'date_id');
 				if (in_array($date_id, $date_ids)) {
 					return true;
 				}
@@ -118,8 +119,7 @@
 								);
 								array_push($att_report, $attendance);
 							}	
-						}
-											
+						} 					
 						
 					}
 				}
