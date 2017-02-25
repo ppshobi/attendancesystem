@@ -115,7 +115,7 @@
 									'student_id' => $attend['student_id'],
 									'date_id' => $attend['date_id'] , 
 									'period' => $period_variable, 
-									'attedance' => $attend[$period_variable]
+									'attendance' => $attend[$period_variable]
 								);
 								array_push($att_report, $attendance);
 							}	
@@ -130,6 +130,25 @@
 				$return_report[$report['student_id']][]=$report;
 			}
 			return $return_report;
+		}
+
+
+		public static function generate_attendance_count($att_report){
+			$attendance_count=array();
+			foreach ($att_report as $student_id => $attendance) {
+				$present=0;
+				$absent=0;
+				foreach ($attendance as $report) {
+					if ($report['attendance']==1) {
+						$present++;
+					}else{
+						$absent++;
+					}
+				}
+				$attendance_count[$student_id]=array('present' => $present, 'absent' => $absent);
+			}
+
+			return $attendance_count;
 		}
 		
 	}
