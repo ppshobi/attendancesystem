@@ -9,15 +9,19 @@ if(!Auth::isloggedin()){
 require_once('app/Department.php');
 require_once('app/Student.php');
 require_once('app/Report.php');
+require_once('app/WorkingDay.php');
 $att_report;
 $students;
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
+	$WD=new WorkingDay();
 	$start_date=date("Y-m-d",strtotime($_POST['start_date']));
 	$end_date=date("Y-m-d",strtotime($_POST['end_date']));
 	$dept_id=$_POST['dept'];
 	$batch=$_POST['batch'];
+	$working_day_ids=array_column($WD->get_dept_working_days_between_date($dept_id,$start_date,$end_date), 'id');
+	$working_day_count=Attendance::get_working_day_count_with_entry_in_attendance($working_day_ids);
 	$att_report=Report::generate_batch_wise_report($start_date,$end_date,$dept_id,$batch);
-
+	$students=Student::get_all_by_dept_batch($dept_id,$batch);
 }
 
 ?>
@@ -103,9 +107,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 
 				<h5 class="m-t-lg with-border" id="report-header">
 				Date : <?php 
-				
+				if($start_date==$end_date){
 					echo date("d-M-Y",strtotime($start_date));
-				
+				}else{
+					echo date("d-M-Y",strtotime($start_date)). " To " . date("d-M-Y",strtotime($end_date));
+				}
 				$dept=Department::getOne($dept_id);
 				echo ", Department: ".$dept['name'] . ", ";
 				echo "Batch: ".$batch. " ";
@@ -120,90 +126,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 							<th>Sl.No</th>
 							<th>Student Name</th>
 							<th>Register No</th>
-							<th>Period 1</th>
-							<th>Period 2</th>
-							<th>Period 3</th>
-							<th>Period 4</th>
-							<th>Period 5</th>
-							<th>Remark</th>
+							<th>Total Days</th>
+							<th>Present Days</th>
+							<th>Half Days</th>
+							<th>Absent Days</th>
+							<th>Percentage</th>
 						</tr>
 						</thead>
 						
 						<tbody>
 						<?php
-						$present_count=0;
-							$abscent_count=0;
-							$half_day_count=0;
-						if($students && $att_report){
+						
+						if($students){
 							$count=1;
 							
 							foreach ($students as $student) {
-								$rep;
-								foreach ($att_report as $r) {
-									if ($student['id']==$r['student_id']) {
-										$rep=$r;
-										break;
-									}
-								}
-								
+								$att_data=$att_report[$student['id']];
 								echo "<tr>";
 									echo "<td>" . $count ."</td>";
 									echo "<td>" . $student['name'] ."</td>";
 									echo "<td>" . $student['regno'] ."</td>";
 									echo "<td>";
-									 if ($rep['p1']==1) {
-										echo "<span class=\"fa font-icon font-icon-ok green\"></span>";
-									} else{
-										echo "<span class=\"fa font-icon font-icon-del red\"></span>";
-									}
+											echo $working_day_count;
 									echo "</td>";
 									echo "<td>";
-									 if ($rep['p2']==1) {
-										echo "<span class=\"fa font-icon font-icon-ok green\"></span>";
-									} else{
-										echo "<span class=\"fa font-icon font-icon-del red\"></span>";
-									}
+											echo $att_data['present_count'];
 									echo "</td>";
 									echo "<td>";
-									 if ($rep['p3']==1) {
-										echo "<span class=\"fa font-icon font-icon-ok green\"></span>";
-									} else{
-										echo "<span class=\"fa font-icon font-icon-del red\"></span>";
-									}
+											echo $att_data['halfday_count'];
 									echo "</td>";
 									echo "<td>";
-									 if ($rep['p4']==1) {
-										echo "<span class=\"fa font-icon font-icon-ok green\"></span>";
-									} else{
-										echo "<span class=\"fa font-icon font-icon-del red\"></span>";
-									}
+											echo $att_data['absent_count'];
 									echo "</td>";
 									echo "<td>";
-									 if ($rep['p5']==1) {
-										echo "<span class=\"fa font-icon font-icon-ok green\"></span>";
-									} else{
-										echo "<span class=\"fa font-icon font-icon-del red\"></span>";
-									}
-									echo "</td>";
-									echo "<td>";
-									$afternoon=0;
-									$fornoon=0;
-									if ($rep['p5']==1 && $rep['p4']==1) {
-										$afternoon=.5;
-									}
-									if ($rep['p1']==1 && $rep['p2']==1 && $rep['p3']==1 ) {
-										$fornoon=.5;
-									}
-									if ($afternoon+$fornoon==1) {
- 										echo "<span class=\"remark green\">Present</span>";
- 										$present_count++;
-									} elseif($afternoon+$fornoon==.5){
-										echo "<span class=\"remark orange\">Half Day</span>";
-										$half_day_count++;
-									}else{
-										echo "<span class=\"remark red\">Abscent</span>";
-										$abscent_count++;
-									}
+										$total_present=$att_data['present_count']+(.5*$att_data['halfday_count']);
+											echo ($total_present/$working_day_count) * 100 . "%";
 									echo "</td>";
 															
 		 						echo "</tr>";
@@ -214,23 +171,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 						
 						</tbody>
 						<tfoot>
-						<tr>
-							<th>Sl.No</th>
+						<th>Sl.No</th>
 							<th>Student Name</th>
 							<th>Register No</th>
-							<th>Period 1</th>
-							<th>Period 2</th>
-							<th>Period 3</th>
-							<th>Period 4</th>
-							<th>Period 5</th>
-							<th>Remark</th>
-						</tr>
-						<tr>
-							<td class="count" colspan="2">Total Today</td>
-							<td class="count" colspan="2">Present Count :<?php echo $present_count; ?></td>
-							<td class="count" colspan="3">Half Day Count :<?php echo $half_day_count; ?></td>
-							<td class="count" colspan="2">Abscent Count : <?php echo $abscent_count; ?></td>
-						</tr>
+							<th>Total Days</th>
+							<th>Present Days</th>
+							<th>Half Days</th>
+							<th>Absent Days</th>
+							<th>Percentage</th>
+						
 						</tfoot>
 					</table>
 					<div class="col-sm-10">
@@ -281,6 +230,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 						    formValues: true ,           
 						    canvas: false               
 						        
+						});
+						swal({
+							title: "Done",
+							text: "The Report is On the Way :)",
+							type: "success",
+							confirmButtonClass: "btn-success"
 						});
 						
 					} else {

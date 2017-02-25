@@ -19,7 +19,7 @@
 		}
 
 		public static function generate_batch_wise_report($start,$end,$dept_id,$batch){
-			
+
 			$WD=new WorkingDay();
 			$working_day_ids=array_column($WD->get_dept_working_days_between_date($dept_id,$start,$end), 'id');
 			$students=Student::get_all_by_dept_batch($dept_id,$batch);
@@ -28,7 +28,7 @@
 				$student_attendance=Attendance::get_attendance_for_student($working_day_ids,$student['id']);
 				$present=0;
 				$absent=0;
-				$halfday=0
+				$halfday=0;
 				foreach ($student_attendance as $attendance) {
 					$afternoon=0;
 					$fornoon=0;
