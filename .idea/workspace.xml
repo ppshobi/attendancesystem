@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="777d4467-8c6f-4590-a6d2-3da8e1fcc136" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Student.php" afterPath="$PROJECT_DIR$/app/Student.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view-report-student.php" afterPath="$PROJECT_DIR$/view-report-student.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view-teacher-wise-report.php" afterPath="$PROJECT_DIR$/view-teacher-wise-report.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nav.php" afterPath="$PROJECT_DIR$/nav.php" />
     </list>
     <ignored path="attendance.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -272,12 +271,12 @@
       <workItem from="1487576299922" duration="475000" />
       <workItem from="1487780374313" duration="346000" />
       <workItem from="1487961404310" duration="4521000" />
-      <workItem from="1488015846120" duration="4700000" />
+      <workItem from="1488015846120" duration="5289000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48975000" />
+    <option name="totallyTimeSpent" value="49564000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -289,7 +288,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1932" height="1038" extended-state="0" />
+    <frame x="-8" y="0" width="1932" height="1038" extended-state="1" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26533908" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
