@@ -13,12 +13,9 @@ $att_report;
 $students;
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 	$start_date=date("Y-m-d",strtotime($_POST['start_date']));
-	$end_date=date("Y-m-d",strtotime($_POST['end_date']));
 	$dept_id=$_POST['dept'];
 	$batch=$_POST['batch'];
-	if($start_date==$end_date){
-		$att_report=Report::generate_single_day($start_date,$dept_id,$batch);
-	}
+	$att_report=Report::generate_single_day($start_date,$dept_id,$batch);
 	$students=Student::get_all_by_dept_batch($dept_id,$batch);
 
 }
@@ -106,11 +103,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 
 				<h5 class="m-t-lg with-border" id="report-header">
 				Date : <?php 
-				if($start_date==$end_date){
+				
 					echo date("d-M-Y",strtotime($start_date));
-				}else{
-					echo date("d-M-Y",strtotime($start_date)). " To " . date("d-M-Y",strtotime($end_date));
-				}
+				
 				$dept=Department::getOne($dept_id);
 				echo ", Department: ".$dept['name'] . ", ";
 				echo "Batch: ".$batch. " ";
