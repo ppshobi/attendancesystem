@@ -160,7 +160,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 									echo "</td>";
 									echo "<td>";
 										$total_present=$att_data['present_count']+(.5*$att_data['halfday_count']);
-											echo ($total_present/$working_day_count) * 100 . "%";
+										$percent=($total_present/$working_day_count) * 100;
+										if ($percent<75) {
+											echo "<span class=\"remark red\">".$percent."%</span>";
+										}else{
+											echo "<span class=\"remark green\">".$percent."%</span>";
+										}
 									echo "</td>";
 															
 		 						echo "</tr>";
