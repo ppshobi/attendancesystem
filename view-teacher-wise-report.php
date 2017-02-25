@@ -21,8 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 	$students=Student::get_all_by_dept_batch($dept_id,$batch);
 
 	$period_count=Timetable::get_total_period_count_of_teacher_between_dates($teacher_id,$dept_id,$batch,$start_date,$end_date);
-	$present_count=Attendance::get_students_attendance_between_dates_for_a_teacher($students,$dept_id,$batch,$start_date,$end_date,$teacher_id);
-	
+	$att_report=Attendance::generate_attendance_count(Attendance::get_students_attendance_between_dates_for_a_teacher($students,$dept_id,$batch,$start_date,$end_date,$teacher_id));
 }
 
 ?>
@@ -129,20 +128,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 							<th>Register No</th>
 							<th>Total Periods</th>
 							<th>Present Periods</th>
+							<th>Absent Periods</th>
 							<th>Percentage</th>
 						</tr>
 						</thead>
 						
 						<tbody>
 						<?php
-						$present_count=0;
-							$abscent_count=0;
-							$half_day_count=0;
+						
 						if($students){
 							$count=1;
 							
 							foreach ($students as $student) {
-								
+								$att_data=$att_report[$student['id']];
 								echo "<tr>";
 									echo "<td>" . $count ."</td>";
 									echo "<td>" . $student['name'] ."</td>";
@@ -151,10 +149,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 											echo $period_count;
 									echo "</td>";
 									echo "<td>";
-											echo "Present";
+											echo $att_data['present'];
 									echo "</td>";
 									echo "<td>";
-											echo "Percentage";
+											echo $att_data['absent'];
+									echo "</td>";
+									echo "<td>";
+											echo ($att_data['present']/$period_count) * 100 . "%";
 									echo "</td>";
 															
 		 						echo "</tr>";
@@ -171,14 +172,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['gen-report'])) {
 							<th>Register No</th>
 							<th>Total Periods</th>
 							<th>Present Periods</th>
+							<th>Absent Periods</th>
 							<th>Percentage</th>
 						</tr>
-						<tr>
-							<td class="count" colspan="2">Total Today</td>
-							<td class="count" colspan="2">Present Count :<?php echo $present_count; ?></td>
-							<td class="count" colspan="3">Half Day Count :<?php echo $half_day_count; ?></td>
-							<td class="count" colspan="2">Abscent Count : <?php echo $abscent_count; ?></td>
-						</tr>
+						
 						</tfoot>
 					</table>
 					<div class="col-sm-10">
