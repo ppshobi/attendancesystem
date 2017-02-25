@@ -222,7 +222,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reg_no'])) {
 		 						$count++;
 	 						}
 						}else{
-							echo "Register No. Given is not valid";
+							echo "<span class=\"red\">Invalid Register No. </span>"	;
 						}
 						?>
 						
