@@ -198,7 +198,19 @@
                 
             </ul>
 
-       </li>       
+       </li> 
+       <li class="grey with-sub">
+            <span>
+                <i class="font-icon font-icon-dashboard"></i>
+                <span class="lbl">Report</span>
+            </span>
+            <ul>
+                 <li><a href="teacher-wise-report.php">Get Teacher Wise Report</a></li>
+                
+            </ul>
+
+       </li> 
+
     </ul>
 </nav><!--.side-menu-->
 <?php } ?>
