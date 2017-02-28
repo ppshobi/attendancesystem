@@ -41,6 +41,7 @@
 					
 				}
 			}
+
 		}
 		function getDeptWorkingDays($dept_id){
 			//return all working days
