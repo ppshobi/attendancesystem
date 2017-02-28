@@ -119,6 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['set-semester'])) {
 
 						if (isset($dates)) {
 							WorkingDay::reset_semester_working_days($dates);
+							Attendance::clear_attendance_table();
 						}
 					?>
 				</div>
