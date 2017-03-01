@@ -7,6 +7,7 @@ if(!Auth::isloggedin()){
 }
 require_once('app/Department.php');
 require_once('app/Teacher.php');
+require_once('app/HOD.php');
 
 $depts=Department::getAll();
 if(Auth::ishod()){

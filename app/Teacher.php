@@ -51,7 +51,7 @@
 
 		public static function getAllByDept($dept_id){
 			$db=new Db();
-			$sql="SELECT * FROM teachers WHERE level = 0 AND dept = '$dept_id'";
+			$sql="SELECT * FROM teachers WHERE dept = '$dept_id'";
 			$rows=[];
 			$result=$db->query($sql);
 			if($result){

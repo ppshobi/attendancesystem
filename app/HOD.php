@@ -53,7 +53,7 @@
 			$sql="SELECT * FROM teachers WHERE id= $id AND level = 1 LIMIT 1";
 			$rows=[];
 			$result=$db->query($sql);
-			if($result){
+			if($result && mysqli_num_rows($result)>0){
 				while ($r=mysqli_fetch_assoc($result)) {
 					array_push($rows, $r);
 				}
