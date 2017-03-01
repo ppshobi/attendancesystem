@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2017 at 08:16 AM
+-- Generation Time: Mar 01, 2017 at 09:36 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -113,7 +113,31 @@ INSERT INTO `attendance` (`id`, `date_id`, `student_id`, `p1`, `p2`, `p3`, `p4`,
 (405, 50, 23, 1, 1, 1, 1, 1),
 (406, 50, 3, 1, 1, 1, 1, 1),
 (407, 50, 24, 1, 1, 1, 1, 1),
-(408, 50, 25, 1, 1, 1, 1, 1);
+(408, 50, 25, 1, 1, 1, 1, 1),
+(409, 60, 5, 1, 1, 1, 1, 1),
+(410, 60, 6, 1, 1, 1, 1, 1),
+(411, 60, 7, 1, 1, 1, 1, 1),
+(412, 60, 8, 1, 1, 1, 0, 0),
+(413, 60, 9, 1, 1, 1, 1, 1),
+(414, 60, 10, 1, 1, 1, 1, 1),
+(415, 60, 11, 1, 1, 1, 1, 1),
+(416, 60, 12, 1, 1, 1, 1, 1),
+(417, 60, 13, 1, 1, 1, 0, 0),
+(418, 60, 14, 1, 1, 1, 0, 0),
+(419, 60, 2, 1, 1, 1, 1, 1),
+(420, 60, 15, 1, 1, 1, 1, 1),
+(421, 60, 16, 1, 1, 1, 1, 1),
+(422, 60, 17, 1, 1, 1, 1, 1),
+(423, 60, 18, 1, 1, 1, 1, 1),
+(424, 60, 19, 1, 1, 1, 1, 1),
+(425, 60, 20, 1, 1, 1, 1, 1),
+(426, 60, 21, 1, 1, 1, 1, 1),
+(427, 60, 1, 1, 1, 1, 1, 1),
+(428, 60, 22, 1, 1, 1, 1, 1),
+(429, 60, 23, 1, 1, 1, 0, 0),
+(430, 60, 3, 1, 1, 1, 1, 1),
+(431, 60, 24, 1, 1, 1, 1, 1),
+(432, 60, 25, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -139,7 +163,10 @@ INSERT INTO `dept` (`id`, `name`, `descr`) VALUES
 (8, 'B.Sc.Mathematics', 'Mathematics'),
 (9, 'B.Sc chemistry', 'Bachelor of chemistry'),
 (10, 'B.Sc zoology', 'zlgy'),
-(11, 'Msc. Computer Science', 'Master of Science');
+(11, 'Msc. Computer Science', 'Master of Science'),
+(12, 'MALAYALAM', ''),
+(13, 'HINDI', ''),
+(14, 'STATISTICS', '');
 
 -- --------------------------------------------------------
 
@@ -175,7 +202,7 @@ INSERT INTO `student` (`id`, `name`, `regno`, `dept`, `batch`) VALUES
 (14, 'PRANAV T R', 'MM14CCSR11', 1, 3),
 (15, 'AMALU JOSEPH', 'MM14CCSR14', 1, 3),
 (16, 'ANJU K C', 'MM14CCSR15', 1, 3),
-(17, 'ARSHITHA C K', 'MM14CCSR16', 1, 3),
+(17, 'ARSHITHA C A', 'MM14CCSR16', 1, 3),
 (18, 'ASHMIDHA U N', 'MM14CCSR17', 1, 3),
 (19, 'MANJUSHA R K', 'MM14CCSR19', 1, 3),
 (20, 'NIKHILA VIJAY', 'MM14CCSR20', 1, 3),
@@ -183,7 +210,39 @@ INSERT INTO `student` (`id`, `name`, `regno`, `dept`, `batch`) VALUES
 (22, 'ASWIN BHIMNATH', 'MM14CCSR23', 1, 3),
 (23, 'EBIN K BABY', 'MM14CCSR24', 1, 3),
 (24, 'MUHAMMAD ANSHAD', 'MM14CCSR26', 1, 3),
-(25, 'NIDHEESH SCARIA', 'MM14CCSR27', 1, 3);
+(25, 'NIDHEESH SCARIA', 'MM14CCSR27', 1, 3),
+(26, 'ASNA CA', 'MM16CCSR01', 1, 1),
+(27, 'DONA MATHEW', 'MM16CCSR02', 1, 1),
+(28, 'R MAYA DEVI', 'MM16CCSR03', 1, 1),
+(29, 'SREEJA SURENDHRAN ', 'MM16CCSR04', 1, 1),
+(30, 'ANAND CHRISTY K CHACKO', 'MM16CCSR05', 1, 1),
+(31, 'GHANASHYAM SANIL', 'MM16CCSR06', 1, 1),
+(32, 'GOKUL DEV', 'MM16CCSR07', 1, 1),
+(33, 'MANU JOSEPH JOHN', 'MM16CCSR08', 1, 1),
+(34, 'ABIJA P R', 'MM16CCSR09', 1, 1),
+(35, 'AFSEENA M U', 'MM16CCSR10', 1, 1),
+(36, 'AKHILA VARGHESE', 'MM16CCSR11', 1, 1),
+(37, 'ALEENA PRAKASH', 'MM16CCSR12', 1, 1),
+(38, 'ANILA V T', 'MM16CCSR13', 1, 1),
+(39, 'ANJALI SEBASTIAN', 'MM16CCSR14', 1, 1),
+(40, 'ANN MARIA JOY', 'MM16CCSR15', 1, 1),
+(41, 'ATHIRA P MANOJ', 'MM16CCSR16', 1, 1),
+(42, 'DINU SEBASTIAN', 'MM16CCSR17', 1, 1),
+(43, 'JOSNA JOSEPH', 'MM16CCSR18', 1, 1),
+(44, 'LINET M SHAJI', 'MM16CCSR19', 1, 1),
+(45, 'SHARON FATHIMA K V', 'MM16CCSR20', 1, 1),
+(46, 'SWATHI KRISHNA', 'MM16CCSR21', 1, 1),
+(47, 'ADHARSH K M', 'MM16CCSR22', 1, 1),
+(48, 'AJITH VARGHESE', 'MM16CCSR23', 1, 1),
+(49, 'ALWIN SEBASTIAN', 'MM16CCSR24', 1, 1),
+(50, 'AMAL JOY', 'MM16CCSR25', 1, 1),
+(51, 'ANJAY KRISHNA', 'MM16CCSR26', 1, 1),
+(52, 'BASIL PAPPACHAN', 'MM16CCSR27', 1, 1),
+(53, 'CYRIL CHACKO', 'MM16CCSR28', 1, 1),
+(54, 'GODWIN JOSHY', 'MM16CCSR29', 1, 1),
+(55, 'LIBIN JOSEPH', 'MM16CCSR30', 1, 1),
+(56, 'MUHAMMAD HARSHAD', 'MM16CCSR31', 1, 1),
+(57, 'MUHAMMAD NISHAD', 'MM16CCSR32', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -240,7 +299,12 @@ INSERT INTO `teachers` (`id`, `name`, `dept`, `level`) VALUES
 (53, 'Dr MERCY IDNATIUS', 10, 0),
 (54, 'MARY NIRMALA BORGIA', 10, 0),
 (55, 'ARUSHA K', 10, 0),
-(56, 'ASHLY KURIAN', 10, 0);
+(56, 'ASHLY KURIAN', 10, 0),
+(57, 'Dr JOSEPH K J', 12, 0),
+(58, 'AMBILI M P', 12, 0),
+(59, 'Dr RAKESH KALIYA', 13, 0),
+(60, 'GEETHA ANTONY PULLEN', 14, 0),
+(61, 'PAMY SEBASTIAN', 8, 0);
 
 -- --------------------------------------------------------
 
@@ -263,56 +327,181 @@ CREATE TABLE `timetable` (
 
 INSERT INTO `timetable` (`id`, `teacher_id`, `day`, `period`, `dept`, `batch`) VALUES
 (3, 8, 'Mon', 1, 1, 3),
-(273, 1, 'Mon', 1, 1, 3),
-(274, 1, 'Mon', 2, 1, 3),
-(275, 1, 'Mon', 3, 1, 3),
-(276, 1, 'Mon', 4, 1, 3),
-(277, 1, 'Mon', 5, 1, 3),
-(278, 1, 'Tue', 1, 0, 0),
-(279, 1, 'Tue', 2, 0, 0),
-(280, 1, 'Tue', 3, 0, 0),
-(281, 1, 'Tue', 4, 0, 0),
-(282, 1, 'Tue', 5, 0, 0),
-(283, 1, 'Wed', 1, 0, 0),
-(284, 1, 'Wed', 2, 0, 0),
-(285, 1, 'Wed', 3, 0, 0),
-(286, 1, 'Wed', 4, 0, 0),
-(287, 1, 'Wed', 5, 0, 0),
-(288, 1, 'Thu', 1, 0, 0),
-(289, 1, 'Thu', 2, 0, 0),
-(290, 1, 'Thu', 3, 0, 0),
-(291, 1, 'Thu', 4, 0, 0),
-(292, 1, 'Thu', 5, 0, 0),
-(293, 1, 'Fri', 1, 0, 0),
-(294, 1, 'Fri', 2, 0, 0),
-(295, 1, 'Fri', 3, 0, 0),
-(296, 1, 'Fri', 4, 0, 0),
-(297, 1, 'Fri', 5, 0, 0),
-(298, 7, 'Mon', 1, 0, 0),
-(299, 7, 'Mon', 2, 0, 0),
-(300, 7, 'Mon', 3, 0, 0),
-(301, 7, 'Mon', 4, 0, 0),
-(302, 7, 'Mon', 5, 0, 0),
-(303, 7, 'Tue', 1, 0, 0),
-(304, 7, 'Tue', 2, 0, 0),
-(305, 7, 'Tue', 3, 0, 0),
-(306, 7, 'Tue', 4, 0, 0),
-(307, 7, 'Tue', 5, 0, 0),
-(308, 7, 'Wed', 1, 1, 3),
-(309, 7, 'Wed', 2, 0, 0),
-(310, 7, 'Wed', 3, 1, 3),
-(311, 7, 'Wed', 4, 0, 0),
-(312, 7, 'Wed', 5, 0, 0),
-(313, 7, 'Thu', 1, 0, 0),
-(314, 7, 'Thu', 2, 0, 0),
-(315, 7, 'Thu', 3, 0, 0),
-(316, 7, 'Thu', 4, 0, 0),
-(317, 7, 'Thu', 5, 0, 0),
-(318, 7, 'Fri', 1, 0, 0),
-(319, 7, 'Fri', 2, 0, 0),
-(320, 7, 'Fri', 3, 0, 0),
-(321, 7, 'Fri', 4, 0, 0),
-(322, 7, 'Fri', 5, 0, 0);
+(348, 1, 'Mon', 1, 0, 0),
+(349, 1, 'Mon', 2, 0, 0),
+(350, 1, 'Mon', 3, 0, 0),
+(351, 1, 'Mon', 4, 0, 0),
+(352, 1, 'Mon', 5, 0, 0),
+(353, 1, 'Tue', 1, 0, 0),
+(354, 1, 'Tue', 2, 0, 0),
+(355, 1, 'Tue', 3, 0, 0),
+(356, 1, 'Tue', 4, 0, 0),
+(357, 1, 'Tue', 5, 0, 0),
+(358, 1, 'Wed', 1, 0, 0),
+(359, 1, 'Wed', 2, 0, 0),
+(360, 1, 'Wed', 3, 0, 0),
+(361, 1, 'Wed', 4, 1, 3),
+(362, 1, 'Wed', 5, 1, 3),
+(363, 1, 'Thu', 1, 0, 0),
+(364, 1, 'Thu', 2, 0, 0),
+(365, 1, 'Thu', 3, 0, 0),
+(366, 1, 'Thu', 4, 0, 0),
+(367, 1, 'Thu', 5, 0, 0),
+(368, 1, 'Fri', 1, 0, 0),
+(369, 1, 'Fri', 2, 0, 0),
+(370, 1, 'Fri', 3, 0, 0),
+(371, 1, 'Fri', 4, 0, 0),
+(372, 1, 'Fri', 5, 0, 0),
+(373, 7, 'Mon', 1, 0, 0),
+(374, 7, 'Mon', 2, 0, 0),
+(375, 7, 'Mon', 3, 0, 0),
+(376, 7, 'Mon', 4, 0, 0),
+(377, 7, 'Mon', 5, 0, 0),
+(378, 7, 'Tue', 1, 0, 0),
+(379, 7, 'Tue', 2, 0, 0),
+(380, 7, 'Tue', 3, 0, 0),
+(381, 7, 'Tue', 4, 0, 0),
+(382, 7, 'Tue', 5, 0, 0),
+(383, 7, 'Wed', 1, 0, 0),
+(384, 7, 'Wed', 2, 0, 0),
+(385, 7, 'Wed', 3, 1, 1),
+(386, 7, 'Wed', 4, 0, 0),
+(387, 7, 'Wed', 5, 0, 0),
+(388, 7, 'Thu', 1, 0, 0),
+(389, 7, 'Thu', 2, 0, 0),
+(390, 7, 'Thu', 3, 0, 0),
+(391, 7, 'Thu', 4, 1, 1),
+(392, 7, 'Thu', 5, 1, 1),
+(393, 7, 'Fri', 1, 0, 0),
+(394, 7, 'Fri', 2, 0, 0),
+(395, 7, 'Fri', 3, 0, 0),
+(396, 7, 'Fri', 4, 0, 0),
+(397, 7, 'Fri', 5, 0, 0),
+(398, 61, 'Mon', 1, 1, 1),
+(399, 61, 'Mon', 2, 0, 0),
+(400, 61, 'Mon', 3, 0, 0),
+(401, 61, 'Mon', 4, 0, 0),
+(402, 61, 'Mon', 5, 0, 0),
+(403, 61, 'Tue', 1, 0, 0),
+(404, 61, 'Tue', 2, 0, 0),
+(405, 61, 'Tue', 3, 0, 0),
+(406, 61, 'Tue', 4, 0, 0),
+(407, 61, 'Tue', 5, 1, 1),
+(408, 61, 'Wed', 1, 0, 0),
+(409, 61, 'Wed', 2, 0, 0),
+(410, 61, 'Wed', 3, 0, 0),
+(411, 61, 'Wed', 4, 0, 0),
+(412, 61, 'Wed', 5, 0, 0),
+(413, 61, 'Thu', 1, 0, 0),
+(414, 61, 'Thu', 2, 1, 1),
+(415, 61, 'Thu', 3, 0, 0),
+(416, 61, 'Thu', 4, 0, 0),
+(417, 61, 'Thu', 5, 0, 0),
+(418, 61, 'Fri', 1, 0, 0),
+(419, 61, 'Fri', 2, 0, 0),
+(420, 61, 'Fri', 3, 1, 1),
+(421, 61, 'Fri', 4, 0, 0),
+(422, 61, 'Fri', 5, 0, 0),
+(423, 46, 'Mon', 1, 0, 0),
+(424, 46, 'Mon', 2, 1, 1),
+(425, 46, 'Mon', 3, 0, 0),
+(426, 46, 'Mon', 4, 0, 0),
+(427, 46, 'Mon', 5, 0, 0),
+(428, 46, 'Tue', 1, 0, 0),
+(429, 46, 'Tue', 2, 0, 0),
+(430, 46, 'Tue', 3, 0, 0),
+(431, 46, 'Tue', 4, 0, 0),
+(432, 46, 'Tue', 5, 0, 0),
+(433, 46, 'Wed', 1, 0, 0),
+(434, 46, 'Wed', 2, 0, 0),
+(435, 46, 'Wed', 3, 0, 0),
+(436, 46, 'Wed', 4, 0, 0),
+(437, 46, 'Wed', 5, 0, 0),
+(438, 46, 'Thu', 1, 0, 0),
+(439, 46, 'Thu', 2, 0, 0),
+(440, 46, 'Thu', 3, 1, 1),
+(441, 46, 'Thu', 4, 0, 0),
+(442, 46, 'Thu', 5, 0, 0),
+(443, 46, 'Fri', 1, 0, 0),
+(444, 46, 'Fri', 2, 1, 1),
+(445, 46, 'Fri', 3, 0, 0),
+(446, 46, 'Fri', 4, 0, 0),
+(447, 46, 'Fri', 5, 0, 0),
+(448, 45, 'Mon', 1, 0, 0),
+(449, 45, 'Mon', 2, 0, 0),
+(450, 45, 'Mon', 3, 0, 0),
+(451, 45, 'Mon', 4, 0, 0),
+(452, 45, 'Mon', 5, 1, 1),
+(453, 45, 'Tue', 1, 1, 1),
+(454, 45, 'Tue', 2, 0, 0),
+(455, 45, 'Tue', 3, 0, 0),
+(456, 45, 'Tue', 4, 0, 0),
+(457, 45, 'Tue', 5, 0, 0),
+(458, 45, 'Wed', 1, 0, 0),
+(459, 45, 'Wed', 2, 0, 0),
+(460, 45, 'Wed', 3, 0, 0),
+(461, 45, 'Wed', 4, 0, 0),
+(462, 45, 'Wed', 5, 0, 0),
+(463, 45, 'Thu', 1, 0, 0),
+(464, 45, 'Thu', 2, 0, 0),
+(465, 45, 'Thu', 3, 0, 0),
+(466, 45, 'Thu', 4, 0, 0),
+(467, 45, 'Thu', 5, 0, 0),
+(468, 45, 'Fri', 1, 0, 0),
+(469, 45, 'Fri', 2, 0, 0),
+(470, 45, 'Fri', 3, 0, 0),
+(471, 45, 'Fri', 4, 1, 1),
+(472, 45, 'Fri', 5, 0, 0),
+(473, 44, 'Mon', 1, 0, 0),
+(474, 44, 'Mon', 2, 0, 0),
+(475, 44, 'Mon', 3, 0, 0),
+(476, 44, 'Mon', 4, 0, 0),
+(477, 44, 'Mon', 5, 0, 0),
+(478, 44, 'Tue', 1, 0, 0),
+(479, 44, 'Tue', 2, 0, 0),
+(480, 44, 'Tue', 3, 0, 0),
+(481, 44, 'Tue', 4, 1, 1),
+(482, 44, 'Tue', 5, 0, 0),
+(483, 44, 'Wed', 1, 0, 0),
+(484, 44, 'Wed', 2, 0, 0),
+(485, 44, 'Wed', 3, 0, 0),
+(486, 44, 'Wed', 4, 1, 1),
+(487, 44, 'Wed', 5, 0, 0),
+(488, 44, 'Thu', 1, 0, 0),
+(489, 44, 'Thu', 2, 0, 0),
+(490, 44, 'Thu', 3, 0, 0),
+(491, 44, 'Thu', 4, 0, 0),
+(492, 44, 'Thu', 5, 0, 0),
+(493, 44, 'Fri', 1, 0, 0),
+(494, 44, 'Fri', 2, 0, 0),
+(495, 44, 'Fri', 3, 0, 0),
+(496, 44, 'Fri', 4, 0, 0),
+(497, 44, 'Fri', 5, 0, 0),
+(498, 43, 'Mon', 1, 0, 0),
+(499, 43, 'Mon', 2, 0, 0),
+(500, 43, 'Mon', 3, 0, 0),
+(501, 43, 'Mon', 4, 0, 0),
+(502, 43, 'Mon', 5, 0, 0),
+(503, 43, 'Tue', 1, 0, 0),
+(504, 43, 'Tue', 2, 0, 0),
+(505, 43, 'Tue', 3, 0, 0),
+(506, 43, 'Tue', 4, 0, 0),
+(507, 43, 'Tue', 5, 0, 0),
+(508, 43, 'Wed', 1, 0, 0),
+(509, 43, 'Wed', 2, 1, 1),
+(510, 43, 'Wed', 3, 0, 0),
+(511, 43, 'Wed', 4, 0, 0),
+(512, 43, 'Wed', 5, 0, 0),
+(513, 43, 'Thu', 1, 0, 0),
+(514, 43, 'Thu', 2, 0, 0),
+(515, 43, 'Thu', 3, 0, 0),
+(516, 43, 'Thu', 4, 0, 0),
+(517, 43, 'Thu', 5, 0, 0),
+(518, 43, 'Fri', 1, 0, 0),
+(519, 43, 'Fri', 2, 0, 0),
+(520, 43, 'Fri', 3, 0, 0),
+(521, 43, 'Fri', 4, 0, 0),
+(522, 43, 'Fri', 5, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -337,7 +526,11 @@ INSERT INTO `users` (`id`, `teacher_id`, `email`, `password`) VALUES
 (8, 7, 'sabu@sabu.com', 'sabu'),
 (9, 8, 'tmonoth@yahoo.com', 'ttt'),
 (10, 9, 'regi@regi.com', 'regi'),
-(11, 16, 'pamy@gmail.com', 'ggg');
+(14, 59, 'hindi@hindi.com', 'hindi'),
+(15, 57, 'kj@kj.com', 'kj'),
+(16, 60, 'stati@stati.com', 'stati'),
+(17, 15, 'biju@biju.com', 'biju'),
+(18, 61, 'pamy@pamy.com', 'ppp');
 
 -- --------------------------------------------------------
 
@@ -848,32 +1041,32 @@ ALTER TABLE `workingdays`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=409;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=433;
 --
 -- AUTO_INCREMENT for table `dept`
 --
 ALTER TABLE `dept`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 --
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 --
 -- AUTO_INCREMENT for table `timetable`
 --
 ALTER TABLE `timetable`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=323;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=523;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `workingdays`
 --
