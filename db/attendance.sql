@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2017 at 09:36 AM
+-- Generation Time: Mar 01, 2017 at 10:23 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -269,7 +269,6 @@ INSERT INTO `teachers` (`id`, `name`, `dept`, `level`) VALUES
 (10, 'Dr. Savio James', 1, 2),
 (14, 'Bessy', 5, 1),
 (15, 'Biju Joseph', 7, 1),
-(16, 'Pamy Sebastian', 8, 1),
 (26, 'Dr Ramya Krishnan M', 6, 0),
 (27, 'JUNY THOMAS', 1, 0),
 (28, 'LISHA A', 1, 0),
@@ -303,8 +302,7 @@ INSERT INTO `teachers` (`id`, `name`, `dept`, `level`) VALUES
 (57, 'Dr JOSEPH K J', 12, 0),
 (58, 'AMBILI M P', 12, 0),
 (59, 'Dr RAKESH KALIYA', 13, 0),
-(60, 'GEETHA ANTONY PULLEN', 14, 0),
-(61, 'PAMY SEBASTIAN', 8, 0);
+(62, 'GEETHA ANTONY PULLEN', 14, 1);
 
 -- --------------------------------------------------------
 
@@ -528,9 +526,8 @@ INSERT INTO `users` (`id`, `teacher_id`, `email`, `password`) VALUES
 (10, 9, 'regi@regi.com', 'regi'),
 (14, 59, 'hindi@hindi.com', 'hindi'),
 (15, 57, 'kj@kj.com', 'kj'),
-(16, 60, 'stati@stati.com', 'stati'),
 (17, 15, 'biju@biju.com', 'biju'),
-(18, 61, 'pamy@pamy.com', 'ppp');
+(19, 62, 'geetha@gmail.com', 'ggg');
 
 -- --------------------------------------------------------
 
@@ -1056,7 +1053,7 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 --
 -- AUTO_INCREMENT for table `timetable`
 --
@@ -1066,7 +1063,7 @@ ALTER TABLE `timetable`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `workingdays`
 --
