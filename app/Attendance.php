@@ -22,7 +22,6 @@
 			$students=Student::get_all_by_dept_batch($dept,$batch);
 			$working_day_id=WorkingDay::get_working_day_id($date,$dept);
 			$absentees_stud_id=[];
-			$result=$db -> query($sql);
 			foreach ($absentees as $ab) {
 				$id=explode('-',$ab['name']);
 				array_push($absentees_stud_id, $id[1]);
