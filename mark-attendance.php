@@ -13,7 +13,7 @@ require_once('app/WorkingDay.php');
 require_once('app/Student.php');
 require_once('app/Attendance.php');
 
-if(Auth::isteacher()){
+if(Auth::isteacher() || Auth::ishod()){
 	$today;
 	if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['att_date'])) {
 		$date = str_replace('/', '-', $_GET['att_date']);
