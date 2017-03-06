@@ -13,7 +13,7 @@ require_once('app/Report.php');
 require_once('app/Teacher.php');
 $message;
 $departments=Department::getAll();
-$teachers=Teacher::getAll();
+$teachers=Teacher::get_teachers_and_hods();
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['11'])) {
 	
 	$result=Student::add($_POST['name'], $_POST['regno'], $_POST['dept'],$_POST['batch']);
