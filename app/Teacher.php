@@ -49,6 +49,20 @@
 			
 		}
 
+		public static function get_teachers_and_hods(){
+			$db=new Db();
+			$sql="SELECT * FROM teachers WHERE level != 2";
+			$rows=[];
+			$result=$db->query($sql);
+			if($result){
+				while ($r=mysqli_fetch_assoc($result)) {
+					array_push($rows, $r);
+				}
+				return $rows;
+			}
+			return false;
+		}
+
 		public static function getAllByDept($dept_id){
 			$db=new Db();
 			$sql="SELECT * FROM teachers WHERE dept = '$dept_id'";
