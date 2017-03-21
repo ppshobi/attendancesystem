@@ -7,10 +7,9 @@ if(!Auth::isloggedin()){
 }
 
 require_once('app/WorkingDay.php');
-$dates;
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reset-year'])) {
 	$WD =new WorkingDay();
-	//$dates=$WD->date_range($_POST['start'], $_POST['end']);
+	$WD->migrate_year();
 }
 ?>
 <!DOCTYPE html>
@@ -77,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reset-year'])) {
 					<div class="form-group row">
 						<label for="button" class="col-sm-2 form-control-label"></label>
 						<div class="col-sm-10">
-							<button type="submit" name="set-year" class="btn btn-inline btn-success-outline ">Reset Year</button>
+							<button type="submit" name="reset-year" class="btn btn-inline btn-success-outline ">Reset Year</button>
 						</div>
 					</div>
 					

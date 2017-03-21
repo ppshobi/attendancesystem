@@ -119,8 +119,8 @@ class Db
 
 	function truncate_tables($tables){
 		foreach ($tables as $table) {
-			$sql="TRUNCATE TABLE workingdays";
-			$result=$db -> query($sql);
+			$sql="TRUNCATE TABLE ".$table;
+			$result=$this->query($sql);
 			if (!$result) {
 				return false;
 			}
