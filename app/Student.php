@@ -126,5 +126,23 @@
 			return false;
 		}
 
+		public static function migrate_students(){
+			$db=new Db();
+			$sql="DELETE FROM student WHERE batch = 3";
+			$result=$db->query($sql);
+			if($result){				
+				$sql="UPDATE student SET batch = 3 WHERE batch = 2";
+				$result=$db->query($sql);
+				if($result){
+					$sql="UPDATE student SET batch = 2 WHERE batch = 1";
+					$result=$db->query($sql);
+					if ($result) {
+						return true;
+					}
+				}
+
+			}
+			return false;
+
 	}
 ?>
