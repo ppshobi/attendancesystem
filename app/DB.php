@@ -117,6 +117,17 @@ class Db
 	    return $backup_file_name;
 	}
 
+	function truncate_tables($tables){
+		foreach ($tables as $table) {
+			$sql="TRUNCATE TABLE workingdays";
+			$result=$db -> query($sql);
+			if (!$result) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	  
 }
 
