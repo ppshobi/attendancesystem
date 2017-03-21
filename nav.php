@@ -97,7 +97,7 @@
                 <span class="lbl">Reset</span>
             </span>
             <ul>
-                <li><a href="#">Year Change</a></li>
+                <li><a href="year-change.php">Year Change</a></li>
                 <li><a href="semester-change.php">Semester change</a></li>
                 <li><a href="backup.php">Backup</a></li>
                 
