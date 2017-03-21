@@ -4,6 +4,7 @@
 	*/
 	require_once('DB.php');
 	require_once('Department.php');
+	require_once('Student.php');
 	class WorkingDay
 	{
 		function date_range($first, $last, $step = '+1 day', $output_format = 'Y-m-d' ) {
@@ -40,6 +41,16 @@
 					}
 					
 				}
+			}
+
+		}
+		function migrate_year(){
+			$db = new Db();
+			//truncate 3 tables then change migrate students
+			$truncate_tables=['attendance','timetable', 'workingdays'];
+			$result=$db->truncate_tables($truncate_tables);
+			if ($result) {
+				Student::migrate_students();
 			}
 
 		}
