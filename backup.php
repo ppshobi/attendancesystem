@@ -7,9 +7,24 @@ if(!Auth::isloggedin()){
 }
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['backup'])){
 	$db=new Db();
-	$backup_file  = "attendance.sql";
-	$db->backup($backup_file);
-   
+	$options = array(
+	    'db_host'=> 'localhost',  //mysql host
+	    'db_uname' => 'root',  //user
+	    'db_password' => '', //pass
+	    'db_to_backup' => 'attendance', //database name
+	    'db_backup_path' => '/db', //where to backup
+	    'db_exclude_tables' => array() //tables to exclude
+	);
+	$backup_file_name=$db->backup_mysql_database($options);
+
+	header('Content-Type: application/download');
+	header("Content-Disposition: attachment; filename=".$backup_file_name);
+	header("Content-Length: " . filesize($backup_file_name));
+
+	$fp = fopen($backup_file_name, "r");
+	fpassthru($fp);
+	fclose($fp);
+	unlink($backup_file_name);
 
 }
 
