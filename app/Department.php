@@ -72,5 +72,17 @@
 			return false;
 		}
 
+		public static function get_count(){
+			$db=new Db();
+			$sql="SELECT * FROM dept";
+			$rows=[];
+			$result=$db->query($sql);
+			if($result){
+				return mysqli_num_rows($result);
+			}
+			return 0;
+		}
+
+
 	}
 ?>
