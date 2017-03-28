@@ -145,5 +145,16 @@
 			return false;
 		}
 
+		public static function get_count(){
+			$db=new Db();
+			$sql="SELECT * FROM student ORDER BY dept ASC";
+			$rows=[];
+			$result=$db->query($sql);
+			if($result){
+				return mysqli_num_rows($result);
+			}
+			return 0;
+		}
+
 	}
 ?>
