@@ -64,5 +64,7 @@
 			$report=Attendance::get_attendance_for_student($working_day_ids,$student_id);
 			return $report;
 		}
+
+
 	}
 ?>

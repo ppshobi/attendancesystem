@@ -54,6 +54,7 @@
 			}
 
 		}
+
 		function getDeptWorkingDays($dept_id){
 			//return all working days
 			$db=new Db();
@@ -121,6 +122,7 @@
 
 		}
 
+
 		public static function mark_non_workingday($date_id, $reason){
 			$db=new Db();
 			$date_id=$db->quote($date_id);
@@ -132,5 +134,7 @@
 			}
 			return false;
 		}
+
+
 	}
 ?>
