@@ -1,5 +1,9 @@
 <?php
 require_once('app/Auth.php');
+require_once('app/Student.php');
+require_once('app/Teacher.php');
+require_once('app/Department.php');
+require_once('app/User.php');
 
 if(!Auth::isloggedin()){
 	Auth::redirect('login.php');
@@ -59,48 +63,33 @@ if(!Auth::isloggedin()){
 	                    <div class="col-sm-6">
 	                        <article class="statistic-box red">
 	                            <div>
-	                                <div class="number">26</div>
-	                                <div class="caption"><div>Open tickets</div></div>
-	                                <div class="percent">
-	                                    <div class="arrow up"></div>
-	                                    <p>15%</p>
-	                                </div>
+	                                <div class="number"><?php echo Student::get_count(); ?></div>
+	                                <div class="caption"><div>Students</div></div>
 	                            </div>
 	                        </article>
 	                    </div><!--.col-->
 	                    <div class="col-sm-6">
 	                        <article class="statistic-box purple">
 	                            <div>
-	                                <div class="number">12</div>
-	                                <div class="caption"><div>Closes tickets</div></div>
-	                                <div class="percent">
-	                                    <div class="arrow down"></div>
-	                                    <p>11%</p>
-	                                </div>
-	                            </div>
+	                                <div class="number"><?php echo Teacher::get_count(); ?></div>
+	                                <div class="caption"><div>Teachers</div></div>
+ 								</div>
 	                        </article>
 	                    </div><!--.col-->
 	                    <div class="col-sm-6">
 	                        <article class="statistic-box yellow">
 	                            <div>
-	                                <div class="number">104</div>
-	                                <div class="caption"><div>New clients</div></div>
-	                                <div class="percent">
-	                                    <div class="arrow down"></div>
-	                                    <p>5%</p>
-	                                </div>
+	                                <div class="number"><?php echo Department::get_count(); ?></div>
+	                                <div class="caption"><div>Departments</div></div>
 	                            </div>
 	                        </article>
 	                    </div><!--.col-->
 	                    <div class="col-sm-6">
 	                        <article class="statistic-box green">
 	                            <div>
-	                                <div class="number">29</div>
-	                                <div class="caption"><div>Here is an example of a long name</div></div>
-	                                <div class="percent">
-	                                    <div class="arrow up"></div>
-	                                    <p>84%</p>
-	                                </div>
+	                                <div class="number"><?php echo User::getCount(); ?></div>
+	                                <div class="caption"><div>Access Granted Users</div></div>
+	                               
 	                            </div>
 	                        </article>
 	                    </div><!--.col-->
