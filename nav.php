@@ -100,6 +100,7 @@
                 <li><a href="year-change.php">Year Change</a></li>
                 <li><a href="semester-change.php">Semester change</a></li>
                 <li><a href="backup.php">Backup</a></li>
+                <li><a href="restore.php">Restore</a></li>
                 
             </ul>
         </li>

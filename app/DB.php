@@ -116,6 +116,55 @@ class Db
 	    fclose($fp);
 	    return $backup_file_name;
 	}
+	function restore_mysql_database($args) {
+	  // check mysqli extension installed
+		$mysqli = self::$connection;
+		if( $mysqli->connect_error ) {
+	    		print_r( $mysqli->connect_error );
+	    		return false;
+	  	}
+	    $querycount = 11;
+	    $queryerrors = '';
+	    $lines = (array) $args;
+	    if( is_string( $args ) ) {
+	      $lines =  array( $args ) ;
+	    }
+	    if ( ! $lines ) {
+	      return '' . 'cannot execute ' . $args;
+	    }
+	    $scriptfile = false;
+	    foreach ($lines as $line) {
+	      $line = trim( $line );
+	      // if have -- comments add enters
+	      if (substr( $line, 0, 2 ) == '--') {
+	          $line = "\n" . $line;
+	      }
+	      if (substr( $line, 0, 2 ) != '--') {
+	        $scriptfile .= ' ' . $line;
+	        continue;
+	      }
+	    }
+	    $queries = explode( ';', $scriptfile );
+	    foreach ($queries as $query) {
+	      $query = trim( $query );
+	      ++$querycount;
+	      if ( $query == '' ) {
+	        continue;
+	      }
+	      if ( ! $mysqli->query( $query ) ) {
+	        $queryerrors .= '' . 'Line ' . $querycount . ' - ' . $mysqli->error . '<br>';
+	        continue;
+	      }
+	    }
+	    if ( $queryerrors ) {
+	      return '' . 'There was an error on File: ' . '<br>' . $queryerrors;
+	    }
+	    
+	    if( $mysqli && ! $mysqli->error ) {
+	      @$mysqli->close();
+	    }   
+	    return true;
+	}
 
 	function truncate_tables($tables){
 		foreach ($tables as $table) {
