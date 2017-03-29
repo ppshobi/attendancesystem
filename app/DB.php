@@ -36,7 +36,7 @@ class Db
 	function backup_mysql_database($options){
 	    $mtables = array(); $contents = "-- Database: `".$options['db_to_backup']."` --\n";
 	    
-	    $mysqli = new mysqli($options['db_host'], $options['db_uname'], $options['db_password'], $options['db_to_backup']);
+	    $mysqli = self::$connection;
 	    if ($mysqli->connect_error) {
 	        die('Error : ('. $mysqli->connect_errno .') '. $mysqli->connect_error);
 	    }
